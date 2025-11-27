@@ -9,10 +9,10 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Building2 className="h-6 w-6 text-primary" />
-              <span className="font-bold text-lg">Construtora Imóveis</span>
+              <span className="font-bold text-lg">Souza Construtora</span>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
-              Construindo sonhos e realizando o seu imóvel ideal há mais de 20 anos.
+              Construindo sonhos e realizando o seu imóvel ideal há mais de 20 anos. Qualidade e confiança Souza.
             </p>
             <div className="flex gap-3">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -91,7 +91,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Construtora Imóveis. Todos os direitos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Souza Construtora. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

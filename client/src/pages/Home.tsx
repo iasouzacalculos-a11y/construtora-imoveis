@@ -34,7 +34,7 @@ export default function Home() {
                 Encontre o <span className="text-primary">Imóvel Perfeito</span> para Você
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Imóveis de alto padrão com qualidade e localização privilegiada. Realize o sonho da casa própria com a Construtora Imóveis.
+                Imóveis de alto padrão com qualidade e localização privilegiada. Realize o sonho da casa própria com a Souza Construtora.
               </p>
               
               <div className="flex gap-3 mb-8">
