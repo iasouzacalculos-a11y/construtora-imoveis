@@ -1,4 +1,4 @@
-import { Building2, Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Footer() {
@@ -7,9 +7,8 @@ export default function Footer() {
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Building2 className="h-6 w-6 text-primary" />
-              <span className="font-bold text-lg">Souza Construtora</span>
+            <div className="mb-4">
+              <img src="/logo-souza.jpg" alt="Souza Construtora" className="h-16 w-auto mb-3" />
             </div>
             <p className="text-sm text-muted-foreground mb-4">
               Construindo sonhos e realizando o seu imóvel ideal há mais de 20 anos. Qualidade e confiança Souza.

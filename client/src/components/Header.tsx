@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Building2, Menu, Phone } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Header() {
@@ -7,9 +7,8 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/">
-          <a className="flex items-center gap-2 font-bold text-xl text-primary hover:opacity-80 transition-opacity">
-            <Building2 className="h-6 w-6" />
-            <span>Souza Construtora</span>
+          <a className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <img src="/logo-souza.jpg" alt="Souza Construtora" className="h-14 w-auto" />
           </a>
         </Link>
 
