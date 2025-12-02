@@ -75,7 +75,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>Av. Paulista, 1000 - São Paulo, SP</span>
+                <span>Av. Mal. Rondon, 2019 - Centro, Rondonópolis - MT, 78700-531</span>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4 flex-shrink-0" />
