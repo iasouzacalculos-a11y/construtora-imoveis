@@ -15,6 +15,7 @@ export interface Property {
     parking: number;
   };
   image: string;
+  gallery?: string[];
   description: string;
   status: "available" | "sold" | "reserved";
 }

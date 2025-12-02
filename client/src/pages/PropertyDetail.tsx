@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import PhotoGallery from "@/components/PhotoGallery";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -59,15 +60,21 @@ export default function PropertyDetail() {
       
       <main className="flex-1 py-8">
         <div className="container">
-          {/* Hero Image */}
-          <div className="relative aspect-[21/9] rounded-lg overflow-hidden mb-8">
-            <img
-              src={property.image}
-              alt={property.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute top-4 left-4 flex gap-2">
-              <Badge className="bg-background/90 backdrop-blur text-foreground">
+          {/* Photo Gallery */}
+          <div className="mb-8">
+            {property.gallery && property.gallery.length > 0 ? (
+              <PhotoGallery images={property.gallery} title={property.title} />
+            ) : (
+              <div className="relative aspect-[21/9] rounded-lg overflow-hidden">
+                <img
+                  src={property.image}
+                  alt={property.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+            <div className="mt-4 flex gap-2">
+              <Badge className="bg-primary text-primary-foreground">
                 {getTypeLabel(property.type)}
               </Badge>
             </div>
