@@ -7,6 +7,8 @@ export interface Property {
     address: string;
     city: string;
     state: string;
+    latitude?: number;
+    longitude?: number;
   };
   features: {
     bedrooms: number;

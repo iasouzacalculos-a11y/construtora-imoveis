@@ -162,9 +162,14 @@ export default function PropertyDetail() {
                     variant="outline" 
                     className="w-full"
                     onClick={() => {
-                      const mapsUrl = `https://www.google.com/maps/search/${encodeURIComponent(
-                        `${property.location.address}, ${property.location.city}, ${property.location.state}`
-                      )}`;
+                      let mapsUrl;
+                      if (property.location.latitude && property.location.longitude) {
+                        mapsUrl = `https://www.google.com/maps?q=${property.location.latitude},${property.location.longitude}`;
+                      } else {
+                        mapsUrl = `https://www.google.com/maps/search/${encodeURIComponent(
+                          `${property.location.address}, ${property.location.city}, ${property.location.state}`
+                        )}`;
+                      }
                       window.open(mapsUrl, '_blank');
                     }}
                   >

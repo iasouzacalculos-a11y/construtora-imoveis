@@ -10,6 +10,8 @@ export const properties: Property[] = [
       address: "Rua das Palmeiras, 450",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 4,
@@ -31,6 +33,8 @@ export const properties: Property[] = [
       address: "Av. das Nações, 1200",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 3,
@@ -52,6 +56,8 @@ export const properties: Property[] = [
       address: "Av. Berrini, 3500",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 5,
@@ -73,6 +79,8 @@ export const properties: Property[] = [
       address: "Rua dos Jardins, 890",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 3,
@@ -94,6 +102,8 @@ export const properties: Property[] = [
       address: "Rua Augusta, 2100",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 2,
@@ -115,6 +125,8 @@ export const properties: Property[] = [
       address: "Alameda dos Anjos, 320",
       city: "Barueri",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 4,
@@ -136,6 +148,8 @@ export const properties: Property[] = [
       address: "Rua da Consolação, 1500",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 1,
@@ -157,6 +171,8 @@ export const properties: Property[] = [
       address: "Av. Ibirapuera, 2800",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 3,
@@ -178,6 +194,8 @@ export const properties: Property[] = [
       address: "Av. Brigadeiro Faria Lima, 1500",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 2,
@@ -199,6 +217,8 @@ export const properties: Property[] = [
       address: "Rua Aspicuelta, 600",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 3,
@@ -220,6 +240,8 @@ export const properties: Property[] = [
       address: "Av. Higienópolis, 2000",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 4,
@@ -241,6 +263,8 @@ export const properties: Property[] = [
       address: "Rua Vergueiro, 1800",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 1,
@@ -262,6 +286,8 @@ export const properties: Property[] = [
       address: "Rua das Flores, 450",
       city: "Barueri",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 4,
@@ -283,6 +309,8 @@ export const properties: Property[] = [
       address: "Rua Correia de Melo, 800",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 3,
@@ -304,6 +332,8 @@ export const properties: Property[] = [
       address: "Av. Pedroso de Morais, 1200",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 3,
@@ -325,6 +355,8 @@ export const properties: Property[] = [
       address: "Rua Bandeira, 500",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 2,
@@ -346,6 +378,8 @@ export const properties: Property[] = [
       address: "Rua Caiubi, 1000",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 4,
@@ -367,6 +401,8 @@ export const properties: Property[] = [
       address: "Rua Oscar Freire, 1500",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 5,
@@ -388,6 +424,8 @@ export const properties: Property[] = [
       address: "Av. Consolação, 2500",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 2,
@@ -409,6 +447,8 @@ export const properties: Property[] = [
       address: "Rua Tuiuti, 800",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 3,
@@ -430,6 +470,8 @@ export const properties: Property[] = [
       address: "Rua Marquês de Itu, 1200",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 1,
@@ -451,6 +493,8 @@ export const properties: Property[] = [
       address: "Rua das Acácias, 300",
       city: "Santana de Parnaíba",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 4,
@@ -472,6 +516,8 @@ export const properties: Property[] = [
       address: "Av. Brigadeiro Faria Lima, 3000",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 5,
@@ -493,6 +539,8 @@ export const properties: Property[] = [
       address: "Rua Dona Margarida, 1000",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 2,
@@ -514,6 +562,8 @@ export const properties: Property[] = [
       address: "Rua Bandeira de Melo, 1500",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 4,
@@ -535,6 +585,8 @@ export const properties: Property[] = [
       address: "Rua Afonso Braz, 600",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 3,
@@ -556,6 +608,8 @@ export const properties: Property[] = [
       address: "Rua Tamandaré, 1000",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 2,
@@ -577,6 +631,8 @@ export const properties: Property[] = [
       address: "Rua Galvão Bueno, 1500",
       city: "São Paulo",
       state: "SP",
+      latitude: -23.5505,
+      longitude: -46.6333,
     },
     features: {
       bedrooms: 3,
