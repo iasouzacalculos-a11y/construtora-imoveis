@@ -143,6 +143,36 @@ export default function PropertyDetail() {
                 </CardContent>
               </Card>
 
+              {/* Location */}
+              <Card>
+                <CardContent className="p-6">
+                  <h2 className="text-xl font-semibold mb-4">Localização</h2>
+                  <div className="flex items-start gap-3 mb-4">
+                    <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-medium text-foreground">
+                        {property.location.address}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {property.location.city}, {property.location.state}
+                      </p>
+                    </div>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => {
+                      const mapsUrl = `https://www.google.com/maps/search/${encodeURIComponent(
+                        `${property.location.address}, ${property.location.city}, ${property.location.state}`
+                      )}`;
+                      window.open(mapsUrl, '_blank');
+                    }}
+                  >
+                    Ver no Mapa
+                  </Button>
+                </CardContent>
+              </Card>
+
               {/* Additional Info */}
               <Card>
                 <CardContent className="p-6">
