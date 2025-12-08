@@ -1,6 +1,7 @@
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import PhotoGallery from "@/components/PhotoGallery";
+import { MapView } from "@/components/Map";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -158,6 +159,32 @@ export default function PropertyDetail() {
                       </p>
                     </div>
                   </div>
+                  
+                  {/* Interactive Map */}
+                  {property.location.latitude && property.location.longitude && (
+                    <div className="mb-4 rounded-lg overflow-hidden border border-border">
+                      <MapView
+                        initialCenter={{
+                          lat: property.location.latitude,
+                          lng: property.location.longitude,
+                        }}
+                        initialZoom={16}
+                        className="h-[400px]"
+                        onMapReady={(map) => {
+                          // Add marker to the property location
+                          new google.maps.marker.AdvancedMarkerElement({
+                            map,
+                            position: {
+                              lat: property.location.latitude!,
+                              lng: property.location.longitude!,
+                            },
+                            title: property.title,
+                          });
+                        }}
+                      />
+                    </div>
+                  )}
+                  
                   <Button 
                     variant="outline" 
                     className="w-full"
