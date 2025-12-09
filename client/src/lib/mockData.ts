@@ -10,8 +10,8 @@ export const properties: Property[] = [
       address: "Rua das Palmeiras, 450",
       city: "São Paulo",
       state: "SP",
-      latitude: -23.5505,
-      longitude: -46.6333,
+      latitude: -16.46042,
+      longitude: -54.59678,
     },
     features: {
       bedrooms: 4,
