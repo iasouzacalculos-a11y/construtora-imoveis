@@ -9,12 +9,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { properties } from "@/lib/mockData";
-import { Bath, Bed, Car, Mail, MapPin, Maximize, Phone, User } from "lucide-react";
-import { useRoute } from "wouter";
+import { Bath, Bed, Car, Mail, MapPin, Maximize, Phone, User, Image } from "lucide-react";
+import { useRoute, useLocation } from "wouter";
 import { toast } from "sonner";
 
 export default function PropertyDetail() {
   const [, params] = useRoute("/imovel/:id");
+  const [, setLocation] = useLocation();
   const property = properties.find((p) => p.id === params?.id);
 
   if (!property) {
@@ -201,6 +202,20 @@ export default function PropertyDetail() {
                     }}
                   >
                     Ver no Mapa
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Image Management */}
+              <Card>
+                <CardContent className="p-6">
+                  <h2 className="text-xl font-semibold mb-4">Gerenciar Imagens</h2>
+                  <Button 
+                    className="w-full"
+                    onClick={() => setLocation(`/imovel/${property.id}/gerenciar-imagens`)}
+                  >
+                    <Image className="h-4 w-4 mr-2" />
+                    Adicionar/Editar Imagens
                   </Button>
                 </CardContent>
               </Card>
