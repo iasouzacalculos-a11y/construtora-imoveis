@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO propertyImages (id, propertyId, imageUrl, `order`) VALUES ('img-1', '1', 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663230153293/mIRFLWYVFqHWtvid.png', 0), ('img-2', '1', 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663230153293/HSHeFGAuWEJXcrsA.png', 1);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute INSERT INTO propertyImages (id, propertyId, imageUrl, `order`) VALUES ('img-1', '1', 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663230153293/mIRFLWYVFqHWtvid.png', 0), ('img-2', '1', 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663230153293/HSHeFGAuWEJXcrsA.png', 1);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 56
+}

@@ -8,15 +8,33 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { properties } from "@/lib/mockData";
-import { Bath, Bed, Car, Mail, MapPin, Maximize, Phone, User, Image } from "lucide-react";
+import { Bath, Bed, Car, Mail, MapPin, Maximize, Phone, User, Image, Loader2 } from "lucide-react";
 import { useRoute, useLocation } from "wouter";
 import { toast } from "sonner";
+import { trpc } from "@/lib/trpc";
+import { useState } from "react";
 
 export default function PropertyDetail() {
   const [, params] = useRoute("/imovel/:id");
   const [, setLocation] = useLocation();
-  const property = properties.find((p) => p.id === params?.id);
+  const propertyId = params?.id || "";
+  
+  // Buscar dados do banco de dados via tRPC
+  const { data: property, isLoading } = trpc.properties.getById.useQuery(propertyId, {
+    enabled: !!propertyId,
+  });
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1 flex items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!property) {
     return (
@@ -64,12 +82,12 @@ export default function PropertyDetail() {
         <div className="container">
           {/* Photo Gallery */}
           <div className="mb-8">
-            {property.gallery && property.gallery.length > 0 ? (
-              <PhotoGallery images={property.gallery} title={property.title} />
+            {property.images && property.images.length > 0 ? (
+              <PhotoGallery images={property.images.map((img: any) => img.imageUrl)} title={property.title} />
             ) : (
               <div className="relative aspect-[21/9] rounded-lg overflow-hidden">
                 <img
-                  src={property.image}
+                  src={property.mainImageUrl || "https://via.placeholder.com/1200x400"}
                   alt={property.title}
                   className="w-full h-full object-cover"
                 />
@@ -90,7 +108,7 @@ export default function PropertyDetail() {
                 <div className="flex items-center gap-2 text-muted-foreground mb-4">
                   <MapPin className="h-5 w-5" />
                   <span className="text-lg">
-                    {property.location.address}, {property.location.city} - {property.location.state}
+                    {property.address}, {property.city} - {property.state}
                   </span>
                 </div>
                 <div className="text-4xl font-bold text-primary mb-6">
@@ -102,36 +120,36 @@ export default function PropertyDetail() {
               <Card>
                 <CardContent className="p-6">
                   <h2 className="text-xl font-semibold mb-4">Características</h2>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div className="flex flex-col items-center text-center">
-                      <div className="bg-primary/10 p-3 rounded-full mb-2">
-                        <Bed className="h-6 w-6 text-primary" />
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                      <div className="flex flex-col items-center text-center">
+                        <div className="bg-primary/10 p-3 rounded-full mb-2">
+                          <Bed className="h-6 w-6 text-primary" />
+                        </div>
+                        <div className="text-2xl font-bold">{property.bedrooms}</div>
+                        <div className="text-sm text-muted-foreground">Quartos</div>
                       </div>
-                      <div className="text-2xl font-bold">{property.features.bedrooms}</div>
-                      <div className="text-sm text-muted-foreground">Quartos</div>
-                    </div>
-                    <div className="flex flex-col items-center text-center">
-                      <div className="bg-primary/10 p-3 rounded-full mb-2">
-                        <Bath className="h-6 w-6 text-primary" />
+                      <div className="flex flex-col items-center text-center">
+                        <div className="bg-primary/10 p-3 rounded-full mb-2">
+                          <Bath className="h-6 w-6 text-primary" />
+                        </div>
+                        <div className="text-2xl font-bold">{property.bathrooms}</div>
+                        <div className="text-sm text-muted-foreground">Banheiros</div>
                       </div>
-                      <div className="text-2xl font-bold">{property.features.bathrooms}</div>
-                      <div className="text-sm text-muted-foreground">Banheiros</div>
-                    </div>
-                    <div className="flex flex-col items-center text-center">
-                      <div className="bg-primary/10 p-3 rounded-full mb-2">
-                        <Maximize className="h-6 w-6 text-primary" />
+                      <div className="flex flex-col items-center text-center">
+                        <div className="bg-primary/10 p-3 rounded-full mb-2">
+                          <Maximize className="h-6 w-6 text-primary" />
+                        </div>
+                        <div className="text-2xl font-bold">{property.area}</div>
+                        <div className="text-sm text-muted-foreground">m²</div>
                       </div>
-                      <div className="text-2xl font-bold">{property.features.area}</div>
-                      <div className="text-sm text-muted-foreground">m²</div>
-                    </div>
-                    <div className="flex flex-col items-center text-center">
-                      <div className="bg-primary/10 p-3 rounded-full mb-2">
-                        <Car className="h-6 w-6 text-primary" />
+                      <div className="flex flex-col items-center text-center">
+                        <div className="bg-primary/10 p-3 rounded-full mb-2">
+                          <Car className="h-6 w-6 text-primary" />
+                        </div>
+                        <div className="text-2xl font-bold">{property.parking}</div>
+                        <div className="text-sm text-muted-foreground">Vagas</div>
                       </div>
-                      <div className="text-2xl font-bold">{property.features.parking}</div>
-                      <div className="text-sm text-muted-foreground">Vagas</div>
                     </div>
-                  </div>
                 </CardContent>
               </Card>
 
@@ -140,7 +158,7 @@ export default function PropertyDetail() {
                 <CardContent className="p-6">
                   <h2 className="text-xl font-semibold mb-4">Descrição</h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    {property.description}
+                    {property.description || "Descrição não disponível"}
                   </p>
                 </CardContent>
               </Card>
@@ -153,21 +171,21 @@ export default function PropertyDetail() {
                     <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="font-medium text-foreground">
-                        {property.location.address}
+                        {property.address}
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        {property.location.city}, {property.location.state}
+                        {property.city}, {property.state}
                       </p>
                     </div>
                   </div>
                   
                   {/* Interactive Map */}
-                  {property.location.latitude && property.location.longitude && (
+                  {property.latitude && property.longitude && (
                     <div className="mb-4 rounded-lg overflow-hidden border border-border">
                       <MapView
                         initialCenter={{
-                          lat: property.location.latitude,
-                          lng: property.location.longitude,
+                          lat: Number(property.latitude),
+                          lng: Number(property.longitude),
                         }}
                         initialZoom={16}
                         className="h-[400px]"
@@ -176,8 +194,8 @@ export default function PropertyDetail() {
                           new google.maps.marker.AdvancedMarkerElement({
                             map,
                             position: {
-                              lat: property.location.latitude!,
-                              lng: property.location.longitude!,
+                              lat: Number(property.latitude),
+                              lng: Number(property.longitude),
                             },
                             title: property.title,
                           });
@@ -191,11 +209,11 @@ export default function PropertyDetail() {
                     className="w-full"
                     onClick={() => {
                       let mapsUrl;
-                      if (property.location.latitude && property.location.longitude) {
-                        mapsUrl = `https://www.google.com/maps?q=${property.location.latitude},${property.location.longitude}`;
+                      if (property.latitude && property.longitude) {
+                        mapsUrl = `https://www.google.com/maps?q=${property.latitude},${property.longitude}`;
                       } else {
                         mapsUrl = `https://www.google.com/maps/search/${encodeURIComponent(
-                          `${property.location.address}, ${property.location.city}, ${property.location.state}`
+                          `${property.address}, ${property.city}, ${property.state}`
                         )}`;
                       }
                       window.open(mapsUrl, '_blank');
@@ -239,11 +257,11 @@ export default function PropertyDetail() {
                     </div>
                     <div>
                       <div className="text-sm text-muted-foreground mb-1">Área Total</div>
-                      <div className="font-medium">{property.features.area} m²</div>
+                      <div className="font-medium">{property.area} m²</div>
                     </div>
                     <div>
                       <div className="text-sm text-muted-foreground mb-1">Código</div>
-                      <div className="font-medium">#{property.id.padStart(6, "0")}</div>
+                      <div className="font-medium">#{String(property.id).padStart(6, "0")}</div>
                     </div>
                   </div>
                 </CardContent>
