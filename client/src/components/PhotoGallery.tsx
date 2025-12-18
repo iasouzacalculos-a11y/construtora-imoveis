@@ -91,8 +91,9 @@ export default function PhotoGallery({ images, title }: PhotoGalleryProps) {
         <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4">
           <button
             onClick={() => setIsFullscreen(false)}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            className="absolute top-4 right-4 text-white hover:text-gray-300 hover:bg-white/10 transition-colors p-2 rounded-lg z-[60]"
             aria-label="Fechar galeria"
+            type="button"
           >
             <X className="h-8 w-8" />
           </button>
@@ -109,15 +110,17 @@ export default function PhotoGallery({ images, title }: PhotoGalleryProps) {
               <>
                 <button
                   onClick={goToPrevious}
-                  className="absolute left-4 text-white hover:text-gray-300 transition-colors"
+                  className="absolute left-4 text-white hover:text-gray-300 hover:bg-white/10 transition-colors p-2 rounded-lg z-[60]"
                   aria-label="Imagem anterior"
+                  type="button"
                 >
                   <ChevronLeft className="h-8 w-8" />
                 </button>
                 <button
                   onClick={goToNext}
-                  className="absolute right-4 text-white hover:text-gray-300 transition-colors"
+                  className="absolute right-4 text-white hover:text-gray-300 hover:bg-white/10 transition-colors p-2 rounded-lg z-[60]"
                   aria-label="Próxima imagem"
+                  type="button"
                 >
                   <ChevronRight className="h-8 w-8" />
                 </button>
@@ -125,7 +128,7 @@ export default function PhotoGallery({ images, title }: PhotoGalleryProps) {
             )}
 
             {/* Fullscreen Counter */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/70 px-3 py-1 rounded-full z-[60]">
               {selectedIndex + 1} / {images.length}
             </div>
           </div>
