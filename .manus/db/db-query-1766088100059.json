@@ -1,0 +1,18 @@
+{
+  "query": "SELECT id, title, price, bedrooms, bathrooms, area FROM properties WHERE price = 650000 OR (bedrooms = 1 AND bathrooms = 1 AND area = 55) LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute SELECT id, title, price, bedrooms, bathrooms, area FROM properties WHERE price = 650000 OR (bedrooms = 1 AND bathrooms = 1 AND area = 55) LIMIT 5;",
+  "rows": [
+    {
+      "id": "gv-qd17-lt10",
+      "title": "Casa Granville 1 ",
+      "price": "650000",
+      "bedrooms": "1",
+      "bathrooms": "1",
+      "area": "55"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tprice\tbedrooms\tbathrooms\tarea\ngv-qd17-lt10\tCasa Granville 1 \t650000\t1\t1\t55\n",
+  "stderr": "",
+  "execution_time_ms": 54
+}

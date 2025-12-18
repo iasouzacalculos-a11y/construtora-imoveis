@@ -38,3 +38,9 @@
 2. Testar filtros de busca
 3. Implementar testes vitest
 4. Publicar o site
+
+## Mudanças Visuais Recentes
+
+- [x] Restaurar banco de dados após corrupção de dados
+- [x] Reinsert dos 28 imóveis originais
+- [x] Verificar integridade dos dados restaurados

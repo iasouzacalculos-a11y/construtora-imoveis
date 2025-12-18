@@ -1,0 +1,90 @@
+{
+  "query": "SELECT id, title, price, bedrooms, bathrooms, area FROM properties ORDER BY id DESC LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute SELECT id, title, price, bedrooms, bathrooms, area FROM properties ORDER BY id DESC LIMIT 10;",
+  "rows": [
+    {
+      "id": "va-qd47-lt10",
+      "title": "Casa Vila Adriana ",
+      "price": "3800000",
+      "bedrooms": "4",
+      "bathrooms": "4",
+      "area": "350"
+    },
+    {
+      "id": "va-qd37-lt03",
+      "title": "Casa Vila Adriana ",
+      "price": "2100000",
+      "bedrooms": "4",
+      "bathrooms": "3",
+      "area": "300"
+    },
+    {
+      "id": "va-qd30-lt04",
+      "title": "Casa Vila Adriana ",
+      "price": "1350000",
+      "bedrooms": "3",
+      "bathrooms": "2",
+      "area": "180"
+    },
+    {
+      "id": "sf-qd19-lt30",
+      "title": "Casa Sunflower ",
+      "price": "1450000",
+      "bedrooms": "2",
+      "bathrooms": "2",
+      "area": "110"
+    },
+    {
+      "id": "sf-qd16-lt10",
+      "title": "Casa Sunflower ",
+      "price": "2200000",
+      "bedrooms": "3",
+      "bathrooms": "3",
+      "area": "250"
+    },
+    {
+      "id": "sf-qd13-lt22",
+      "title": "Casa Sunflower ",
+      "price": "2050000",
+      "bedrooms": "3",
+      "bathrooms": "3",
+      "area": "160"
+    },
+    {
+      "id": "pu-qd126-lt03",
+      "title": "Casa Parque Universitário ",
+      "price": "720000",
+      "bedrooms": "1",
+      "bathrooms": "1",
+      "area": "65"
+    },
+    {
+      "id": "pu-qd118-lt06",
+      "title": "Casa Parque Universitário ",
+      "price": "1580000",
+      "bedrooms": "3",
+      "bathrooms": "3",
+      "area": "180"
+    },
+    {
+      "id": "gvqd17 ",
+      "title": "Casa Granville 1 ",
+      "price": "410000",
+      "bedrooms": "1",
+      "bathrooms": "1",
+      "area": "1"
+    },
+    {
+      "id": "gv02",
+      "title": "Casa Granville 1 ",
+      "price": "410000",
+      "bedrooms": "11",
+      "bathrooms": "1",
+      "area": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tprice\tbedrooms\tbathrooms\tarea\nva-qd47-lt10\tCasa Vila Adriana \t3800000\t4\t4\t350\nva-qd37-lt03\tCasa Vila Adriana \t2100000\t4\t3\t300\nva-qd30-lt04\tCasa Vila Adriana \t1350000\t3\t2\t180\nsf-qd19-lt30\tCasa Sunflower \t1450000\t2\t2\t110\nsf-qd16-lt10\tCasa Sunflower \t2200000\t3\t3\t250\nsf-qd13-lt22\tCasa Sunflower \t2050000\t3\t3\t160\npu-qd126-lt03\tCasa Parque Universitário \t720000\t1\t1\t65\npu-qd118-lt06\tCasa Parque Universitário \t1580000\t3\t3\t180\ngvqd17 \tCasa Granville 1 \t410000\t1\t1\t1\ngv02\tCasa Granville 1 \t410000\t11\t1\t1\n",
+  "stderr": "",
+  "execution_time_ms": 65
+}
