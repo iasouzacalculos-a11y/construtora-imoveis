@@ -2,7 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
-import { getAllProperties, getPropertyById, getPropertyImages, addPropertyImage } from "./db";
+import { getAllProperties, getPropertyById, getPropertyImages, addPropertyImage, updatePropertyId } from "./db";
 import { storagePut } from "./storage";
 import { z } from "zod";
 import { nanoid } from "nanoid";
@@ -48,6 +48,15 @@ export const appRouter = router({
         });
         
         return { url };
+      }),
+    updateId: protectedProcedure
+      .input(z.object({
+        oldId: z.string(),
+        newId: z.string(),
+      }))
+      .mutation(async ({ input }) => {
+        await updatePropertyId(input.oldId, input.newId);
+        return { success: true };
       }),
   }),
 });

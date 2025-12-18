@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Bath, Bed, Car, Mail, MapPin, Maximize, Phone, User, Image, Loader2 } from "lucide-react";
+import PropertyIdEditor from "@/components/PropertyIdEditor";
 import { useRoute, useLocation } from "wouter";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
@@ -114,6 +115,7 @@ export default function PropertyDetail() {
                 <div className="text-4xl font-bold text-primary mb-6">
                   {formatPrice(property.price)}
                 </div>
+                <PropertyIdEditor currentId={property.id} />
               </div>
 
               {/* Features */}
