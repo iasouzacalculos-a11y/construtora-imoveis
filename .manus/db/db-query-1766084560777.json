@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE properties SET latitude = -16.4603056, longitude = -54.5973333 WHERE id = 2;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute UPDATE properties SET latitude = -16.4603056, longitude = -54.5973333 WHERE id = 2;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 210
+}
