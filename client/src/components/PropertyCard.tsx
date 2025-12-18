@@ -98,9 +98,11 @@ export default function PropertyCard({ property }: PropertyCardProps) {
 
       <CardFooter className="p-4 pt-0">
         <Link href={`/imovel/${property.id}`} asChild>
-          <Button className="w-full" variant="outline">
-            Ver Detalhes
-          </Button>
+          <a className="w-full">
+            <Button className="w-full" variant="outline">
+              Ver Detalhes
+            </Button>
+          </a>
         </Link>
       </CardFooter>
     </Card>
