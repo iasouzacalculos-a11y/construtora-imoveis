@@ -30,28 +30,28 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Navegação</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/">
+                <Link href="/" asChild>
                   <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     Início
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/imoveis">
+                <Link href="/imoveis" asChild>
                   <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     Imóveis
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/sobre">
+                <Link href="/sobre" asChild>
                   <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     Sobre Nós
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/contato">
+                <Link href="/contato" asChild>
                   <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     Contato
                   </a>

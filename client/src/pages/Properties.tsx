@@ -5,14 +5,50 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { properties } from "@/lib/mockData";
 import { FilterOptions } from "@/lib/types";
 import { SlidersHorizontal } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
+import { trpc } from "@/lib/trpc";
 
 export default function Properties() {
   const [filters, setFilters] = useState<FilterOptions>({});
   const [showFilters, setShowFilters] = useState(true);
+  const [properties, setProperties] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const { data: fetchedProperties, isLoading, error } = trpc.properties.list.useQuery();
+
+  useEffect(() => {
+    if (fetchedProperties) {
+      // Transformar dados do banco para o formato esperado pelo PropertyCard
+      const transformedProperties = fetchedProperties.map((prop: any) => ({
+        id: prop.id,
+        title: prop.title,
+        type: prop.type,
+        price: prop.price,
+        location: {
+          address: prop.address,
+          city: prop.city,
+          state: prop.state,
+          latitude: prop.latitude,
+          longitude: prop.longitude,
+        },
+        features: {
+          bedrooms: prop.bedrooms,
+          bathrooms: prop.bathrooms,
+          area: prop.area,
+          parking: prop.parking,
+        },
+        image: prop.mainImageUrl || '/property-placeholder.jpg',
+        description: prop.description,
+        status: prop.status,
+      }));
+      setProperties(transformedProperties);
+      setLoading(false);
+    }
+  }, [fetchedProperties, isLoading, error]);
+
+
 
   const filteredProperties = useMemo(() => {
     return properties.filter((property) => {
@@ -23,7 +59,7 @@ export default function Properties() {
       if (filters.city && !property.location.city.toLowerCase().includes(filters.city.toLowerCase())) return false;
       return true;
     });
-  }, [filters]);
+  }, [filters, properties]);
 
   const updateFilter = (key: keyof FilterOptions, value: string | number) => {
     setFilters((prev) => ({ ...prev, [key]: value || undefined }));

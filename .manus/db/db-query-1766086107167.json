@@ -1,0 +1,40 @@
+{
+  "query": "SELECT id, title, type, price FROM properties LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute SELECT id, title, type, price FROM properties LIMIT 5;",
+  "rows": [
+    {
+      "id": "17",
+      "title": "Cobertura Duplex Perdizes",
+      "type": "penthouse",
+      "price": "3200000"
+    },
+    {
+      "id": "18",
+      "title": "Casa Jardim Paulista",
+      "type": "house",
+      "price": "3500000"
+    },
+    {
+      "id": "19",
+      "title": "Apartamento Consolação",
+      "type": "apartment",
+      "price": "1100000"
+    },
+    {
+      "id": "20",
+      "title": "Townhouse Tatuapé",
+      "type": "townhouse",
+      "price": "1200000"
+    },
+    {
+      "id": "21",
+      "title": "Apartamento Studio Bela Vista",
+      "type": "apartment",
+      "price": "550000"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\ttype\tprice\n17\tCobertura Duplex Perdizes\tpenthouse\t3200000\n18\tCasa Jardim Paulista\thouse\t3500000\n19\tApartamento Consolação\tapartment\t1100000\n20\tTownhouse Tatuapé\ttownhouse\t1200000\n21\tApartamento Studio Bela Vista\tapartment\t550000\n",
+  "stderr": "",
+  "execution_time_ms": 92
+}
