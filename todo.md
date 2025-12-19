@@ -132,3 +132,12 @@
 - [x] Manter apenas CTA final "Não encontrou o imóvel ideal?"
 - [x] Mudar botão para verde com ícone WhatsApp
 - [x] Preparar para integração futura com link do WhatsApp
+
+
+## Menu Mobile e WhatsApp Flutuante
+
+- [x] Criar menu hambúrguer responsivo para mobile
+- [x] Ocultar menu completo no mobile, mostrar apenas logo e hambúrguer
+- [x] Criar botão flutuante de WhatsApp fixo no canto inferior direito
+- [x] WhatsApp sempre visível, mesmo com menu fechado
+- [x] Testar responsividade em diferentes tamanhos
