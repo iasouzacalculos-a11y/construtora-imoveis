@@ -44,3 +44,12 @@
 - [x] Restaurar banco de dados após corrupção de dados
 - [x] Reinsert dos 28 imóveis originais
 - [x] Verificar integridade dos dados restaurados
+
+
+## Alterações de Configuração Solicitadas
+
+- [x] Remover barra de pesquisa (localização e tipo de imóvel) da página inicial
+- [x] Modificar filtros de preço com faixas pré-definidas (Até 350k, 350k-500k, 500k-800k, Acima de 800k)
+- [x] Remover filtros de tipo de imóvel e cidade da página de imóveis
+- [x] Adicionar mapa de localização no footer (Av. Mal. Rondon, 2019 - Centro, Rondonópolis - MT)
+- [x] Testar todas as alterações

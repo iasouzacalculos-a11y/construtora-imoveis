@@ -39,18 +39,9 @@ export default function Home() {
               </p>
               
               <div className="flex gap-3 mb-8">
-                <div className="flex-1 relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                  <Input
-                    placeholder="Buscar por localização, tipo de imóvel..."
-                    className="pl-10 h-12"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                </div>
                 <Link href="/imoveis">
                   <Button size="lg" className="h-12 px-8">
-                    Buscar
+                    Explorar Imóveis
                   </Button>
                 </Link>
               </div>

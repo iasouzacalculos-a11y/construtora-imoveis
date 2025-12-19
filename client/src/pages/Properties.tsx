@@ -2,7 +2,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PropertyCard from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FilterOptions } from "@/lib/types";
@@ -98,35 +97,6 @@ export default function Properties() {
 
                 <div className="space-y-4">
                   <div>
-                    <Label htmlFor="type">Tipo de Imóvel</Label>
-                    <Select
-                      value={filters.type || ""}
-                      onValueChange={(value) => updateFilter("type", value)}
-                    >
-                      <SelectTrigger id="type">
-                        <SelectValue placeholder="Todos os tipos" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">Todos os tipos</SelectItem>
-                        <SelectItem value="apartment">Apartamento</SelectItem>
-                        <SelectItem value="house">Casa</SelectItem>
-                        <SelectItem value="penthouse">Cobertura</SelectItem>
-                        <SelectItem value="townhouse">Sobrado</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="city">Cidade</Label>
-                    <Input
-                      id="city"
-                      placeholder="Ex: São Paulo"
-                      value={filters.city || ""}
-                      onChange={(e) => updateFilter("city", e.target.value)}
-                    />
-                  </div>
-
-                  <div>
                     <Label htmlFor="bedrooms">Quartos (mínimo)</Label>
                     <Select
                       value={filters.bedrooms?.toString() || ""}
@@ -147,25 +117,49 @@ export default function Properties() {
                   </div>
 
                   <div>
-                    <Label htmlFor="minPrice">Preço Mínimo</Label>
-                    <Input
-                      id="minPrice"
-                      type="number"
-                      placeholder="R$ 0"
-                      value={filters.minPrice || ""}
-                      onChange={(e) => updateFilter("minPrice", e.target.value ? parseInt(e.target.value) : "")}
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="maxPrice">Preço Máximo</Label>
-                    <Input
-                      id="maxPrice"
-                      type="number"
-                      placeholder="R$ 10.000.000"
-                      value={filters.maxPrice || ""}
-                      onChange={(e) => updateFilter("maxPrice", e.target.value ? parseInt(e.target.value) : "")}
-                    />
+                    <Label>Faixa de Preço</Label>
+                    <div className="space-y-2">
+                      <Button
+                        variant={filters.minPrice === 0 && filters.maxPrice === 350000 ? "default" : "outline"}
+                        className="w-full justify-start"
+                        onClick={() => {
+                          updateFilter("minPrice", 0);
+                          updateFilter("maxPrice", 350000);
+                        }}
+                      >
+                        Até R$ 350.000
+                      </Button>
+                      <Button
+                        variant={filters.minPrice === 350000 && filters.maxPrice === 500000 ? "default" : "outline"}
+                        className="w-full justify-start"
+                        onClick={() => {
+                          updateFilter("minPrice", 350000);
+                          updateFilter("maxPrice", 500000);
+                        }}
+                      >
+                        R$ 350.000 - R$ 500.000
+                      </Button>
+                      <Button
+                        variant={filters.minPrice === 500000 && filters.maxPrice === 800000 ? "default" : "outline"}
+                        className="w-full justify-start"
+                        onClick={() => {
+                          updateFilter("minPrice", 500000);
+                          updateFilter("maxPrice", 800000);
+                        }}
+                      >
+                        R$ 500.000 - R$ 800.000
+                      </Button>
+                      <Button
+                        variant={filters.minPrice === 800000 && !filters.maxPrice ? "default" : "outline"}
+                        className="w-full justify-start"
+                        onClick={() => {
+                          updateFilter("minPrice", 800000);
+                          updateFilter("maxPrice", "");
+                        }}
+                      >
+                        Acima de R$ 800.000
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>

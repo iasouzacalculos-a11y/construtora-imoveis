@@ -1,7 +1,24 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "wouter";
+import { useRef } from "react";
+import { MapView } from "./Map";
 
 export default function Footer() {
+  const mapRef = useRef<google.maps.Map | null>(null);
+
+  const handleMapReady = (map: google.maps.Map) => {
+    mapRef.current = map;
+    
+    // Adicionar marcador na localização da imobiliária
+    if (window.google) {
+      new window.google.maps.marker.AdvancedMarkerElement({
+        map,
+        position: { lat: -16.4897, lng: -54.6109 },
+        title: "Souza Construtora - Av. Mal. Rondon, 2019",
+      });
+    }
+  };
+
   return (
     <footer className="bg-muted/50 border-t">
       <div className="container py-12">
@@ -70,22 +87,34 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-semibold mb-4">Contato</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>Av. Mal. Rondon, 2019 - Centro, Rondonópolis - MT, 78700-531</span>
-              </li>
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Phone className="h-4 w-4 flex-shrink-0" />
-                <span>(11) 9999-9999</span>
-              </li>
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Mail className="h-4 w-4 flex-shrink-0" />
-                <span>contato@construtora.com.br</span>
-              </li>
-            </ul>
+          <div className="flex flex-col gap-4">
+            <div>
+              <h3 className="font-semibold mb-4">Contato</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                  <span>Av. Mal. Rondon, 2019 - Centro, Rondonópolis - MT, 78700-531</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Phone className="h-4 w-4 flex-shrink-0" />
+                  <span>(11) 9999-9999</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Mail className="h-4 w-4 flex-shrink-0" />
+                  <span>contato@construtora.com.br</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Mapa */}
+            <div className="mt-4 rounded-lg overflow-hidden border border-border">
+              <MapView
+                initialCenter={{ lat: -16.4897, lng: -54.6109 }}
+                initialZoom={15}
+                onMapReady={handleMapReady}
+                className="h-48"
+              />
+            </div>
           </div>
         </div>
 
