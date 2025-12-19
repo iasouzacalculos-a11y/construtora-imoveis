@@ -82,3 +82,10 @@
 - [x] Remover mapa do footer
 - [x] Redesenhar footer com 4 colunas: Logo, Navegação, Contato, Frase de chamada
 - [x] Testar novo design
+
+
+## Adição de Logo ao Footer
+
+- [x] Copiar logo completa para pasta public
+- [x] Atualizar Footer.tsx para exibir logo
+- [x] Testar exibição da logo no footer

@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Logo e Descrição */}
           <div className="space-y-4">
             <div className="mb-4">
-              <img src="/logo-souza.jpg" alt="Souza Construtora" className="h-12 w-auto brightness-0 invert" />
+              <img src="/logo-souza-completa.png" alt="Souza Construtora" className="h-20 w-auto" />
             </div>
             <p className="text-sm text-background/80 leading-relaxed">
               Construindo sonhos e realizando o seu imóvel ideal há mais de 20 anos. Qualidade e confiança Souza.
