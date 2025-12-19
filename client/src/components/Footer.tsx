@@ -13,7 +13,7 @@ export default function Footer() {
     if (window.google) {
       new window.google.maps.marker.AdvancedMarkerElement({
         map,
-        position: { lat: -16.4897, lng: -54.6109 },
+        position: { lat: -16.4652161, lng: -54.6225263 },
         title: "Souza Construtora - Av. Mal. Rondon, 2019",
       });
     }
@@ -102,10 +102,10 @@ export default function Footer() {
           {/* Mapa - Lado Direito */}
           <div className="rounded-lg overflow-hidden border border-border">
             <MapView
-              initialCenter={{ lat: -16.4897, lng: -54.6109 }}
-              initialZoom={15}
+              initialCenter={{ lat: -16.4652161, lng: -54.6225263 }}
+              initialZoom={17}
               onMapReady={handleMapReady}
-              className="h-48"
+              className="w-40 h-40"
             />
           </div>
         </div>

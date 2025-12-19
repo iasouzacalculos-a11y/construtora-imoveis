@@ -62,3 +62,11 @@
 - [x] Trazer colunas de Navegação e Contato mais perto
 - [x] Remover faixa de preço "Acima de R$ 800.000" dos filtros
 - [x] Testar todas as alterações
+
+
+## Correção de Localização do Mapa
+
+- [x] Extrair coordenadas corretas do link Google Maps fornecido (-16.4652161, -54.6225263)
+- [x] Atualizar coordenadas no componente Footer
+- [x] Redimensionar mapa para formato quadrado menor (w-40 h-40)
+- [x] Testar localização correta no mapa
