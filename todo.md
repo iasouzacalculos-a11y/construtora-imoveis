@@ -103,3 +103,17 @@
 - [x] Aumentar espaçamento entre colunas do footer
 - [x] Otimizar layout mobile-first com responsive design
 - [x] Testar em mobile e desktop
+
+
+## Otimizações de Conversão Detalhadas
+
+- [x] Hero: Título "Encontre seu novo lar em Rondonópolis com segurança e confiança"
+- [x] Hero: Botão "Ver imóveis disponíveis" maior
+- [x] Header: "Agendar Visita" único botão azul, telefone cinza
+- [x] Header: Adicionar ícone WhatsApp ao botão
+- [x] Benefícios: Ícones uniformes, texto menor, mais espaçamento
+- [x] Faixa azul: Números maiores, texto menor, altura reduzida
+- [x] Cards: Preço em destaque (bold + maior)
+- [x] Cards: Botão com hover e sombra
+- [x] CTA final: "Não encontrou o imóvel ideal?" antes do footer
+- [x] Mobile: Layout otimizado (título 3 linhas, botão visível, cards coluna única)

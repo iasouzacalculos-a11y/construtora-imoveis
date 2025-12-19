@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Menu, Phone } from "lucide-react";
+import { Menu, Phone, MessageCircle } from "lucide-react";
 import { Link } from "wouter";
-import { Slot } from "@radix-ui/react-slot";
 
 export default function Header() {
   return (
@@ -37,13 +36,22 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button variant="outline" size="sm" className="hidden sm:flex items-center gap-2">
+          {/* Telefone - cor cinza, menos destaque */}
+          <a 
+            href="tel:+551199999999" 
+            className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
             <Phone className="h-4 w-4" />
             <span>(11) 9999-9999</span>
-          </Button>
-          <Button size="sm" className="hidden md:inline-flex">
+          </a>
+          
+          {/* Botão único azul - com ícone WhatsApp */}
+          <Button size="sm" className="hidden md:inline-flex items-center gap-2">
+            <MessageCircle className="h-4 w-4" />
             Agendar Visita
           </Button>
+          
+          {/* Menu mobile */}
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="h-5 w-5" />
           </Button>
