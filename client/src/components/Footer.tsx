@@ -22,7 +22,8 @@ export default function Footer() {
   return (
     <footer className="bg-muted/50 border-t">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Logo e Descrição */}
           <div>
             <div className="mb-4">
               <img src="/logo-souza.jpg" alt="Souza Construtora" className="h-16 w-auto mb-3" />
@@ -43,51 +44,42 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <h3 className="font-semibold mb-4">Navegação</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" asChild>
-                  <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Início
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/imoveis" asChild>
-                  <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Imóveis
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/sobre" asChild>
-                  <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Sobre Nós
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contato" asChild>
-                  <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Contato
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Navegação e Contato - Lado Esquerdo */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <h3 className="font-semibold mb-4">Navegação</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/" asChild>
+                    <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      Início
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/imoveis" asChild>
+                    <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      Imóveis
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/sobre" asChild>
+                    <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      Sobre Nós
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contato" asChild>
+                    <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      Contato
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-          <div>
-            <h3 className="font-semibold mb-4">Tipos de Imóveis</h3>
-            <ul className="space-y-2">
-              <li className="text-sm text-muted-foreground">Apartamentos</li>
-              <li className="text-sm text-muted-foreground">Casas</li>
-              <li className="text-sm text-muted-foreground">Coberturas</li>
-              <li className="text-sm text-muted-foreground">Terrenos</li>
-            </ul>
-          </div>
-
-          <div className="flex flex-col gap-4">
             <div>
               <h3 className="font-semibold mb-4">Contato</h3>
               <ul className="space-y-3">
@@ -105,16 +97,16 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
+          </div>
 
-            {/* Mapa */}
-            <div className="mt-4 rounded-lg overflow-hidden border border-border">
-              <MapView
-                initialCenter={{ lat: -16.4897, lng: -54.6109 }}
-                initialZoom={15}
-                onMapReady={handleMapReady}
-                className="h-48"
-              />
-            </div>
+          {/* Mapa - Lado Direito */}
+          <div className="rounded-lg overflow-hidden border border-border">
+            <MapView
+              initialCenter={{ lat: -16.4897, lng: -54.6109 }}
+              initialZoom={15}
+              onMapReady={handleMapReady}
+              className="h-48"
+            />
           </div>
         </div>
 

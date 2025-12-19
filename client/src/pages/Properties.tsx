@@ -149,16 +149,6 @@ export default function Properties() {
                       >
                         R$ 500.000 - R$ 800.000
                       </Button>
-                      <Button
-                        variant={filters.minPrice === 800000 && !filters.maxPrice ? "default" : "outline"}
-                        className="w-full justify-start"
-                        onClick={() => {
-                          updateFilter("minPrice", 800000);
-                          updateFilter("maxPrice", "");
-                        }}
-                      >
-                        Acima de R$ 800.000
-                      </Button>
                     </div>
                   </div>
                 </div>

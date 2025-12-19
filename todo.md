@@ -53,3 +53,12 @@
 - [x] Remover filtros de tipo de imóvel e cidade da página de imóveis
 - [x] Adicionar mapa de localização no footer (Av. Mal. Rondon, 2019 - Centro, Rondonópolis - MT)
 - [x] Testar todas as alterações
+
+
+## Ajustes de Layout do Footer
+
+- [x] Remover coluna "Tipos de Imóveis" do footer
+- [x] Reorganizar layout do footer com mapa no lado direito
+- [x] Trazer colunas de Navegação e Contato mais perto
+- [x] Remover faixa de preço "Acima de R$ 800.000" dos filtros
+- [x] Testar todas as alterações
