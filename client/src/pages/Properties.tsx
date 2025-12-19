@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PropertyCard from "@/components/PropertyCard";
+import CTASection from "@/components/CTASection";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -187,6 +188,7 @@ export default function Properties() {
         </div>
       </main>
 
+      <CTASection />
       <Footer />
     </div>
   );

@@ -70,3 +70,15 @@
 - [x] Atualizar coordenadas no componente Footer
 - [x] Redimensionar mapa para formato quadrado menor (w-40 h-40)
 - [x] Testar localização correta no mapa
+
+
+## Remodelação do Footer - Novo Design
+
+- [x] Criar seção CTA (Call-to-Action) antes do footer com design elegante
+- [x] Adicionar subtítulo "SEU NOVO LAR ESPERA POR VOCÊ"
+- [x] Adicionar título "Pronto para Encontrar seu Imóvel?"
+- [x] Adicionar descrição motivadora
+- [x] Adicionar botões: "Ver Imóveis Disponíveis" (azul) e "Falar com Consultor" (outline)
+- [x] Remover mapa do footer
+- [x] Redesenhar footer com 4 colunas: Logo, Navegação, Contato, Frase de chamada
+- [x] Testar novo design
