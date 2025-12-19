@@ -117,3 +117,10 @@
 - [x] Cards: Botão com hover e sombra
 - [x] CTA final: "Não encontrou o imóvel ideal?" antes do footer
 - [x] Mobile: Layout otimizado (título 3 linhas, botão visível, cards coluna única)
+
+
+## Layout Mobile Otimizado
+
+- [x] Reorganizar filtros em duas colunas no mobile
+- [x] Manter cards em coluna única
+- [x] Testar responsividade em diferentes tamanhos
