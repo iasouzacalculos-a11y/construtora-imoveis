@@ -141,3 +141,11 @@
 - [x] Criar botão flutuante de WhatsApp fixo no canto inferior direito
 - [x] WhatsApp sempre visível, mesmo com menu fechado
 - [x] Testar responsividade em diferentes tamanhos
+
+
+## Scroll Automático ao Topo
+
+- [x] Criar componente ScrollToTop que detecta mudanças de rota
+- [x] Integrar ScrollToTop no App.tsx
+- [x] Testar navegação entre páginas (Início, Imóveis, Sobre, Contato)
+- [x] Garantir que página sempre rola para o topo ao navegar
