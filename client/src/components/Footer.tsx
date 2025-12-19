@@ -4,24 +4,27 @@ import { Link } from "wouter";
 export default function Footer() {
   return (
     <footer className="bg-foreground text-background">
-      <div className="container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+      {/* Divisória sutil */}
+      <div className="h-px bg-background/10" />
+      
+      <div className="container py-16 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16">
           {/* Logo e Descrição */}
           <div className="space-y-4">
-            <div className="mb-4">
-              <img src="/logo-souza-completa.png" alt="Souza Construtora" className="h-20 w-auto" />
+            <div className="mb-6">
+              <img src="/logo-souza-completa.png" alt="Souza Construtora" className="h-16 w-auto" />
             </div>
-            <p className="text-sm text-background/80 leading-relaxed">
-              Construindo sonhos e realizando o seu imóvel ideal há mais de 20 anos. Qualidade e confiança Souza.
+            <p className="text-sm text-background/75 leading-relaxed">
+              Construindo sonhos há mais de 20 anos. Qualidade, confiança e segurança em cada imóvel.
             </p>
-            <div className="flex gap-3 pt-2">
-              <a href="#" className="text-background/70 hover:text-background transition-colors">
+            <div className="flex gap-4 pt-2">
+              <a href="#" className="text-background/60 hover:text-background transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-background/70 hover:text-background transition-colors">
+              <a href="#" className="text-background/60 hover:text-background transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-background/70 hover:text-background transition-colors">
+              <a href="#" className="text-background/60 hover:text-background transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
@@ -29,7 +32,7 @@ export default function Footer() {
 
           {/* Navegação */}
           <div>
-            <h3 className="font-semibold text-background mb-4">Navegação</h3>
+            <h3 className="font-semibold text-background mb-5 text-sm uppercase tracking-wide">Navegação</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/" asChild>
@@ -64,36 +67,41 @@ export default function Footer() {
 
           {/* Contato */}
           <div>
-            <h3 className="font-semibold text-background mb-4">Contato</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2 text-sm text-background/70">
+            <h3 className="font-semibold text-background mb-5 text-sm uppercase tracking-wide">Contato</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 text-sm text-background/70">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>Av. Mal. Rondon, 2019 - Centro, Rondonópolis - MT, 78700-531</span>
+                <span>Av. Mal. Rondon, 2019<br />Centro, Rondonópolis - MT<br />78700-531</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-background/70">
+              <li className="flex items-center gap-3 text-sm text-background/70">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <span>(11) 9999-9999</span>
+                <a href="tel:+551199999999" className="hover:text-background transition-colors">(11) 9999-9999</a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-background/70">
+              <li className="flex items-center gap-3 text-sm text-background/70">
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                <span>contato@construtora.com.br</span>
+                <a href="mailto:contato@construtora.com.br" className="hover:text-background transition-colors">contato@construtora.com.br</a>
               </li>
             </ul>
           </div>
 
-          {/* Faça uma Visita */}
+          {/* Faça uma Visita - CTA */}
           <div>
-            <h3 className="font-semibold text-background mb-4">Faça uma visita</h3>
-            <p className="text-sm text-background/70 leading-relaxed">
-              Agende uma visita e descubra de perto tudo o que preparamos para transformar o seu dia a dia.
+            <h3 className="font-semibold text-background mb-5 text-sm uppercase tracking-wide">Faça uma visita</h3>
+            <p className="text-sm text-background/70 leading-relaxed mb-5">
+              Agende uma visita e descubra de perto os imóveis que preparamos para transformar seu dia a dia.
             </p>
+            <Link href="/imoveis" asChild>
+              <a className="inline-block text-sm font-semibold text-background hover:text-background/80 transition-colors">
+                Explorar imóveis →
+              </a>
+            </Link>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-background/20 mt-12 pt-8">
-          <p className="text-center text-sm text-background/60">
-            &copy; {new Date().getFullYear()} Souza Construtora. Todos os direitos reservados.
+        <div className="border-t border-background/10 mt-16 pt-8">
+          <p className="text-center text-xs text-background/50">
+            &copy; {new Date().getFullYear()} Souza Construtora. Todos os direitos reservados. | CRECI.J - 10.249 / MT 19º Região
           </p>
         </div>
       </div>

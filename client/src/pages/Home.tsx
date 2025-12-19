@@ -32,10 +32,10 @@ export default function Home() {
           <div className="container relative z-10">
             <div className="max-w-2xl">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Encontre o <span className="text-primary">Imóvel Perfeito</span> para Você
+                Encontre seu <span className="text-primary">novo lar</span> em Rondonópolis
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Imóveis de alto padrão com qualidade e localização privilegiada. Realize o sonho da casa própria com a Souza Construtora.
+                Há mais de 20 anos realizando o sonho da casa própria com segurança, qualidade e atendimento humanizado.
               </p>
               
               <div className="flex gap-3 mb-8">
@@ -49,15 +49,15 @@ export default function Home() {
               <div className="flex flex-wrap gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-primary" />
-                  <span>Mais de 20 anos no mercado</span>
+                  <span>Imóveis regularizados</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-primary" />
-                  <span>Qualidade garantida</span>
+                  <span>Segurança jurídica</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-primary" />
-                  <span>Atendimento personalizado</span>
+                  <span>Atendimento humanizado</span>
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function Home() {
                 Imóveis em Destaque
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Conheça nossos imóveis mais procurados com localização privilegiada e acabamento de primeira linha.
+                Explore nossas melhores opções com localização privilegiada, acabamento premium e segurança jurídica garantida.
               </p>
             </div>
 

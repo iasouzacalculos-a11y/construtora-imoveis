@@ -89,3 +89,17 @@
 - [x] Copiar logo completa para pasta public
 - [x] Atualizar Footer.tsx para exibir logo
 - [x] Testar exibição da logo no footer
+
+
+## Otimização para Conversão - Design Premium Mobile-First
+
+- [x] Reescrever textos com foco em conversão e micro-copy persuasivo
+- [x] Reduzir padding vertical do CTA em ~20-30%
+- [x] Adicionar elemento visual leve (gradiente/textura) no CTA
+- [x] Melhorar hierarquia de texto (subtítulo menor, título forte, descrição elegante)
+- [x] Diferenciar botões (azul forte vs branco com borda)
+- [x] Adicionar "gancho de confiança" com micro-copy (20 anos, segurança, etc)
+- [x] Adicionar divisória sutil acima do footer
+- [x] Aumentar espaçamento entre colunas do footer
+- [x] Otimizar layout mobile-first com responsive design
+- [x] Testar em mobile e desktop
