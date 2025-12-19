@@ -124,3 +124,11 @@
 - [x] Reorganizar filtros em duas colunas no mobile
 - [x] Manter cards em coluna única
 - [x] Testar responsividade em diferentes tamanhos
+
+
+## Ajustes de CTA
+
+- [x] Remover seção CTASection "Pronto para encontrar seu imóvel?"
+- [x] Manter apenas CTA final "Não encontrou o imóvel ideal?"
+- [x] Mudar botão para verde com ícone WhatsApp
+- [x] Preparar para integração futura com link do WhatsApp

@@ -1,12 +1,12 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PropertyCard from "@/components/PropertyCard";
-import CTASection from "@/components/CTASection";
+
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FilterOptions } from "@/lib/types";
-import { SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal, MessageCircle } from "lucide-react";
 import { useMemo, useState, useEffect } from "react";
 import { trpc } from "@/lib/trpc";
 
@@ -191,7 +191,27 @@ export default function Properties() {
         </div>
       </main>
 
-      <CTASection />
+      {/* CTA Final - WhatsApp */}
+      <section className="py-12 md:py-16 bg-muted/30">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              Não encontrou o imóvel ideal?
+            </h3>
+            <p className="text-muted-foreground mb-8">
+              Fale com um consultor e receba opções sob medida para você.
+            </p>
+            <Button 
+              size="lg" 
+              className="h-14 px-10 text-base font-semibold shadow-lg hover:shadow-xl transition-all gap-2 bg-green-600 hover:bg-green-700 text-white"
+            >
+              <MessageCircle className="h-5 w-5" />
+              Falar com um consultor agora
+            </Button>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PropertyCard from "@/components/PropertyCard";
-import CTASection from "@/components/CTASection";
+
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { properties } from "@/lib/mockData";
@@ -116,10 +116,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <CTASection />
-
-        {/* CTA Final - "Não encontrou o imóvel ideal?" */}
+        {/* CTA Final - WhatsApp */}
         <section className="py-12 md:py-16 bg-muted/30">
           <div className="container">
             <div className="max-w-2xl mx-auto text-center">
@@ -129,7 +126,10 @@ export default function Home() {
               <p className="text-muted-foreground mb-8">
                 Fale com um consultor e receba opções sob medida para você.
               </p>
-              <Button size="lg" className="h-14 px-10 text-base font-semibold shadow-lg hover:shadow-xl transition-all gap-2">
+              <Button 
+                size="lg" 
+                className="h-14 px-10 text-base font-semibold shadow-lg hover:shadow-xl transition-all gap-2 bg-green-600 hover:bg-green-700 text-white"
+              >
                 <MessageCircle className="h-5 w-5" />
                 Falar com um consultor agora
               </Button>
