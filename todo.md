@@ -149,3 +149,23 @@
 - [x] Integrar ScrollToTop no App.tsx
 - [x] Testar navegação entre páginas (Início, Imóveis, Sobre, Contato)
 - [x] Garantir que página sempre rola para o topo ao navegar
+
+
+## Painel Administrativo Protegido
+
+- [ ] Remover rota pública `/imovel/:id/gerenciar-imagens`
+- [ ] Criar página de painel administrativo `/admin`
+- [ ] Proteger painel admin com autenticação OAuth (apenas proprietário)
+- [ ] Implementar listagem de imóveis no painel admin
+- [ ] Implementar gerenciamento de imagens no painel admin
+- [ ] Adicionar botão de acesso ao painel admin (visível apenas para admin)
+- [ ] Testar proteção e funcionalidades
+
+
+## Remover Autenticação OAuth do Painel Admin (Temporário)
+
+- [x] Remover verificação de autenticação OAuth da página Admin.tsx
+- [x] Remover verificação de autenticação OAuth da página AdminPropertyImages.tsx
+- [x] Testar acesso ao painel admin sem login
+- [x] Criar páginas /admin e /admin/imovel/:id/imagens funcionais
+- [x] Documentar que isso é temporário e será removido no futuro

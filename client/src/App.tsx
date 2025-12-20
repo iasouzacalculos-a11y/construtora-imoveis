@@ -7,7 +7,8 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Properties from "./pages/Properties";
 import PropertyDetail from "./pages/PropertyDetail";
-import PropertyImageManager from "./pages/PropertyImageManager";
+import Admin from "./pages/Admin";
+import AdminPropertyImages from "./pages/AdminPropertyImages";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -18,7 +19,8 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/imoveis"} component={Properties} />
       <Route path={"/imovel/:id"} component={PropertyDetail} />
-      <Route path={"/imovel/:id/gerenciar-imagens"} component={PropertyImageManager} />
+      <Route path={"/admin"} component={Admin} />
+      <Route path={"/admin/imovel/:id/imagens"} component={AdminPropertyImages} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
