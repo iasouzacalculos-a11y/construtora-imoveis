@@ -1,0 +1,8 @@
+{
+  "query": "INSERT INTO property_images (property_id, url, alt, display_order) VALUES ('gv-qd33-lt3-a', 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663230153293/yKCnycPZkLIWDxiK.jpeg', 'Fachada da casa', 1);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute INSERT INTO property_images (property_id, url, alt, display_order) VALUES ('gv-qd33-lt3-a', 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663230153293/yKCnycPZkLIWDxiK.jpeg', 'Fachada da casa', 1);",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1146 (42S02) at line 1: Table '5x5dmsjv8mfrvf3vbec4an.property_images' doesn't exist"
+  ]
+}
