@@ -1,0 +1,178 @@
+{
+  "query": "SELECT id, title, city, price FROM properties ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute SELECT id, title, city, price FROM properties ORDER BY id;",
+  "rows": [
+    {
+      "id": "1",
+      "title": "Casa Granville ",
+      "city": " Rondonópolis ",
+      "price": "470000"
+    },
+    {
+      "id": "10",
+      "title": "Apartamento Gourmet",
+      "city": "São Paulo",
+      "price": "1280000"
+    },
+    {
+      "id": "11",
+      "title": "Casa Condomínio Fechado",
+      "city": "Barueri",
+      "price": "1950000"
+    },
+    {
+      "id": "13",
+      "title": "Casa Condomínio Alphaville",
+      "city": "Barueri",
+      "price": "2100000"
+    },
+    {
+      "id": "14",
+      "title": "Townhouse Mooca",
+      "city": "São Paulo",
+      "price": "1350000"
+    },
+    {
+      "id": "15",
+      "title": "Apartamento Luxo Pinheiros",
+      "city": "São Paulo",
+      "price": "2050000"
+    },
+    {
+      "id": "17",
+      "title": "Cobertura Duplex Perdizes",
+      "city": "São Paulo",
+      "price": "3200000"
+    },
+    {
+      "id": "18",
+      "title": "Casa Jardim Paulista",
+      "city": "São Paulo",
+      "price": "3500000"
+    },
+    {
+      "id": "19",
+      "title": "Apartamento Consolação",
+      "city": "São Paulo",
+      "price": "1100000"
+    },
+    {
+      "id": "2",
+      "title": "Apartamento Gourmet",
+      "city": "São Paulo",
+      "price": "1280000"
+    },
+    {
+      "id": "20",
+      "title": "Townhouse Tatuapé",
+      "city": "São Paulo",
+      "price": "1200000"
+    },
+    {
+      "id": "22",
+      "title": "Casa Condomínio Tamboré",
+      "city": "Santana de Parnaíba",
+      "price": "2300000"
+    },
+    {
+      "id": "23",
+      "title": "Cobertura Duplex Vila Olímpia",
+      "city": "São Paulo",
+      "price": "4500000"
+    },
+    {
+      "id": "24",
+      "title": "Apartamento Aclimação",
+      "city": "São Paulo",
+      "price": "1000000"
+    },
+    {
+      "id": "25",
+      "title": "Casa Brooklin",
+      "city": "São Paulo",
+      "price": "2600000"
+    },
+    {
+      "id": "26",
+      "title": "Townhouse Saúde",
+      "city": "São Paulo",
+      "price": "1400000"
+    },
+    {
+      "id": "28",
+      "title": "Cobertura Duplex Liberdade",
+      "city": "São Paulo",
+      "price": "2800000"
+    },
+    {
+      "id": "3",
+      "title": "Casa Condomínio Fechado",
+      "city": "Barueri",
+      "price": "1950000"
+    },
+    {
+      "id": "4",
+      "title": "Duplex Vista Parque",
+      "city": "São Paulo",
+      "price": "1580000"
+    },
+    {
+      "id": "7",
+      "title": "Residencial Luxo Moderno",
+      "city": "São Paulo",
+      "price": "2850000"
+    },
+    {
+      "id": "8",
+      "title": "Townhouse Contemporânea",
+      "city": "São Paulo",
+      "price": "1650000"
+    },
+    {
+      "id": "9",
+      "title": "Cobertura Skyline Premium",
+      "city": "São Paulo",
+      "price": "4200000"
+    },
+    {
+      "id": "QD17 – Lote 10 GV",
+      "title": "Casa Granville ",
+      "city": "Rondonópolis ",
+      "price": "410000"
+    },
+    {
+      "id": "QD18 – Lote 27 GV",
+      "title": "Casa Granville ",
+      "city": "Rondonópolis",
+      "price": "790000"
+    },
+    {
+      "id": "QD33 – Lote 16 GV  ",
+      "title": "Casa Granville ",
+      "city": " Rondonópolis ",
+      "price": "450000"
+    },
+    {
+      "id": "QD36 – Lote 14 GV",
+      "title": "Casa Granville",
+      "city": "Rondonópolis ",
+      "price": "420000"
+    },
+    {
+      "id": "QD36 – Lote 26 GV",
+      "title": "Casa Granville",
+      "city": "Rondonópolis",
+      "price": "420000"
+    },
+    {
+      "id": "QD37 – Lote 14 GV",
+      "title": "Casa Granville ",
+      "city": "Rondonópolis ",
+      "price": "420000"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tcity\tprice\n1\tCasa Granville \t Rondonópolis \t470000\n10\tApartamento Gourmet\tSão Paulo\t1280000\n11\tCasa Condomínio Fechado\tBarueri\t1950000\n13\tCasa Condomínio Alphaville\tBarueri\t2100000\n14\tTownhouse Mooca\tSão Paulo\t1350000\n15\tApartamento Luxo Pinheiros\tSão Paulo\t2050000\n17\tCobertura Duplex Perdizes\tSão Paulo\t3200000\n18\tCasa Jardim Paulista\tSão Paulo\t3500000\n19\tApartamento Consolação\tSão Paulo\t1100000\n2\tApartamento Gourmet\tSão Paulo\t1280000\n20\tTownhouse Tatuapé\tSão Paulo\t1200000\n22\tCasa Condomínio Tamboré\tSantana de Parnaíba\t2300000\n23\tCobertura Duplex Vila Olímpia\tSão Paulo\t4500000\n24\tApartamento Aclimação\tSão Paulo\t1000000\n25\tCasa Brooklin\tSão Paulo\t2600000\n26\tTownhouse Saúde\tSão Paulo\t1400000\n28\tCobertura Duplex Liberdade\tSão Paulo\t2800000\n3\tCasa Condomínio Fechado\tBarueri\t1950000\n4\tDuplex Vista Parque\tSão Paulo\t1580000\n7\tResidencial Luxo Moderno\tSão Paulo\t2850000\n8\tTownhouse Contemporânea\tSão Paulo\t1650000\n9\tCobertura Skyline Premium\tSão Paulo\t4200000\nQD17 – Lote 10 GV\tCasa Granville \tRondonópolis \t410000\nQD18 – Lote 27 GV\tCasa Granville \tRondonópolis\t790000\nQD33 – Lote 16 GV  \tCasa Granville \t Rondonópolis \t450000\nQD36 – Lote 14 GV\tCasa Granville\tRondonópolis \t420000\nQD36 – Lote 26 GV\tCasa Granville\tRondonópolis\t420000\nQD37 – Lote 14 GV\tCasa Granville \tRondonópolis \t420000\n",
+  "stderr": "",
+  "execution_time_ms": 54
+}

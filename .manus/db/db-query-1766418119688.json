@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO properties (id, title, type, price, address, city, state, latitude, longitude, bedrooms, bathrooms, area, parking, description, status) VALUES ('sf-qd19-lt30', 'Casa Sunflower', 'house', 545000, 'Quadra 19, Lote 30 - Sunflower', 'Rondonópolis', 'MT', -16.4638611, -54.5955556, 3, 2, 120, 2, 'Casa ampla no condomínio Sunflower. Excelente acabamento e localização privilegiada.', 'available');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute INSERT INTO properties (id, title, type, price, address, city, state, latitude, longitude, bedrooms, bathrooms, area, parking, description, status) VALUES ('sf-qd19-lt30', 'Casa Sunflower', 'house', 545000, 'Quadra 19, Lote 30 - Sunflower', 'Rondonópolis', 'MT', -16.4638611, -54.5955556, 3, 2, 120, 2, 'Casa ampla no condomínio Sunflower. Excelente acabamento e localização privilegiada.', 'available');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 56
+}

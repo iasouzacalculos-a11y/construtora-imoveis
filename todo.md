@@ -193,3 +193,13 @@
 - [x] Alterar lógica de seleção de imóveis em destaque
 - [x] Filtrar imóveis de Rondonópolis para destaque
 - [x] Testar exibição na página inicial - Funcionando perfeitamente! 3 imóveis de Rondonópolis exibidos
+
+
+## Substituir Imóveis com Nova Tabela
+
+- [x] Identificar imóveis a serem substituídos (exceto ID 1 e os com sigla GV)
+- [x] Processar tabela com 8 lotes (alguns com valores duplicados = 2 casas)
+- [x] Criar IDs no formato: bairro-qd-lt (ex: pu-qd126-lt3)
+- [x] Criar títulos no formato: Casa [Nome do Bairro]
+- [x] Atualizar banco de dados com os novos imóveis - 12 novos imóveis inseridos
+- [x] Testar exibição dos novos imóveis - 19 imóveis exibidos corretamente

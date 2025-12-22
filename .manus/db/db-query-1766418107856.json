@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO properties (id, title, type, price, address, city, state, latitude, longitude, bedrooms, bathrooms, area, parking, description, status) VALUES ('pu-qd118-lt6-a', 'Casa Parque Universitário', 'house', 295000, 'Quadra 118, Lote 06-7 - Parque Universitário', 'Rondonópolis', 'MT', -16.465843, -54.671483, 2, 1, 65, 1, 'Casa em excelente localização no Parque Universitário. Imóvel com acabamento de qualidade e pronto para morar.', 'available');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute INSERT INTO properties (id, title, type, price, address, city, state, latitude, longitude, bedrooms, bathrooms, area, parking, description, status) VALUES ('pu-qd118-lt6-a', 'Casa Parque Universitário', 'house', 295000, 'Quadra 118, Lote 06-7 - Parque Universitário', 'Rondonópolis', 'MT', -16.465843, -54.671483, 2, 1, 65, 1, 'Casa em excelente localização no Parque Universitário. Imóvel com acabamento de qualidade e pronto para morar.', 'available');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 56
+}

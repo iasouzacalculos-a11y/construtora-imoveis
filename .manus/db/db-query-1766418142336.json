@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO properties (id, title, type, price, address, city, state, latitude, longitude, bedrooms, bathrooms, area, parking, description, status) VALUES ('va-qd37-lt3', 'Casa Vila Adriana', 'house', 590000, 'Alameda das Violetas, 421 - Vila Adriana', 'Rondonópolis', 'MT', -16.4467187, -54.6569776, 3, 2, 130, 2, 'Casa espaçosa na Vila Adriana. Excelente acabamento e localização privilegiada.', 'available');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute INSERT INTO properties (id, title, type, price, address, city, state, latitude, longitude, bedrooms, bathrooms, area, parking, description, status) VALUES ('va-qd37-lt3', 'Casa Vila Adriana', 'house', 590000, 'Alameda das Violetas, 421 - Vila Adriana', 'Rondonópolis', 'MT', -16.4467187, -54.6569776, 3, 2, 130, 2, 'Casa espaçosa na Vila Adriana. Excelente acabamento e localização privilegiada.', 'available');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 62
+}

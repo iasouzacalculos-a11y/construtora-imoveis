@@ -1,0 +1,9 @@
+{
+  "query": "DELETE FROM properties WHERE id IN ('2', '3', '4', '7', '8', '9', '10', '11', '13', '14', '15', '17', '18', '19', '20', '22', '23', '24', '25', '26', '28');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute DELETE FROM properties WHERE id IN ('2', '3', '4', '7', '8', '9', '10', '11', '13', '14', '15', '17', '18', '19', '20', '22', '23', '24', '25', '26', '28');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 63
+}

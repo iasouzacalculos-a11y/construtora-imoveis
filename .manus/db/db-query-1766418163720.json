@@ -1,0 +1,124 @@
+{
+  "query": "SELECT id, title, price, city FROM properties ORDER BY price;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute SELECT id, title, price, city FROM properties ORDER BY price;",
+  "rows": [
+    {
+      "id": "pu-qd118-lt6-b",
+      "title": "Casa Parque Universitário",
+      "price": "295000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "pu-qd118-lt6-a",
+      "title": "Casa Parque Universitário",
+      "price": "295000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "pu-qd126-lt3-b",
+      "title": "Casa Parque Universitário",
+      "price": "320000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "pu-qd126-lt3-a",
+      "title": "Casa Parque Universitário",
+      "price": "320000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "va-qd47-lt10",
+      "title": "Casa Vila Adriana",
+      "price": "340000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "va-qd30-lt4-a",
+      "title": "Casa Vila Adriana",
+      "price": "350000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "va-qd30-lt4-b",
+      "title": "Casa Vila Adriana",
+      "price": "360000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "QD17 – Lote 10 GV",
+      "title": "Casa Granville ",
+      "price": "410000",
+      "city": "Rondonópolis "
+    },
+    {
+      "id": "QD36 – Lote 14 GV",
+      "title": "Casa Granville",
+      "price": "420000",
+      "city": "Rondonópolis "
+    },
+    {
+      "id": "QD37 – Lote 14 GV",
+      "title": "Casa Granville ",
+      "price": "420000",
+      "city": "Rondonópolis "
+    },
+    {
+      "id": "QD36 – Lote 26 GV",
+      "title": "Casa Granville",
+      "price": "420000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "QD33 – Lote 16 GV  ",
+      "title": "Casa Granville ",
+      "price": "450000",
+      "city": " Rondonópolis "
+    },
+    {
+      "id": "sf-qd16-lt10-a",
+      "title": "Casa Sunflower",
+      "price": "460000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "sf-qd16-lt10-b",
+      "title": "Casa Sunflower",
+      "price": "460000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "1",
+      "title": "Casa Granville ",
+      "price": "470000",
+      "city": " Rondonópolis "
+    },
+    {
+      "id": "sf-qd13-lt22",
+      "title": "Casa Sunflower",
+      "price": "495000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "sf-qd19-lt30",
+      "title": "Casa Sunflower",
+      "price": "545000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "va-qd37-lt3",
+      "title": "Casa Vila Adriana",
+      "price": "590000",
+      "city": "Rondonópolis"
+    },
+    {
+      "id": "QD18 – Lote 27 GV",
+      "title": "Casa Granville ",
+      "price": "790000",
+      "city": "Rondonópolis"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tprice\tcity\npu-qd118-lt6-b\tCasa Parque Universitário\t295000\tRondonópolis\npu-qd118-lt6-a\tCasa Parque Universitário\t295000\tRondonópolis\npu-qd126-lt3-b\tCasa Parque Universitário\t320000\tRondonópolis\npu-qd126-lt3-a\tCasa Parque Universitário\t320000\tRondonópolis\nva-qd47-lt10\tCasa Vila Adriana\t340000\tRondonópolis\nva-qd30-lt4-a\tCasa Vila Adriana\t350000\tRondonópolis\nva-qd30-lt4-b\tCasa Vila Adriana\t360000\tRondonópolis\nQD17 – Lote 10 GV\tCasa Granville \t410000\tRondonópolis \nQD36 – Lote 14 GV\tCasa Granville\t420000\tRondonópolis \nQD37 – Lote 14 GV\tCasa Granville \t420000\tRondonópolis \nQD36 – Lote 26 GV\tCasa Granville\t420000\tRondonópolis\nQD33 – Lote 16 GV  \tCasa Granville \t450000\t Rondonópolis \nsf-qd16-lt10-a\tCasa Sunflower\t460000\tRondonópolis\nsf-qd16-lt10-b\tCasa Sunflower\t460000\tRondonópolis\n1\tCasa Granville \t470000\t Rondonópolis \nsf-qd13-lt22\tCasa Sunflower\t495000\tRondonópolis\nsf-qd19-lt30\tCasa Sunflower\t545000\tRondonópolis\nva-qd37-lt3\tCasa Vila Adriana\t590000\tRondonópolis\nQD18 – Lote 27 GV\tCasa Granville \t790000\tRondonópolis\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}
