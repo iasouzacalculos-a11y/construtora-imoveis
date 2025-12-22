@@ -22,7 +22,15 @@ export const appRouter = router({
 
   properties: router({
     list: publicProcedure.query(async () => {
-      return getAllProperties();
+      const allProperties = await getAllProperties();
+      // Buscar imagens para cada imóvel
+      const propertiesWithImages = await Promise.all(
+        allProperties.map(async (property) => {
+          const images = await getPropertyImages(property.id);
+          return { ...property, images };
+        })
+      );
+      return propertiesWithImages;
     }),
     getById: publicProcedure.input(z.string()).query(async ({ input }) => {
       const property = await getPropertyById(input);

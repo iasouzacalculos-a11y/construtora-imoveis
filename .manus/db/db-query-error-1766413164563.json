@@ -1,0 +1,8 @@
+{
+  "query": "SELECT id, customId, title, city, price FROM properties WHERE city LIKE '%Rondon%' ORDER BY price ASC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute SELECT id, customId, title, city, price FROM properties WHERE city LIKE '%Rondon%' ORDER BY price ASC;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'customid' in 'field list'"
+  ]
+}

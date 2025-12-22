@@ -1,0 +1,52 @@
+{
+  "query": "SELECT id, title, city, price FROM properties WHERE city LIKE '%Rondon%' ORDER BY price ASC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute SELECT id, title, city, price FROM properties WHERE city LIKE '%Rondon%' ORDER BY price ASC;",
+  "rows": [
+    {
+      "id": "QD17 – Lote 10 GV",
+      "title": "Casa Granville ",
+      "city": "Rondonópolis ",
+      "price": "410000"
+    },
+    {
+      "id": "QD36 – Lote 14 GV",
+      "title": "Casa Granville",
+      "city": "Rondonópolis ",
+      "price": "420000"
+    },
+    {
+      "id": "QD36 – Lote 26 GV",
+      "title": "Casa Granville",
+      "city": "Rondonópolis",
+      "price": "420000"
+    },
+    {
+      "id": "QD37 – Lote 14 GV",
+      "title": "Casa Granville ",
+      "city": "Rondonópolis ",
+      "price": "420000"
+    },
+    {
+      "id": "QD33 – Lote 16 GV  ",
+      "title": "Casa Granville ",
+      "city": " Rondonópolis ",
+      "price": "450000"
+    },
+    {
+      "id": "1",
+      "title": "Casa Granville ",
+      "city": " Rondonópolis ",
+      "price": "470000"
+    },
+    {
+      "id": "QD18 – Lote 27 GV",
+      "title": "Casa Granville ",
+      "city": "Rondonópolis",
+      "price": "790000"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tcity\tprice\nQD17 – Lote 10 GV\tCasa Granville \tRondonópolis \t410000\nQD36 – Lote 14 GV\tCasa Granville\tRondonópolis \t420000\nQD36 – Lote 26 GV\tCasa Granville\tRondonópolis\t420000\nQD37 – Lote 14 GV\tCasa Granville \tRondonópolis \t420000\nQD33 – Lote 16 GV  \tCasa Granville \t Rondonópolis \t450000\n1\tCasa Granville \t Rondonópolis \t470000\nQD18 – Lote 27 GV\tCasa Granville \tRondonópolis\t790000\n",
+  "stderr": "",
+  "execution_time_ms": 154
+}

@@ -1,0 +1,30 @@
+{
+  "query": "SELECT * FROM properties WHERE id = '1';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute SELECT * FROM properties WHERE id = '1';",
+  "rows": [
+    {
+      "id": "1",
+      "title": "Casa Granville ",
+      "type": "house ",
+      "price": "470000",
+      "address": "Rua GV-33",
+      "city": " Rondonópolis ",
+      "state": "MT",
+      "latitude": "-16.46041670",
+      "longitude": "-54.59677780",
+      "bedrooms": "2",
+      "bathrooms": "1",
+      "area": "140",
+      "parking": "1",
+      "description": "Loft em galpão convertido com pé-direito alto, ideal para quem busca espaço e estilo. Localização estratégica em zona de desenvolvimento.",
+      "status": "available",
+      "mainImageUrl": "https://i.imgur.com/is0nXLj.png",
+      "createdAt": "2025-12-18 20:04:19",
+      "updatedAt": "2025-12-22 13:58:40"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\ttype\tprice\taddress\tcity\tstate\tlatitude\tlongitude\tbedrooms\tbathrooms\tarea\tparking\tdescription\tstatus\tmainImageUrl\tcreatedAt\tupdatedAt\n1\tCasa Granville \thouse \t470000\tRua GV-33\t Rondonópolis \tMT\t-16.46041670\t-54.59677780\t2\t1\t140\t1\tLoft em galpão convertido com pé-direito alto, ideal para quem busca espaço e estilo. Localização estratégica em zona de desenvolvimento.\tavailable\thttps://i.imgur.com/is0nXLj.png\t2025-12-18 20:04:19\t2025-12-22 13:58:40\n",
+  "stderr": "",
+  "execution_time_ms": 58
+}

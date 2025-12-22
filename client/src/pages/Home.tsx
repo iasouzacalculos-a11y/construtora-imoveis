@@ -4,12 +4,51 @@ import PropertyCard from "@/components/PropertyCard";
 
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
-import { properties } from "@/lib/mockData";
 import { Link } from "wouter";
 import { Building2, CheckCircle2, Users, MessageCircle } from "lucide-react";
+import { trpc } from "@/lib/trpc";
+import { useMemo } from "react";
 
 export default function Home() {
-  const featuredProperties = properties.slice(0, 3);
+  // Buscar imóveis do banco de dados
+  const { data: propertiesData, isLoading } = trpc.properties.list.useQuery();
+
+  // Filtrar apenas imóveis de Rondonópolis e pegar os 3 primeiros
+  const featuredProperties = useMemo(() => {
+    if (!propertiesData) return [];
+    
+    // Transformar dados do banco para o formato esperado pelo PropertyCard
+    const transformedProperties = propertiesData
+      .filter((p: any) => {
+        const city = p.city?.trim() || "";
+        return city === "Rondonópolis" || city === "Rondonopolis";
+      })
+      .map((p: any) => ({
+        id: p.id,
+        title: p.title,
+        price: p.price,
+        location: {
+          address: p.address,
+          city: p.city,
+          state: p.state,
+          latitude: p.latitude,
+          longitude: p.longitude
+        },
+        features: {
+          bedrooms: p.bedrooms,
+          bathrooms: p.bathrooms,
+          area: p.area,
+          parking: p.parking || 0
+        },
+        type: p.type,
+        image: p.images?.[0]?.url || "/placeholder-property.jpg",
+        gallery: p.images?.map((img: any) => img.url) || [],
+        description: p.description || "",
+        status: p.status || "available"
+      }));
+    
+    return transformedProperties.slice(0, 3);
+  }, [propertiesData]);
 
   return (
     <div className="min-h-screen flex flex-col">

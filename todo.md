@@ -186,3 +186,10 @@
 - [x] Identificar problema de CORS com Google Drive
 - [x] Atualizar banco de dados com link do Imgur
 - [x] Testar exibição da imagem no PropertyCard - Funcionando perfeitamente!
+
+
+## Corrigir Imóveis em Destaque
+
+- [x] Alterar lógica de seleção de imóveis em destaque
+- [x] Filtrar imóveis de Rondonópolis para destaque
+- [x] Testar exibição na página inicial - Funcionando perfeitamente! 3 imóveis de Rondonópolis exibidos
