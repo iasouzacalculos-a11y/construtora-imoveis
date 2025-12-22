@@ -203,3 +203,16 @@
 - [x] Criar títulos no formato: Casa [Nome do Bairro]
 - [x] Atualizar banco de dados com os novos imóveis - 12 novos imóveis inseridos
 - [x] Testar exibição dos novos imóveis - 19 imóveis exibidos corretamente
+
+
+## Atualizar Detalhes dos Imóveis
+
+- [x] Extrair dados das imagens fornecidas pelo usuário
+- [x] Identificar imóveis faltantes comparando com banco de dados
+- [x] Adicionar 5 novos imóveis Granville faltantes:
+  - gv-qd33-lt16: R$ 450.000 (79m²)
+  - gv-qd33-lt3-a: R$ 560.000 (105m², 3 quartos)
+  - gv-qd33-lt3-b: R$ 470.000 (89m², 2 suítes + lavabo)
+  - gv-qd18-lt27: R$ 840.000 (121m², 3 quartos)
+  - gv-qd40-lt22: R$ 480.000 (89m², 2 suítes + lavabo)
+- [x] Testar exibição - 24 imóveis exibidos corretamente

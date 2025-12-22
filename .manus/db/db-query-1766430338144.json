@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO properties (id, title, type, price, address, city, state, latitude, longitude, bedrooms, bathrooms, area, parking, description, status) VALUES ('gv-qd33-lt3-a', 'Casa Granville', 'house', 560000, 'Quadra 33, Lote 3 - Granville', 'Rondonópolis', 'MT', -16.4604167, -54.5967778, 3, 2, 105, 1, '105 m2 com 3 quartos sendo 1 suíte, sala com pé direito alto, cozinha com churrasqueira. Casa na laje com excelente acabamento.', 'available');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute INSERT INTO properties (id, title, type, price, address, city, state, latitude, longitude, bedrooms, bathrooms, area, parking, description, status) VALUES ('gv-qd33-lt3-a', 'Casa Granville', 'house', 560000, 'Quadra 33, Lote 3 - Granville', 'Rondonópolis', 'MT', -16.4604167, -54.5967778, 3, 2, 105, 1, '105 m2 com 3 quartos sendo 1 suíte, sala com pé direito alto, cozinha com churrasqueira. Casa na laje com excelente acabamento.', 'available');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 71
+}
