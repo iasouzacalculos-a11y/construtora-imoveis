@@ -69,7 +69,7 @@ export default function Admin() {
                     
                     <Button
                       className="w-full"
-                      onClick={() => setLocation(`/admin/imovel/${property.customId}/imagens`)}
+                      onClick={() => setLocation(`/admin/imovel/${property.id}/imagens`)}
                     >
                       <ImageIcon className="h-4 w-4 mr-2" />
                       Gerenciar Imagens

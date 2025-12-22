@@ -13,6 +13,8 @@ export default function AdminPropertyImages() {
   const [, setLocation] = useLocation();
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [uploading, setUploading] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
+  const [addingUrl, setAddingUrl] = useState(false);
 
   const propertyId = params.id as string;
 
@@ -21,6 +23,7 @@ export default function AdminPropertyImages() {
 
   const { data: property, isLoading, refetch } = trpc.properties.getById.useQuery(propertyId);
   const uploadMutation = trpc.properties.uploadImage.useMutation();
+  const addUrlMutation = trpc.properties.addImageByUrl.useMutation();
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -52,6 +55,31 @@ export default function AdminPropertyImages() {
       console.error(error);
     } finally {
       setUploading(false);
+    }
+  };
+
+  const handleAddByUrl = async () => {
+    if (!imageUrl.trim()) {
+      toast.error("Digite uma URL válida");
+      return;
+    }
+
+    setAddingUrl(true);
+
+    try {
+      await addUrlMutation.mutateAsync({
+        propertyId,
+        imageUrl: imageUrl.trim(),
+      });
+
+      toast.success("Imagem adicionada com sucesso!");
+      setImageUrl("");
+      refetch();
+    } catch (error) {
+      toast.error("Erro ao adicionar imagem. Verifique se a URL é válida.");
+      console.error(error);
+    } finally {
+      setAddingUrl(false);
     }
   };
 
@@ -112,6 +140,52 @@ export default function AdminPropertyImages() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
+                {/* Adicionar por URL */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Adicionar por URL</label>
+                  <div className="flex gap-2">
+                    <input
+                      type="url"
+                      placeholder="https://exemplo.com/imagem.jpg"
+                      value={imageUrl}
+                      onChange={(e) => setImageUrl(e.target.value)}
+                      className="flex-1 px-3 py-2 border rounded-md text-sm"
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          handleAddByUrl();
+                        }
+                      }}
+                    />
+                    <Button
+                      onClick={handleAddByUrl}
+                      disabled={addingUrl || !imageUrl.trim()}
+                    >
+                      {addingUrl ? (
+                        <>
+                          <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                          Adicionando...
+                        </>
+                      ) : (
+                        "Adicionar"
+                      )}
+                    </Button>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Cole a URL de uma imagem da internet
+                  </p>
+                </div>
+
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t" />
+                  </div>
+                  <div className="relative flex justify-center text-xs uppercase">
+                    <span className="bg-background px-2 text-muted-foreground">
+                      Ou
+                    </span>
+                  </div>
+                </div>
+
                 <div className="border-2 border-dashed rounded-lg p-6 text-center">
                   <input
                     type="file"

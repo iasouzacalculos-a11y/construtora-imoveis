@@ -169,3 +169,12 @@
 - [x] Testar acesso ao painel admin sem login
 - [x] Criar páginas /admin e /admin/imovel/:id/imagens funcionais
 - [x] Documentar que isso é temporário e será removido no futuro
+
+
+## Adicionar Imagens via URL
+
+- [x] Criar rota tRPC addImageByUrl no server/routers.ts
+- [x] Adicionar campo de texto para URL na página AdminPropertyImages.tsx
+- [x] Implementar botão "Adicionar por URL"
+- [x] Corrigir Admin.tsx para usar id em vez de customId
+- [x] Testar adição de imagens via URL

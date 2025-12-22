@@ -49,6 +49,21 @@ export const appRouter = router({
         
         return { url };
       }),
+    addImageByUrl: protectedProcedure
+      .input(z.object({
+        propertyId: z.string(),
+        imageUrl: z.string().url(),
+      }))
+      .mutation(async ({ input }) => {
+        await addPropertyImage({
+          id: nanoid(),
+          propertyId: input.propertyId,
+          imageUrl: input.imageUrl,
+          order: 0,
+        });
+        
+        return { url: input.imageUrl };
+      }),
     updateId: protectedProcedure
       .input(z.object({
         oldId: z.string(),
