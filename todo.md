@@ -178,3 +178,11 @@
 - [x] Implementar botão "Adicionar por URL"
 - [x] Corrigir Admin.tsx para usar id em vez de customId
 - [x] Testar adição de imagens via URL
+
+
+## Corrigir Link do Google Drive
+
+- [x] Converter link do Google Drive para formato de visualização direta
+- [x] Identificar problema de CORS com Google Drive
+- [x] Atualizar banco de dados com link do Imgur
+- [x] Testar exibição da imagem no PropertyCard - Funcionando perfeitamente!
