@@ -8,8 +8,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Bath, Bed, Car, Mail, MapPin, Maximize, Phone, User, Image, Loader2 } from "lucide-react";
-import PropertyIdEditor from "@/components/PropertyIdEditor";
+import { Bath, Bed, Car, Mail, MapPin, Maximize, Phone, User, Loader2 } from "lucide-react";
+// PropertyIdEditor removido - funcionalidade movida para /admin
 import { useRoute, useLocation } from "wouter";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
@@ -115,7 +115,7 @@ export default function PropertyDetail() {
                 <div className="text-4xl font-bold text-primary mb-6">
                   {formatPrice(property.price)}
                 </div>
-                <PropertyIdEditor currentId={property.id} />
+
               </div>
 
               {/* Features */}
@@ -226,19 +226,7 @@ export default function PropertyDetail() {
                 </CardContent>
               </Card>
 
-              {/* Image Management */}
-              <Card>
-                <CardContent className="p-6">
-                  <h2 className="text-xl font-semibold mb-4">Gerenciar Imagens</h2>
-                  <Button 
-                    className="w-full"
-                    onClick={() => setLocation(`/imovel/${property.id}/gerenciar-imagens`)}
-                  >
-                    <Image className="h-4 w-4 mr-2" />
-                    Adicionar/Editar Imagens
-                  </Button>
-                </CardContent>
-              </Card>
+
 
               {/* Additional Info */}
               <Card>

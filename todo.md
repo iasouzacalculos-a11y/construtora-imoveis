@@ -216,3 +216,13 @@
   - gv-qd18-lt27: R$ 840.000 (121m², 3 quartos)
   - gv-qd40-lt22: R$ 480.000 (89m², 2 suítes + lavabo)
 - [x] Testar exibição - 24 imóveis exibidos corretamente
+
+
+## Segurança do Sistema de Imagens
+
+- [x] Remover botões admin da página pública de imóveis (Editar ID, Adicionar/Editar Imagens)
+- [x] Mover funcionalidades de upload para área /admin apenas
+- [x] Implementar validação de role admin no backend para endpoints de imagem (protectedProcedure)
+- [x] Criar painel admin com gerenciamento de imagens por imóvel
+- [x] Garantir que visitantes só possam fazer requisições GET (publicProcedure para list/getById)
+- [x] Testar que nenhuma ação admin é possível sem autenticação (useAuth com redirect)

@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation, useParams } from "wouter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { trpc } from "@/lib/trpc";
-import { Loader2, Upload, ArrowLeft, X } from "lucide-react";
+import { Loader2, Upload, ArrowLeft, X, Lock, Trash2, GripVertical } from "lucide-react";
 import { toast } from "sonner";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { getLoginUrl } from "@/const";
 
 export default function AdminPropertyImages() {
   const params = useParams();
@@ -18,10 +21,16 @@ export default function AdminPropertyImages() {
 
   const propertyId = params.id as string;
 
-  // TODO: Adicionar autenticação no futuro
-  // Por enquanto, acesso livre para o proprietário gerenciar
+  // Autenticação obrigatória
+  const { user, loading: authLoading, isAuthenticated } = useAuth({
+    redirectOnUnauthenticated: true,
+    redirectPath: getLoginUrl(),
+  });
 
-  const { data: property, isLoading, refetch } = trpc.properties.getById.useQuery(propertyId);
+  const { data: property, isLoading, refetch } = trpc.properties.getById.useQuery(propertyId, {
+    enabled: isAuthenticated && !!propertyId,
+  });
+  
   const uploadMutation = trpc.properties.uploadImage.useMutation();
   const addUrlMutation = trpc.properties.addImageByUrl.useMutation();
 
@@ -50,8 +59,12 @@ export default function AdminPropertyImages() {
       toast.success(`${selectedFiles.length} imagem(ns) enviada(s) com sucesso!`);
       setSelectedFiles([]);
       refetch();
-    } catch (error) {
-      toast.error("Erro ao enviar imagens");
+    } catch (error: any) {
+      if (error?.data?.code === 'UNAUTHORIZED') {
+        toast.error("Você não tem permissão para fazer upload de imagens");
+      } else {
+        toast.error("Erro ao enviar imagens");
+      }
       console.error(error);
     } finally {
       setUploading(false);
@@ -61,6 +74,14 @@ export default function AdminPropertyImages() {
   const handleAddByUrl = async () => {
     if (!imageUrl.trim()) {
       toast.error("Digite uma URL válida");
+      return;
+    }
+
+    // Validar URL
+    try {
+      new URL(imageUrl);
+    } catch {
+      toast.error("URL inválida. Digite uma URL completa (ex: https://...)");
       return;
     }
 
@@ -75,13 +96,59 @@ export default function AdminPropertyImages() {
       toast.success("Imagem adicionada com sucesso!");
       setImageUrl("");
       refetch();
-    } catch (error) {
-      toast.error("Erro ao adicionar imagem. Verifique se a URL é válida.");
+    } catch (error: any) {
+      if (error?.data?.code === 'UNAUTHORIZED') {
+        toast.error("Você não tem permissão para adicionar imagens");
+      } else {
+        toast.error("Erro ao adicionar imagem. Verifique se a URL é válida.");
+      }
       console.error(error);
     } finally {
       setAddingUrl(false);
     }
   };
+
+  // Loading de autenticação
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1 flex items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  // Usuário não autenticado
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1 flex items-center justify-center">
+          <Card className="w-full max-w-md">
+            <CardHeader className="text-center">
+              <Lock className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+              <CardTitle>Acesso Restrito</CardTitle>
+              <CardDescription>
+                Você precisa fazer login para gerenciar imagens.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button 
+                className="w-full" 
+                onClick={() => window.location.href = getLoginUrl()}
+              >
+                Fazer Login
+              </Button>
+            </CardContent>
+          </Card>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (
@@ -128,6 +195,9 @@ export default function AdminPropertyImages() {
             <p className="text-muted-foreground">
               {property.title} - {property.address}
             </p>
+            <p className="text-xs text-muted-foreground mt-1 font-mono">
+              ID: {property.id}
+            </p>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
@@ -136,7 +206,7 @@ export default function AdminPropertyImages() {
               <CardHeader>
                 <CardTitle>Adicionar Imagens</CardTitle>
                 <CardDescription>
-                  Selecione uma ou mais imagens para fazer upload
+                  Adicione imagens por URL ou faça upload de arquivos
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -144,12 +214,11 @@ export default function AdminPropertyImages() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Adicionar por URL</label>
                   <div className="flex gap-2">
-                    <input
+                    <Input
                       type="url"
                       placeholder="https://exemplo.com/imagem.jpg"
                       value={imageUrl}
                       onChange={(e) => setImageUrl(e.target.value)}
-                      className="flex-1 px-3 py-2 border rounded-md text-sm"
                       onKeyDown={(e) => {
                         if (e.key === 'Enter') {
                           handleAddByUrl();
@@ -171,7 +240,7 @@ export default function AdminPropertyImages() {
                     </Button>
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    Cole a URL de uma imagem da internet
+                    Cole a URL de uma imagem (Imgur, Google Drive, etc.)
                   </p>
                 </div>
 
@@ -180,13 +249,14 @@ export default function AdminPropertyImages() {
                     <span className="w-full border-t" />
                   </div>
                   <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-background px-2 text-muted-foreground">
+                    <span className="bg-card px-2 text-muted-foreground">
                       Ou
                     </span>
                   </div>
                 </div>
 
-                <div className="border-2 border-dashed rounded-lg p-6 text-center">
+                {/* Upload de arquivo */}
+                <div className="border-2 border-dashed rounded-lg p-6 text-center hover:border-primary/50 transition-colors">
                   <input
                     type="file"
                     accept="image/*"
@@ -203,6 +273,9 @@ export default function AdminPropertyImages() {
                     <span className="text-sm text-muted-foreground">
                       Clique para selecionar imagens
                     </span>
+                    <span className="text-xs text-muted-foreground mt-1">
+                      JPG, PNG, WebP até 10MB
+                    </span>
                   </label>
                 </div>
 
@@ -211,13 +284,16 @@ export default function AdminPropertyImages() {
                     <p className="text-sm font-medium">
                       {selectedFiles.length} arquivo(s) selecionado(s)
                     </p>
-                    <div className="space-y-1">
+                    <div className="space-y-1 max-h-40 overflow-y-auto">
                       {selectedFiles.map((file, index) => (
                         <div
                           key={index}
                           className="flex items-center justify-between text-sm p-2 bg-muted rounded"
                         >
-                          <span className="truncate">{file.name}</span>
+                          <span className="truncate flex-1">{file.name}</span>
+                          <span className="text-xs text-muted-foreground mx-2">
+                            {(file.size / 1024 / 1024).toFixed(2)} MB
+                          </span>
                           <Button
                             variant="ghost"
                             size="sm"
@@ -267,19 +343,30 @@ export default function AdminPropertyImages() {
                 {property.images && property.images.length > 0 ? (
                   <div className="grid grid-cols-2 gap-4">
                     {property.images.map((image: any, index: number) => (
-                      <div key={index} className="relative group">
+                      <div key={image.id || index} className="relative group">
                         <img
                           src={image.imageUrl}
                           alt={`${property.title} - ${index + 1}`}
                           className="w-full aspect-video object-cover rounded-lg"
                         />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                          <span className="text-white text-sm font-medium">
+                            #{index + 1}
+                          </span>
+                        </div>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-sm text-muted-foreground text-center py-8">
-                    Nenhuma imagem cadastrada ainda
-                  </p>
+                  <div className="text-center py-12 border-2 border-dashed rounded-lg">
+                    <Upload className="h-12 w-12 mx-auto text-muted-foreground mb-2" />
+                    <p className="text-sm text-muted-foreground">
+                      Nenhuma imagem cadastrada ainda
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Adicione imagens usando o formulário ao lado
+                    </p>
+                  </div>
                 )}
               </CardContent>
             </Card>
