@@ -226,3 +226,9 @@
 - [x] Criar painel admin com gerenciamento de imagens por imóvel
 - [x] Garantir que visitantes só possam fazer requisições GET (publicProcedure para list/getById)
 - [x] Testar que nenhuma ação admin é possível sem autenticação (useAuth com redirect)
+
+
+## Corrigir Upload de Imagens Imgur
+
+- [x] Converter URLs do Imgur (imgur.com/xxx) para formato direto (i.imgur.com/xxx.jpeg)
+- [x] Testar adição de imagens com link do Imgur - Funcionando!

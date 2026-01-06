@@ -63,14 +63,35 @@ export const appRouter = router({
         imageUrl: z.string().url(),
       }))
       .mutation(async ({ input }) => {
+        let finalUrl = input.imageUrl;
+        
+        // Converter URLs do Imgur para formato direto
+        // Ex: https://imgur.com/kSgrGLt -> https://i.imgur.com/kSgrGLt.jpeg
+        const imgurMatch = input.imageUrl.match(/^https?:\/\/(www\.)?imgur\.com\/([a-zA-Z0-9]+)$/);
+        if (imgurMatch) {
+          const imageId = imgurMatch[2];
+          finalUrl = `https://i.imgur.com/${imageId}.jpeg`;
+        }
+        
+        // Converter URLs do Imgur com /a/ (album) para imagem direta
+        // Ex: https://imgur.com/a/kSgrGLt -> não suportado (album)
+        
+        // Converter URLs do i.imgur sem extensão
+        // Ex: https://i.imgur.com/kSgrGLt -> https://i.imgur.com/kSgrGLt.jpeg
+        const iImgurMatch = input.imageUrl.match(/^https?:\/\/i\.imgur\.com\/([a-zA-Z0-9]+)$/);
+        if (iImgurMatch) {
+          const imageId = iImgurMatch[1];
+          finalUrl = `https://i.imgur.com/${imageId}.jpeg`;
+        }
+        
         await addPropertyImage({
           id: nanoid(),
           propertyId: input.propertyId,
-          imageUrl: input.imageUrl,
+          imageUrl: finalUrl,
           order: 0,
         });
         
-        return { url: input.imageUrl };
+        return { url: finalUrl };
       }),
     updateId: protectedProcedure
       .input(z.object({
