@@ -310,7 +310,7 @@ export default function PropertyDetail() {
                   <div className="mt-6 pt-6 border-t space-y-3">
                     <div className="flex items-center gap-3 text-sm">
                       <Phone className="h-4 w-4 text-muted-foreground" />
-                      <span>(11) 9999-9999</span>
+                      <span>(66) 99662-2263</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm">
                       <Mail className="h-4 w-4 text-muted-foreground" />

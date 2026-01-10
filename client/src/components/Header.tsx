@@ -37,11 +37,11 @@ export default function Header() {
         <div className="flex items-center gap-3">
           {/* Telefone - cor cinza, menos destaque */}
           <a 
-            href="tel:+551199999999" 
+            href="tel:+5566996622263" 
             className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <Phone className="h-4 w-4" />
-            <span>(11) 9999-9999</span>
+            <span>(66) 99662-2263</span>
           </a>
           
           {/* Botão único azul - desktop */}
@@ -72,11 +72,11 @@ export default function Header() {
                 
                 <div className="border-t pt-4 mt-4">
                   <a 
-                    href="tel:+551199999999" 
+                    href="tel:+5566996622263" 
                     className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
                   >
                     <Phone className="h-4 w-4" />
-                    <span>(11) 9999-9999</span>
+                    <span>(66) 99662-2263</span>
                   </a>
                 </div>
               </nav>

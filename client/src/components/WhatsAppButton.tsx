@@ -3,8 +3,8 @@ import { MessageCircle } from "lucide-react";
 export default function WhatsAppButton() {
   const handleWhatsAppClick = () => {
     // TODO: Substituir pelo número real da imobiliária
-    const phoneNumber = "5565999999999"; // Formato: código do país + DDD + número
-    const message = encodeURIComponent("Olá! Gostaria de mais informações sobre os imóveis.");
+    const phoneNumber = "5566996622263"; // Formato: código do país + DDD + número
+    const message = encodeURIComponent("Olá, vi os imóveis pelo site e tenho interesse de agendar uma visita.");
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 

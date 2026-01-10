@@ -232,3 +232,10 @@
 
 - [x] Converter URLs do Imgur (imgur.com/xxx) para formato direto (i.imgur.com/xxx.jpeg)
 - [x] Testar adição de imagens com link do Imgur - Funcionando!
+
+
+### Atualizar WhatsApp e Contato
+
+- [x] Atualizar número do WhatsApp para 66996622263 em todos os componentes (Header, Footer, PropertyDetail, WhatsAppButton)
+- [x] Adicionar mensagem de exemplo: "Olá, vi os imóveis pelo site e tenho interesse de agendar uma visita."
+- [x] Testar botão WhatsApp em diferentes páginas - Funcionando perfeitamente!
