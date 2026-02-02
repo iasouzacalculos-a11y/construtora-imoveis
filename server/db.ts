@@ -114,7 +114,10 @@ export async function createProperty(property: InsertProperty) {
 export async function getPropertyImages(propertyId: string) {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(propertyImages).where(eq(propertyImages.propertyId, propertyId));
+  return db.select()
+    .from(propertyImages)
+    .where(eq(propertyImages.propertyId, propertyId))
+    .orderBy(propertyImages.order);
 }
 
 export async function addPropertyImage(image: InsertPropertyImage) {

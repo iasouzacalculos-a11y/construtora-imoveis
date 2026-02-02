@@ -264,3 +264,9 @@
 - [ ] Identificar causa do erro (tamanho, formato, serialização)
 - [ ] Corrigir problema no backend ou frontend
 - [ ] Testar upload com imagem de teste
+
+## Corrigir Ordenação de Imagens na Página Pública
+
+- [x] Investigar por que a ordem das imagens não é respeitada ao visualizar imóvel
+- [x] Corrigir query que busca imagens para incluir orderBy
+- [x] Testar que a ordem definida no admin aparece corretamente na página pública
