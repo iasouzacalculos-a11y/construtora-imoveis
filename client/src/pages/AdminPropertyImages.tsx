@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useParams } from "wouter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { trpc } from "@/lib/trpc";
-import { Loader2, Upload, ArrowLeft, X, Lock, Trash2, GripVertical } from "lucide-react";
+import { Loader2, Upload, ArrowLeft, X, Lock, Trash2, GripVertical, Star } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
@@ -18,6 +18,8 @@ export default function AdminPropertyImages() {
   const [uploading, setUploading] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
   const [addingUrl, setAddingUrl] = useState(false);
+  const [draggedItem, setDraggedItem] = useState<string | null>(null);
+  const [images, setImages] = useState<any[]>([]);
 
   const propertyId = params.id as string;
 
@@ -33,6 +35,15 @@ export default function AdminPropertyImages() {
   
   const uploadMutation = trpc.properties.uploadImage.useMutation();
   const addUrlMutation = trpc.properties.addImageByUrl.useMutation();
+  const updateOrderMutation = trpc.properties.updateImageOrder.useMutation();
+  const deleteImageMutation = trpc.properties.deleteImage.useMutation();
+
+  // Sincronizar imagens quando property muda
+  useEffect(() => {
+    if (property?.images) {
+      setImages([...property.images].sort((a, b) => (a.order || 0) - (b.order || 0)));
+    }
+  }, [property?.images]);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -80,7 +91,6 @@ export default function AdminPropertyImages() {
       return;
     }
 
-    // Validar URL
     try {
       new URL(imageUrl);
     } catch {
@@ -108,6 +118,61 @@ export default function AdminPropertyImages() {
       console.error(error);
     } finally {
       setAddingUrl(false);
+    }
+  };
+
+  const handleDragStart = (e: React.DragEvent, imageId: string) => {
+    setDraggedItem(imageId);
+    e.dataTransfer.effectAllowed = "move";
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+  };
+
+  const handleDrop = async (e: React.DragEvent, targetImageId: string) => {
+    e.preventDefault();
+    if (!draggedItem || draggedItem === targetImageId) return;
+
+    const draggedIndex = images.findIndex(img => img.id === draggedItem);
+    const targetIndex = images.findIndex(img => img.id === targetImageId);
+
+    if (draggedIndex === -1 || targetIndex === -1) return;
+
+    // Reordenar localmente
+    const newImages = [...images];
+    [newImages[draggedIndex], newImages[targetIndex]] = [newImages[targetIndex], newImages[draggedIndex]];
+    
+    // Atualizar ordem no banco
+    try {
+      for (let i = 0; i < newImages.length; i++) {
+        await updateOrderMutation.mutateAsync({
+          imageId: newImages[i].id,
+          order: i,
+        });
+      }
+      setImages(newImages);
+      toast.success("Ordem das imagens atualizada!");
+      refetch();
+    } catch (error) {
+      toast.error("Erro ao atualizar ordem das imagens");
+      console.error(error);
+    } finally {
+      setDraggedItem(null);
+    }
+  };
+
+  const handleDeleteImage = async (imageId: string) => {
+    if (!confirm("Tem certeza que deseja remover esta imagem?")) return;
+
+    try {
+      await deleteImageMutation.mutateAsync({ imageId });
+      toast.success("Imagem removida com sucesso!");
+      refetch();
+    } catch (error) {
+      toast.error("Erro ao remover imagem");
+      console.error(error);
     }
   };
 
@@ -334,29 +399,62 @@ export default function AdminPropertyImages() {
               </CardContent>
             </Card>
 
-            {/* Imagens existentes */}
+            {/* Imagens existentes com drag and drop */}
             <Card>
               <CardHeader>
                 <CardTitle>Imagens Atuais</CardTitle>
                 <CardDescription>
-                  {property.images?.length || 0} imagem(ns) cadastrada(s)
+                  {images.length || 0} imagem(ns) cadastrada(s) - Arraste para reordenar
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                {property.images && property.images.length > 0 ? (
-                  <div className="grid grid-cols-2 gap-4">
-                    {property.images.map((image: any, index: number) => (
-                      <div key={image.id || index} className="relative group">
+                {images && images.length > 0 ? (
+                  <div className="space-y-2">
+                    {images.map((image: any, index: number) => (
+                      <div
+                        key={image.id}
+                        draggable
+                        onDragStart={(e) => handleDragStart(e, image.id)}
+                        onDragOver={handleDragOver}
+                        onDrop={(e) => handleDrop(e, image.id)}
+                        className={`flex items-center gap-3 p-3 rounded-lg border-2 cursor-move transition-all ${
+                          draggedItem === image.id
+                            ? 'border-primary bg-primary/10 opacity-50'
+                            : 'border-border hover:border-primary/50'
+                        }`}
+                      >
+                        <GripVertical className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                        
                         <img
                           src={image.imageUrl}
                           alt={`${property.title} - ${index + 1}`}
-                          className="w-full aspect-video object-cover rounded-lg"
+                          className="w-16 h-16 object-cover rounded"
                         />
-                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
-                          <span className="text-white text-sm font-medium">
-                            #{index + 1}
-                          </span>
+                        
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium truncate">
+                            Imagem #{index + 1}
+                          </p>
+                          <p className="text-xs text-muted-foreground truncate">
+                            {image.imageUrl.split('/').pop()}
+                          </p>
                         </div>
+
+                        {index === 0 && (
+                          <div className="flex items-center gap-1 px-2 py-1 bg-yellow-100 rounded text-xs font-medium text-yellow-800">
+                            <Star className="h-3 w-3" />
+                            Principal
+                          </div>
+                        )}
+
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleDeleteImage(image.id)}
+                          className="text-destructive hover:text-destructive hover:bg-destructive/10"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
                       </div>
                     ))}
                   </div>

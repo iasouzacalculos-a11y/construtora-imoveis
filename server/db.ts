@@ -127,9 +127,18 @@ export async function updatePropertyId(oldId: string, newId: string) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   
-  // Update the property ID
   await db.update(properties).set({ id: newId }).where(eq(properties.id, oldId));
-  
-  // Update all associated images
   await db.update(propertyImages).set({ propertyId: newId }).where(eq(propertyImages.propertyId, oldId));
+}
+
+export async function updateImageOrder(imageId: string, order: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(propertyImages).set({ order }).where(eq(propertyImages.id, imageId));
+}
+
+export async function deletePropertyImage(imageId: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(propertyImages).where(eq(propertyImages.id, imageId));
 }

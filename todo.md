@@ -246,3 +246,12 @@
 - [x] Diagnosticar erro "Input not instance of File" no painel admin
 - [x] Converter arquivo para Blob antes de enviar via tRPC
 - [x] Testar upload - Funcionando corretamente!
+
+
+## Implementar Drag and Drop para Reordenar Imagens
+
+- [x] Adicionar coluna order na tabela propertyImages (já existe)
+- [x] Criar endpoint para atualizar ordem das imagens (updateImageOrder, deleteImage)
+- [x] Implementar componente com drag and drop no AdminPropertyImages
+- [x] Definir imagem principal (primeira imagem com badge "Principal")
+- [x] Testar reordenação - Painel admin carregando corretamente com interface de drag and drop
