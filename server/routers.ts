@@ -41,12 +41,16 @@ export const appRouter = router({
     uploadImage: protectedProcedure
       .input(z.object({
         propertyId: z.string(),
-        file: z.instanceof(File),
+        fileData: z.string(), // base64
+        fileName: z.string(),
+        fileType: z.string(),
       }))
       .mutation(async ({ input }) => {
-        const buffer = await input.file.arrayBuffer();
-        const fileKey = `properties/${input.propertyId}/${nanoid()}-${input.file.name}`;
-        const { url } = await storagePut(fileKey, Buffer.from(buffer), input.file.type);
+        // Decodificar base64 para buffer
+        const base64Data = input.fileData.split(',')[1]; // Remove "data:image/jpeg;base64,"
+        const buffer = Buffer.from(base64Data, 'base64');
+        const fileKey = `properties/${input.propertyId}/${nanoid()}-${input.fileName}`;
+        const { url } = await storagePut(fileKey, buffer, input.fileType);
         
         await addPropertyImage({
           id: nanoid(),

@@ -61,12 +61,18 @@ export default function AdminPropertyImages() {
 
     try {
       for (const file of selectedFiles) {
-        const blob = new Blob([await file.arrayBuffer()], { type: file.type });
-        const fileData = new File([blob], file.name, { type: file.type });
+        // Converter arquivo para base64
+        const reader = new FileReader();
+        const fileData = await new Promise<string>((resolve) => {
+          reader.onloadend = () => resolve(reader.result as string);
+          reader.readAsDataURL(file);
+        });
         
         await uploadMutation.mutateAsync({
           propertyId,
-          file: fileData,
+          fileData,
+          fileName: file.name,
+          fileType: file.type,
         });
       }
 

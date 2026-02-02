@@ -52,10 +52,17 @@ export default function ImageUpload({ propertyId, onImageUploaded }: ImageUpload
   const handleUpload = async () => {
     if (!selectedFile) return;
 
-    uploadMutation.mutate({
-      propertyId,
-      file: selectedFile,
-    });
+    // Converter arquivo para base64
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      uploadMutation.mutate({
+        propertyId,
+        fileData: reader.result as string,
+        fileName: selectedFile.name,
+        fileType: selectedFile.type,
+      });
+    };
+    reader.readAsDataURL(selectedFile);
   };
 
   const handleClear = () => {

@@ -255,3 +255,12 @@
 - [x] Implementar componente com drag and drop no AdminPropertyImages
 - [x] Definir imagem principal (primeira imagem com badge "Principal")
 - [x] Testar reordenação - Painel admin carregando corretamente com interface de drag and drop
+
+
+## Corrigir Problema de Upload de Imagens no Painel Admin
+
+- [ ] Verificar logs de erro no console do navegador
+- [ ] Testar upload de imagem única no painel admin
+- [ ] Identificar causa do erro (tamanho, formato, serialização)
+- [ ] Corrigir problema no backend ou frontend
+- [ ] Testar upload com imagem de teste
