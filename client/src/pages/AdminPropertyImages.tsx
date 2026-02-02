@@ -50,9 +50,12 @@ export default function AdminPropertyImages() {
 
     try {
       for (const file of selectedFiles) {
+        const blob = new Blob([await file.arrayBuffer()], { type: file.type });
+        const fileData = new File([blob], file.name, { type: file.type });
+        
         await uploadMutation.mutateAsync({
           propertyId,
-          file,
+          file: fileData,
         });
       }
 

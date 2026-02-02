@@ -239,3 +239,10 @@
 - [x] Atualizar número do WhatsApp para 66996622263 em todos os componentes (Header, Footer, PropertyDetail, WhatsAppButton)
 - [x] Adicionar mensagem de exemplo: "Olá, vi os imóveis pelo site e tenho interesse de agendar uma visita."
 - [x] Testar botão WhatsApp em diferentes páginas - Funcionando perfeitamente!
+
+
+## Corrigir Erro de Upload de Arquivo
+
+- [x] Diagnosticar erro "Input not instance of File" no painel admin
+- [x] Converter arquivo para Blob antes de enviar via tRPC
+- [x] Testar upload - Funcionando corretamente!
