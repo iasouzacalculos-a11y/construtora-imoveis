@@ -15,11 +15,9 @@ import {
   Clock, 
   Handshake, 
   Mail, 
-  MapPin, 
   MessageSquare, 
   Phone, 
   Send, 
-  Star, 
   TrendingUp, 
   Users 
 } from "lucide-react";
@@ -38,18 +36,6 @@ export default function Contato() {
   });
   const [contatoLoading, setContatoLoading] = useState(false);
 
-  // Estado do formulário de corretor parceiro
-  const [corretorForm, setCorretorForm] = useState({
-    nome: "",
-    email: "",
-    telefone: "",
-    creci: "",
-    experiencia: "",
-    regiao: "",
-    mensagem: "",
-  });
-  const [corretorLoading, setCorretorLoading] = useState(false);
-
   // Estado do FAQ
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -65,18 +51,6 @@ export default function Contato() {
     },
   });
 
-  // Mutation para enviar cadastro de corretor
-  const sendBrokerMutation = trpc.contact.sendBrokerApplication.useMutation({
-    onSuccess: () => {
-      toast.success("Cadastro enviado com sucesso! Entraremos em contato para dar continuidade.");
-      setCorretorForm({ nome: "", email: "", telefone: "", creci: "", experiencia: "", regiao: "", mensagem: "" });
-    },
-    onError: (error: unknown) => {
-      toast.error("Erro ao enviar cadastro. Tente novamente.");
-      console.error(error);
-    },
-  });
-
   const handleContatoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!contatoForm.nome || !contatoForm.email || !contatoForm.telefone || !contatoForm.assunto || !contatoForm.mensagem) {
@@ -86,18 +60,6 @@ export default function Contato() {
     setContatoLoading(true);
     sendContactMutation.mutate(contatoForm, {
       onSettled: () => setContatoLoading(false),
-    });
-  };
-
-  const handleCorretorSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!corretorForm.nome || !corretorForm.email || !corretorForm.telefone || !corretorForm.creci) {
-      toast.error("Por favor, preencha os campos obrigatórios.");
-      return;
-    }
-    setCorretorLoading(true);
-    sendBrokerMutation.mutate(corretorForm, {
-      onSettled: () => setCorretorLoading(false),
     });
   };
 
@@ -177,23 +139,6 @@ export default function Contato() {
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
                         <div className="p-3 rounded-xl bg-primary/10">
-                          <MapPin className="h-6 w-6 text-primary" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold mb-1">Endereço</h3>
-                          <p className="text-sm text-muted-foreground">
-                            Av. Mal. Rondon, 2019<br />
-                            Centro, Rondonópolis - MT
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border-2 hover:border-primary/50 transition-colors">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <div className="p-3 rounded-xl bg-primary/10">
                           <Phone className="h-6 w-6 text-primary" />
                         </div>
                         <div>
@@ -229,14 +174,14 @@ export default function Contato() {
                     </CardContent>
                   </Card>
 
-                  <Card className="border-2 hover:border-primary/50 transition-colors">
+                  <Card className="border-2 hover:border-primary/50 transition-colors sm:col-span-2">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
                         <div className="p-3 rounded-xl bg-primary/10">
                           <Clock className="h-6 w-6 text-primary" />
                         </div>
                         <div>
-                          <h3 className="font-semibold mb-1">Horário</h3>
+                          <h3 className="font-semibold mb-1">Horário de Atendimento</h3>
                           <p className="text-sm text-muted-foreground">
                             Seg - Sex: 8h às 18h<br />
                             Sábado: 8h às 12h
@@ -247,20 +192,28 @@ export default function Contato() {
                   </Card>
                 </div>
 
-                {/* Mapa */}
-                <div className="mt-8">
-                  <h3 className="font-semibold mb-4">Nossa Localização</h3>
-                  <div className="aspect-video rounded-2xl overflow-hidden border-2 shadow-lg">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3843.8!2d-54.6225263!3d-16.4652161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDI3JzU0LjgiUyA1NMKwMzcnMjEuMSJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Localização Souza Construtora"
-                    />
+                {/* WhatsApp CTA */}
+                <div className="bg-green-50 dark:bg-green-950/30 rounded-2xl p-6 border-2 border-green-200 dark:border-green-900">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-xl bg-green-500">
+                      <MessageSquare className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold mb-1">Atendimento Rápido</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Prefere conversar pelo WhatsApp? Clique no botão abaixo!
+                      </p>
+                      <a
+                        href="https://wa.me/5566996622263?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button className="bg-green-500 hover:bg-green-600">
+                          <MessageSquare className="h-4 w-4 mr-2" />
+                          Chamar no WhatsApp
+                        </Button>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -376,206 +329,94 @@ export default function Contato() {
           </div>
         </section>
 
-        {/* Seção Corretor Parceiro */}
+        {/* Seção Corretor Parceiro - Simplificada */}
         <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-primary/10">
           <div className="container">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                <Handshake className="h-4 w-4" />
-                Programa de Parceria
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+                  <Handshake className="h-4 w-4" />
+                  Para Corretores
+                </div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                  É <span className="text-primary">Corretor de Imóveis</span>?
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Temos um portfólio exclusivo de imóveis de qualidade em Rondonópolis. 
+                  Entre em contato conosco e conheça as vantagens de trabalhar com a Souza Construtora.
+                </p>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Seja um <span className="text-primary">Corretor Parceiro</span>
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Junte-se à nossa rede de corretores parceiros e tenha acesso a um portfólio 
-                exclusivo de imóveis de qualidade em Rondonópolis. Oferecemos as melhores 
-                comissões e suporte completo para você crescer.
-              </p>
-            </div>
 
-            {/* Benefícios */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              <Card className="text-center border-2 hover:border-primary/50 hover:shadow-lg transition-all">
-                <CardContent className="pt-8 pb-6">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <TrendingUp className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2">Comissões Atrativas</h3>
-                  <p className="text-sm text-muted-foreground">
-                    As melhores comissões do mercado com pagamento rápido e transparente
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center border-2 hover:border-primary/50 hover:shadow-lg transition-all">
-                <CardContent className="pt-8 pb-6">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <Building2 className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2">Portfólio Exclusivo</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Acesso a imóveis de qualidade com documentação 100% regularizada
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center border-2 hover:border-primary/50 hover:shadow-lg transition-all">
-                <CardContent className="pt-8 pb-6">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <Users className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2">Suporte Dedicado</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Equipe de apoio para ajudar em todas as etapas da negociação
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center border-2 hover:border-primary/50 hover:shadow-lg transition-all">
-                <CardContent className="pt-8 pb-6">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <Star className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2">Treinamentos</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Capacitação contínua para você se destacar no mercado imobiliário
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Formulário Corretor */}
-            <div className="max-w-3xl mx-auto">
-              <Card className="border-2 shadow-xl">
-                <CardHeader className="text-center pb-4">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary flex items-center justify-center">
-                    <Handshake className="h-8 w-8 text-primary-foreground" />
-                  </div>
-                  <CardTitle className="text-2xl">Cadastre-se como Corretor Parceiro</CardTitle>
-                  <CardDescription>
-                    Preencha o formulário abaixo e nossa equipe entrará em contato para dar continuidade ao seu cadastro.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleCorretorSubmit} className="space-y-5">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="corretor-nome">Nome completo *</Label>
-                        <Input
-                          id="corretor-nome"
-                          placeholder="Seu nome"
-                          value={corretorForm.nome}
-                          onChange={(e) => setCorretorForm({ ...corretorForm, nome: e.target.value })}
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="corretor-creci">CRECI *</Label>
-                        <Input
-                          id="corretor-creci"
-                          placeholder="Ex: 12345/MT"
-                          value={corretorForm.creci}
-                          onChange={(e) => setCorretorForm({ ...corretorForm, creci: e.target.value })}
-                          required
-                        />
-                      </div>
+              {/* Benefícios */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <Card className="text-center border-2 hover:border-primary/50 hover:shadow-lg transition-all">
+                  <CardContent className="pt-8 pb-6">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center">
+                      <TrendingUp className="h-8 w-8 text-primary" />
                     </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="corretor-email">Email *</Label>
-                        <Input
-                          id="corretor-email"
-                          type="email"
-                          placeholder="seu@email.com"
-                          value={corretorForm.email}
-                          onChange={(e) => setCorretorForm({ ...corretorForm, email: e.target.value })}
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="corretor-telefone">Telefone/WhatsApp *</Label>
-                        <Input
-                          id="corretor-telefone"
-                          placeholder="(66) 99999-9999"
-                          value={corretorForm.telefone}
-                          onChange={(e) => setCorretorForm({ ...corretorForm, telefone: e.target.value })}
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="corretor-experiencia">Tempo de experiência</Label>
-                        <Select
-                          value={corretorForm.experiencia}
-                          onValueChange={(value) => setCorretorForm({ ...corretorForm, experiencia: value })}
-                        >
-                          <SelectTrigger id="corretor-experiencia">
-                            <SelectValue placeholder="Selecione" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="menos-1">Menos de 1 ano</SelectItem>
-                            <SelectItem value="1-3">1 a 3 anos</SelectItem>
-                            <SelectItem value="3-5">3 a 5 anos</SelectItem>
-                            <SelectItem value="5-10">5 a 10 anos</SelectItem>
-                            <SelectItem value="mais-10">Mais de 10 anos</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="corretor-regiao">Região de atuação</Label>
-                        <Select
-                          value={corretorForm.regiao}
-                          onValueChange={(value) => setCorretorForm({ ...corretorForm, regiao: value })}
-                        >
-                          <SelectTrigger id="corretor-regiao">
-                            <SelectValue placeholder="Selecione" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="rondonopolis">Rondonópolis</SelectItem>
-                            <SelectItem value="cuiaba">Cuiabá</SelectItem>
-                            <SelectItem value="varzea-grande">Várzea Grande</SelectItem>
-                            <SelectItem value="primavera">Primavera do Leste</SelectItem>
-                            <SelectItem value="outras">Outras regiões</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="corretor-mensagem">Conte um pouco sobre você (opcional)</Label>
-                      <Textarea
-                        id="corretor-mensagem"
-                        placeholder="Sua experiência, especialidades, por que deseja ser nosso parceiro..."
-                        rows={4}
-                        value={corretorForm.mensagem}
-                        onChange={(e) => setCorretorForm({ ...corretorForm, mensagem: e.target.value })}
-                      />
-                    </div>
-
-                    <Button 
-                      type="submit" 
-                      size="lg" 
-                      className="w-full"
-                      disabled={corretorLoading}
-                    >
-                      {corretorLoading ? (
-                        "Enviando..."
-                      ) : (
-                        <>
-                          <Handshake className="h-5 w-5 mr-2" />
-                          Enviar Cadastro
-                        </>
-                      )}
-                    </Button>
-
-                    <p className="text-xs text-center text-muted-foreground">
-                      Ao enviar, você concorda com nossa política de privacidade e termos de parceria.
+                    <h3 className="font-bold text-lg mb-2">Comissões Atrativas</h3>
+                    <p className="text-sm text-muted-foreground">
+                      As melhores comissões do mercado com pagamento rápido e transparente
                     </p>
-                  </form>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center border-2 hover:border-primary/50 hover:shadow-lg transition-all">
+                  <CardContent className="pt-8 pb-6">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center">
+                      <Building2 className="h-8 w-8 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-2">Portfólio Exclusivo</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Acesso a imóveis de qualidade com documentação 100% regularizada
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center border-2 hover:border-primary/50 hover:shadow-lg transition-all">
+                  <CardContent className="pt-8 pb-6">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center">
+                      <Users className="h-8 w-8 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-2">Suporte Dedicado</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Equipe de apoio para ajudar em todas as etapas da negociação
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* CTA para Corretores */}
+              <Card className="border-2 shadow-xl bg-gradient-to-r from-primary/5 to-primary/10">
+                <CardContent className="p-8 md:p-12 text-center">
+                  <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-primary flex items-center justify-center">
+                    <Handshake className="h-10 w-10 text-primary-foreground" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                    Quer ser nosso parceiro?
+                  </h3>
+                  <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+                    Entre em contato conosco pelo WhatsApp ou telefone e converse diretamente 
+                    com nossa equipe sobre as oportunidades de parceria.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a
+                      href="https://wa.me/5566996622263?text=Olá,%20sou%20corretor%20de%20imóveis%20e%20gostaria%20de%20conhecer%20as%20oportunidades%20de%20parceria."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button size="lg" className="bg-green-500 hover:bg-green-600 w-full sm:w-auto">
+                        <MessageSquare className="h-5 w-5 mr-2" />
+                        Falar no WhatsApp
+                      </Button>
+                    </a>
+                    <a href="tel:+5566996622263">
+                      <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                        <Phone className="h-5 w-5 mr-2" />
+                        (66) 99662-2263
+                      </Button>
+                    </a>
+                  </div>
                 </CardContent>
               </Card>
             </div>

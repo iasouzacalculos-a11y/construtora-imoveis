@@ -294,3 +294,11 @@
 - [x] Adicionar FAQ com perguntas frequentes
 - [x] Implementar backend para salvar mensagens e notificar proprietário
 - [x] Testar responsividade e funcionalidades
+
+
+## Simplificar Página de Contato
+
+- [x] Remover seção de localização/mapa da página de Contato
+- [x] Remover "Treinamentos" dos benefícios do Corretor Parceiro
+- [x] Remover formulário de cadastro de corretor - apenas convite para contato
+- [x] Testar alterações
