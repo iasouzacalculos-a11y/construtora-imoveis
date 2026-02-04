@@ -15,6 +15,13 @@
       "when": 1766064785961,
       "tag": "0001_foamy_the_watchers",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1770238522013,
+      "tag": "0002_sharp_shriek",
+      "breakpoints": true
     }
   ]
 }

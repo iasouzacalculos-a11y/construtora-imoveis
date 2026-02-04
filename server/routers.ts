@@ -2,7 +2,8 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
-import { getAllProperties, getPropertyById, getPropertyImages, addPropertyImage, updatePropertyId, updateImageOrder, deletePropertyImage } from "./db";
+import { getAllProperties, getPropertyById, getPropertyImages, addPropertyImage, updatePropertyId, updateImageOrder, deletePropertyImage, createContactMessage, createBrokerApplication } from "./db";
+import { notifyOwner } from "./_core/notification";
 import { storagePut } from "./storage";
 import { z } from "zod";
 import { nanoid } from "nanoid";
@@ -122,6 +123,52 @@ export const appRouter = router({
       .mutation(async ({ input }) => {
         await deletePropertyImage(input.imageId);
         return { success: true };
+      }),
+  }),
+
+  contact: router({
+    sendMessage: publicProcedure
+      .input(z.object({
+        nome: z.string().min(1),
+        email: z.string().email(),
+        telefone: z.string().min(1),
+        assunto: z.string().min(1),
+        mensagem: z.string().min(1),
+      }))
+      .mutation(async ({ input }) => {
+        const id = nanoid();
+        await createContactMessage({ id, ...input });
+        
+        // Notificar proprietário
+        await notifyOwner({
+          title: `Nova mensagem de contato: ${input.assunto}`,
+          content: `Nome: ${input.nome}\nEmail: ${input.email}\nTelefone: ${input.telefone}\n\nMensagem:\n${input.mensagem}`,
+        });
+        
+        return { success: true, id };
+      }),
+    
+    sendBrokerApplication: publicProcedure
+      .input(z.object({
+        nome: z.string().min(1),
+        email: z.string().email(),
+        telefone: z.string().min(1),
+        creci: z.string().min(1),
+        experiencia: z.string().optional(),
+        regiao: z.string().optional(),
+        mensagem: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const id = nanoid();
+        await createBrokerApplication({ id, ...input });
+        
+        // Notificar proprietário
+        await notifyOwner({
+          title: `Novo cadastro de Corretor Parceiro: ${input.nome}`,
+          content: `Nome: ${input.nome}\nCRECI: ${input.creci}\nEmail: ${input.email}\nTelefone: ${input.telefone}\nExperiência: ${input.experiencia || 'Não informado'}\nRegião: ${input.regiao || 'Não informado'}\n\nMensagem:\n${input.mensagem || 'Nenhuma mensagem adicional'}`,
+        });
+        
+        return { success: true, id };
       }),
   }),
 });

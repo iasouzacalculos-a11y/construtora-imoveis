@@ -61,3 +61,35 @@ export const propertyImages = mysqlTable("propertyImages", {
 
 export type PropertyImage = typeof propertyImages.$inferSelect;
 export type InsertPropertyImage = typeof propertyImages.$inferInsert;
+
+// Contact Messages table
+export const contactMessages = mysqlTable("contactMessages", {
+  id: varchar("id", { length: 36 }).primaryKey(),
+  nome: varchar("nome", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  telefone: varchar("telefone", { length: 20 }).notNull(),
+  assunto: varchar("assunto", { length: 100 }).notNull(),
+  mensagem: text("mensagem").notNull(),
+  status: varchar("status", { length: 50 }).notNull().default("pending"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type ContactMessage = typeof contactMessages.$inferSelect;
+export type InsertContactMessage = typeof contactMessages.$inferInsert;
+
+// Broker Applications table (Corretor Parceiro)
+export const brokerApplications = mysqlTable("brokerApplications", {
+  id: varchar("id", { length: 36 }).primaryKey(),
+  nome: varchar("nome", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  telefone: varchar("telefone", { length: 20 }).notNull(),
+  creci: varchar("creci", { length: 50 }).notNull(),
+  experiencia: varchar("experiencia", { length: 50 }),
+  regiao: varchar("regiao", { length: 100 }),
+  mensagem: text("mensagem"),
+  status: varchar("status", { length: 50 }).notNull().default("pending"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type BrokerApplication = typeof brokerApplications.$inferSelect;
+export type InsertBrokerApplication = typeof brokerApplications.$inferInsert;

@@ -283,3 +283,14 @@
 - [x] Criar página Sobre Nós adaptada para Souza Construtora
 - [x] Incluir história, missão, valores e diferenciais
 - [x] Testar responsividade e design
+
+## Criar Página de Contato Completa
+
+- [x] Criar hero section com título e subtítulo
+- [x] Adicionar seção de informações de contato (endereço, telefone, email, horário)
+- [x] Implementar formulário de contato com campos completos
+- [x] Adicionar mapa interativo do Google Maps
+- [x] Criar seção "Seja um Corretor Parceiro" com formulário específico
+- [x] Adicionar FAQ com perguntas frequentes
+- [x] Implementar backend para salvar mensagens e notificar proprietário
+- [x] Testar responsividade e funcionalidades

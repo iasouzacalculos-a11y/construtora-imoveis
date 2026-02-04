@@ -145,3 +145,38 @@ export async function deletePropertyImage(imageId: string) {
   if (!db) throw new Error("Database not available");
   await db.delete(propertyImages).where(eq(propertyImages.id, imageId));
 }
+
+
+// Contact Message queries
+export async function createContactMessage(message: {
+  id: string;
+  nome: string;
+  email: string;
+  telefone: string;
+  assunto: string;
+  mensagem: string;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const { contactMessages } = await import("../drizzle/schema");
+  await db.insert(contactMessages).values(message);
+}
+
+// Broker Application queries
+export async function createBrokerApplication(application: {
+  id: string;
+  nome: string;
+  email: string;
+  telefone: string;
+  creci: string;
+  experiencia?: string;
+  regiao?: string;
+  mensagem?: string;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const { brokerApplications } = await import("../drizzle/schema");
+  await db.insert(brokerApplications).values(application);
+}
