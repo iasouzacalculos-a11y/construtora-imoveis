@@ -270,3 +270,9 @@
 - [x] Investigar por que a ordem das imagens não é respeitada ao visualizar imóvel
 - [x] Corrigir query que busca imagens para incluir orderBy
 - [x] Testar que a ordem definida no admin aparece corretamente na página pública
+
+## Corrigir Erro no Painel Admin com ID de Imóvel Inválido
+
+- [x] Investigar imóvel com ID "QD37 – Lote 14 GV" que está causando erro
+- [x] Corrigir ID do imóvel para formato válido (sem espaços e caracteres especiais)
+- [x] Testar página de gerenciar imagens

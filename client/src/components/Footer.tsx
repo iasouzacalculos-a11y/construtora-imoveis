@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Logo e Descrição */}
           <div className="space-y-4">
             <div className="mb-6">
-              <img src="/logo-souza-completa.png" alt="Souza Construtora" className="h-16 w-auto" />
+              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663230153293/vJuIIAkUEQFdyJNv.png" alt="Souza Construtora" className="h-16 w-auto" />
             </div>
             <p className="text-sm text-background/75 leading-relaxed">
               Construindo sonhos há mais de 20 anos. Qualidade, confiança e segurança em cada imóvel.

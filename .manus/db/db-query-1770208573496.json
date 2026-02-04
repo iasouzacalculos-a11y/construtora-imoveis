@@ -1,0 +1,34 @@
+{
+  "query": "SELECT id, title FROM properties WHERE id LIKE '%QD37%' OR id LIKE '%Lote 14%' OR id LIKE '% %';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute SELECT id, title FROM properties WHERE id LIKE '%QD37%' OR id LIKE '%Lote 14%' OR id LIKE '% %';",
+  "rows": [
+    {
+      "id": "QD17 – Lote 10 GV",
+      "title": "Casa Granville "
+    },
+    {
+      "id": "QD18 – Lote 27 GV",
+      "title": "Casa Granville "
+    },
+    {
+      "id": "QD33 – Lote 16 GV  ",
+      "title": "Casa Granville "
+    },
+    {
+      "id": "QD36 – Lote 14 GV",
+      "title": "Casa Granville"
+    },
+    {
+      "id": "QD36 – Lote 26 GV",
+      "title": "Casa Granville"
+    },
+    {
+      "id": "QD37 – Lote 14 GV",
+      "title": "Casa Granville "
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\nQD17 – Lote 10 GV\tCasa Granville \nQD18 – Lote 27 GV\tCasa Granville \nQD33 – Lote 16 GV  \tCasa Granville \nQD36 – Lote 14 GV\tCasa Granville\nQD36 – Lote 26 GV\tCasa Granville\nQD37 – Lote 14 GV\tCasa Granville \n",
+  "stderr": "",
+  "execution_time_ms": 90
+}
