@@ -271,7 +271,7 @@ export default function Sobre() {
               <div className="order-1 lg:order-2">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80"
+                    src="https://i.imgur.com/41C1yeK.jpeg"
                     alt="Casa moderna"
                     className="w-full h-full object-cover"
                   />
@@ -284,7 +284,7 @@ export default function Sobre() {
               <div>
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop&q=80"
+                    src="https://i.imgur.com/scs93rf.jpeg"
                     alt="Interior de casa"
                     className="w-full h-full object-cover"
                   />
@@ -328,7 +328,7 @@ export default function Sobre() {
               <div className="order-1 lg:order-2">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&auto=format&fit=crop&q=80"
+                    src="https://i.imgur.com/PgTaqUx.jpeg"
                     alt="Fachada de casa"
                     className="w-full h-full object-cover"
                   />
