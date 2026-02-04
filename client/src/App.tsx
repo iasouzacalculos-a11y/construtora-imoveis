@@ -9,6 +9,7 @@ import Properties from "./pages/Properties";
 import PropertyDetail from "./pages/PropertyDetail";
 import Admin from "./pages/Admin";
 import AdminPropertyImages from "./pages/AdminPropertyImages";
+import Sobre from "./pages/Sobre";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -18,6 +19,7 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/imoveis"} component={Properties} />
+      <Route path={"/sobre"} component={Sobre} />
       <Route path={"/imovel/:id"} component={PropertyDetail} />
       <Route path={"/admin"} component={Admin} />
       <Route path={"/admin/imovel/:id/imagens"} component={AdminPropertyImages} />

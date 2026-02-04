@@ -276,3 +276,10 @@
 - [x] Investigar imóvel com ID "QD37 – Lote 14 GV" que está causando erro
 - [x] Corrigir ID do imóvel para formato válido (sem espaços e caracteres especiais)
 - [x] Testar página de gerenciar imagens
+
+## Criar Página Sobre Nós Inspirada na Impper
+
+- [x] Analisar design e conteúdo da página Sobre Nós da Impper
+- [x] Criar página Sobre Nós adaptada para Souza Construtora
+- [x] Incluir história, missão, valores e diferenciais
+- [x] Testar responsividade e design
