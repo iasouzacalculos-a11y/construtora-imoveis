@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import PropertyCard from "@/components/PropertyCard";
+import PropertyCarousel from "@/components/PropertyCarousel";
 
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
@@ -40,11 +40,11 @@ export default function Home() {
           area: p.area,
           parking: p.parking || 0
         },
-        type: p.type,
+        type: p.type as "apartment" | "house" | "penthouse" | "townhouse",
         image: p.images?.[0]?.url || "/placeholder-property.jpg",
         gallery: p.images?.map((img: any) => img.url) || [],
         description: p.description || "",
-        status: p.status || "available"
+        status: (p.status || "available") as "available" | "sold" | "reserved"
       }));
     
     // Ordenar conforme a ordem dos IDs
@@ -141,11 +141,9 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Cards em coluna única no mobile */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              {featuredProperties.map((property) => (
-                <PropertyCard key={property.id} property={property} />
-              ))}
+            {/* Carrossel de imóveis */}
+            <div className="mb-8">
+              <PropertyCarousel properties={featuredProperties} />
             </div>
 
             <div className="text-center">

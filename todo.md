@@ -322,3 +322,11 @@
 - [x] Adicionar https://i.imgur.com/Hjp93hh.png ao imóvel gv-qd40-lt22
 - [x] Adicionar https://i.imgur.com/p0qG3N2.png ao imóvel qd18-lote-27-gv
 - [x] Adicionar https://i.imgur.com/jCTs2wc.png ao imóvel sf-qd13-lt22
+
+
+## Criar Carrossel de Imóveis na Página Inicial
+
+- [x] Instalar biblioteca de carrossel (embla-carousel ou similar)
+- [x] Transformar grid de imóveis em destaque em carrossel interativo
+- [x] Adicionar setas de navegação e indicadores
+- [x] Testar responsividade em mobile e desktop
