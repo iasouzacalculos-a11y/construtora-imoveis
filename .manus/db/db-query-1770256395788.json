@@ -1,0 +1,269 @@
+{
+  "query": "SELECT * FROM propertyImages WHERE propertyId IN ('gv-qd40-lt22', 'qd18-lote-27-gv', 'sf-qd13-lt22') ORDER BY propertyId, `order`;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute SELECT * FROM propertyImages WHERE propertyId IN ('gv-qd40-lt22', 'qd18-lote-27-gv', 'sf-qd13-lt22') ORDER BY propertyId, `order`;",
+  "rows": [
+    {
+      "id": "gv-qd40-lt22-img-1770256308700",
+      "propertyId": "gv-qd40-lt22",
+      "imageUrl": "https://i.imgur.com/Hjp93hh.png",
+      "order": "0",
+      "createdAt": "2026-02-05 01:51:48"
+    },
+    {
+      "id": "8fJnarzr_0jDog-mJdJs4",
+      "propertyId": "gv-qd40-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/Mw89OgOBZpV4AD-qr4_VE-fachada 3.1 - Copia.jpeg",
+      "order": "0",
+      "createdAt": "2026-02-03 16:24:36"
+    },
+    {
+      "id": "vlX8-l7f5rdQjdoUVnQ_B",
+      "propertyId": "gv-qd40-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/1pjwNwvfgOzc7MMyHUwHF-WhatsApp Image 2026-01-22 at 16.39.45 (1).jpeg",
+      "order": "1",
+      "createdAt": "2026-02-03 16:24:35"
+    },
+    {
+      "id": "4FWMUu2sLQlq1f9-A2ZEH",
+      "propertyId": "gv-qd40-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/cVwL1qTZ4g182ysaE98Xq-WhatsApp Image 2026-01-22 at 16.39.45 (2).jpeg",
+      "order": "2",
+      "createdAt": "2026-02-03 16:24:34"
+    },
+    {
+      "id": "UGy3tNhdSTTDeU4xeg3C-",
+      "propertyId": "gv-qd40-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/WE0VucqVqUogc6Un5jtWB-WhatsApp Image 2026-01-22 at 16.39.45 (3).jpeg",
+      "order": "3",
+      "createdAt": "2026-02-03 16:24:34"
+    },
+    {
+      "id": "5_TWuRMc1AunzfkG0yTMW",
+      "propertyId": "gv-qd40-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/thmsugQET_82Isg0eV3cq-WhatsApp Image 2026-01-22 at 16.39.46 (2).jpeg",
+      "order": "4",
+      "createdAt": "2026-02-03 16:24:32"
+    },
+    {
+      "id": "JwPCaTovJOHhf3OWop6kf",
+      "propertyId": "gv-qd40-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/BvKObvsbNeZpsl8x5YmxD-WhatsApp Image 2026-01-22 at 16.39.46 (1).jpeg",
+      "order": "5",
+      "createdAt": "2026-02-03 16:24:32"
+    },
+    {
+      "id": "_tD5BKh79-_IdbIDQdmHw",
+      "propertyId": "gv-qd40-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/m0uphnu--g5D1sqOR4WFN-WhatsApp Image 2026-01-22 at 16.39.46 (3).jpeg",
+      "order": "6",
+      "createdAt": "2026-02-03 16:24:31"
+    },
+    {
+      "id": "CE18QbI_R6qOyBvfoqf1x",
+      "propertyId": "gv-qd40-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/IwSok7xdna7PCf3uBN91b-WhatsApp Image 2026-01-22 at 16.39.46.jpeg",
+      "order": "7",
+      "createdAt": "2026-02-03 16:24:29"
+    },
+    {
+      "id": "axUJfujlFCnIQnrFtNi92",
+      "propertyId": "gv-qd40-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/z6W65oyb9I6hKDZzndBwu-WhatsApp Image 2026-01-22 at 16.39.46 (5).jpeg",
+      "order": "8",
+      "createdAt": "2026-02-03 16:24:30"
+    },
+    {
+      "id": "nIgitsiYhc2bQGypIx6kH",
+      "propertyId": "gv-qd40-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/ZA2RJ40YN5wABwBjjlPZN-WhatsApp Image 2026-01-22 at 16.39.46 (4).jpeg",
+      "order": "9",
+      "createdAt": "2026-02-03 16:24:31"
+    },
+    {
+      "id": "qd18-lote-27-gv-img-1770256308820",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://i.imgur.com/p0qG3N2.png",
+      "order": "0",
+      "createdAt": "2026-02-05 01:51:48"
+    },
+    {
+      "id": "vjrwbbr4YVjnAFr9UO7lm",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/tcJqJ5wvZ_ra9RTPuklwU-FACHADA 4.1.jpeg",
+      "order": "0",
+      "createdAt": "2026-02-03 16:41:03"
+    },
+    {
+      "id": "0CxQPHnldpLN-vYDRKUru",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/IYs7mN-OIRmfqGdszDm4Y-WhatsApp Image 2026-01-22 at 16.23.42.jpeg",
+      "order": "1",
+      "createdAt": "2026-02-03 16:41:02"
+    },
+    {
+      "id": "VQqk2rdjCykRj3fBnl0YO",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/ew6adgGyw_3Lm3rowp6-5-WhatsApp Image 2026-01-22 at 16.23.42 (1).jpeg",
+      "order": "2",
+      "createdAt": "2026-02-03 16:41:02"
+    },
+    {
+      "id": "3kzBL4OomIobJKaD8hweU",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/wkL_TgJZMldT5UeJ5ve3k-WhatsApp Image 2026-01-22 at 16.23.43.jpeg",
+      "order": "3",
+      "createdAt": "2026-02-03 16:40:58"
+    },
+    {
+      "id": "XOynta3OUigcT43XpSYmH",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/KLN0Tb_q_ddwOs9j5sP0X-WhatsApp Image 2026-01-22 at 16.23.43 (3).jpeg",
+      "order": "4",
+      "createdAt": "2026-02-03 16:41:00"
+    },
+    {
+      "id": "dhCV_SQFfXGSbNGDgscPW",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/wtjmbKVM29QN0PL_wEJ77-WhatsApp Image 2026-01-22 at 16.23.43 (1).jpeg",
+      "order": "5",
+      "createdAt": "2026-02-03 16:41:01"
+    },
+    {
+      "id": "cKvZ4ucZXmtwRxxad-DEk",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/InKwuIez97l1mJR7r4_-2-WhatsApp Image 2026-01-22 at 16.23.43 (5).jpeg",
+      "order": "6",
+      "createdAt": "2026-02-03 16:40:59"
+    },
+    {
+      "id": "bIK2ATE_9EjAnf65mf0mL",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/4k87YbuL7tSFHF0TLkDGF-WhatsApp Image 2026-01-22 at 16.23.43 (2).jpeg",
+      "order": "7",
+      "createdAt": "2026-02-03 16:41:01"
+    },
+    {
+      "id": "dtOaptaXtH-11_R0d166s",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/AkfVyeacomYdQKih7MO1q-WhatsApp Image 2026-01-22 at 16.23.43 (6).jpeg",
+      "order": "8",
+      "createdAt": "2026-02-03 16:40:59"
+    },
+    {
+      "id": "mTlzeUmR1bheGXYRnB8vc",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/mhgkAPhMaRsj0Fa1O6J5o-WhatsApp Image 2026-01-22 at 16.23.43 (4).jpeg",
+      "order": "9",
+      "createdAt": "2026-02-03 16:41:00"
+    },
+    {
+      "id": "8BJJtxG8vDPcXGZsirDs1",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/v0s0xn4Q_HlKLKJv81oin-WhatsApp Image 2026-01-22 at 16.23.44.jpeg",
+      "order": "10",
+      "createdAt": "2026-02-03 16:40:57"
+    },
+    {
+      "id": "zApzNPhuVBhK-Vi_EBnnL",
+      "propertyId": "qd18-lote-27-gv",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/n9xBLk3JYv7pUWrhgyWL--WhatsApp Image 2026-01-22 at 16.23.44 (1).jpeg",
+      "order": "11",
+      "createdAt": "2026-02-03 16:40:58"
+    },
+    {
+      "id": "sf-qd13-lt22-img-1770256308834",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://i.imgur.com/jCTs2wc.png",
+      "order": "0",
+      "createdAt": "2026-02-05 01:51:48"
+    },
+    {
+      "id": "2nZl6FJA1At-X_SoK_uyw",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/43OKya_2JCL2KOc_JTv9W-WhatsApp Image 2026-02-03 at 12.47.35.jpeg",
+      "order": "0",
+      "createdAt": "2026-02-03 16:54:26"
+    },
+    {
+      "id": "BnjUG1j_0iD5-IMmyizJ3",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/2xlMhVPPAjbBbcIlxSzBg-WhatsApp Image 2026-01-22 at 10.10.52.jpeg",
+      "order": "1",
+      "createdAt": "2026-02-03 16:54:27"
+    },
+    {
+      "id": "nQQJwShiKthWshgU8-ru-",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/xCeksotkcu_P9_exmIhHq-WhatsApp Image 2026-01-22 at 10.10.52 (1).jpeg",
+      "order": "2",
+      "createdAt": "2026-02-03 16:54:35"
+    },
+    {
+      "id": "DK5MBAVHZ0_jwzjEifcGU",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/8svCPpLpLHwDXtfg0Xy68-WhatsApp Image 2026-01-22 at 10.10.52 (2).jpeg",
+      "order": "3",
+      "createdAt": "2026-02-03 16:54:33"
+    },
+    {
+      "id": "HYXWpw2HPc-5HeN7S48QF",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/Cd4xZMEhFADjv8HLJ0O5M-WhatsApp Image 2026-01-22 at 10.10.52 (3).jpeg",
+      "order": "4",
+      "createdAt": "2026-02-03 16:54:33"
+    },
+    {
+      "id": "26D6bf1Jqa3eU6etJQOcx",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/N3DvC-cVMb_cap9J-QB4J-WhatsApp Image 2026-01-22 at 10.10.52 (6).jpeg",
+      "order": "5",
+      "createdAt": "2026-02-03 16:54:30"
+    },
+    {
+      "id": "C5-l_kCjnqAJkHzSzEwNj",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/Fs06f0Qx0iB83BEkbpdCG-WhatsApp Image 2026-01-22 at 10.10.52 (5).jpeg",
+      "order": "6",
+      "createdAt": "2026-02-03 16:54:31"
+    },
+    {
+      "id": "tgFXrSyIkYfXTDNUZxcrB",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/OejV4w0yAj7fYRfpqBvES-WhatsApp Image 2026-01-22 at 10.10.52 (7).jpeg",
+      "order": "7",
+      "createdAt": "2026-02-03 16:54:30"
+    },
+    {
+      "id": "CYfkwCNQjKFSYF-XWPvt4",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/DIpEBbpMClHFeS2dpVczv-WhatsApp Image 2026-01-22 at 10.10.52 (4).jpeg",
+      "order": "8",
+      "createdAt": "2026-02-03 16:54:32"
+    },
+    {
+      "id": "1hTs4mOMXnH_cG5E_qIEz",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/1lBO5LzTEe_jS0eftu83c-WhatsApp Image 2026-01-22 at 10.10.52 (8).jpeg",
+      "order": "9",
+      "createdAt": "2026-02-03 16:54:29"
+    },
+    {
+      "id": "Wa6r30V-_DQnbw35duHI4",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/tH05yB0gFUWqqHU-FOWU7-WhatsApp Image 2026-01-22 at 10.10.52 (9).jpeg",
+      "order": "10",
+      "createdAt": "2026-02-03 16:54:28"
+    },
+    {
+      "id": "qon5rTNCaJclmgQAt7wPx",
+      "propertyId": "sf-qd13-lt22",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/cCJ6yQkY9wjXfmQo4rkI7-WhatsApp Image 2026-01-22 at 10.10.52 (10).jpeg",
+      "order": "11",
+      "createdAt": "2026-02-03 16:54:34"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tpropertyId\timageUrl\torder\tcreatedAt\ngv-qd40-lt22-img-1770256308700\tgv-qd40-lt22\thttps://i.imgur.com/Hjp93hh.png\t0\t2026-02-05 01:51:48\n8fJnarzr_0jDog-mJdJs4\tgv-qd40-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/Mw89OgOBZpV4AD-qr4_VE-fachada 3.1 - Copia.jpeg\t0\t2026-02-03 16:24:36\nvlX8-l7f5rdQjdoUVnQ_B\tgv-qd40-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/1pjwNwvfgOzc7MMyHUwHF-WhatsApp Image 2026-01-22 at 16.39.45 (1).jpeg\t1\t2026-02-03 16:24:35\n4FWMUu2sLQlq1f9-A2ZEH\tgv-qd40-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/cVwL1qTZ4g182ysaE98Xq-WhatsApp Image 2026-01-22 at 16.39.45 (2).jpeg\t2\t2026-02-03 16:24:34\nUGy3tNhdSTTDeU4xeg3C-\tgv-qd40-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/WE0VucqVqUogc6Un5jtWB-WhatsApp Image 2026-01-22 at 16.39.45 (3).jpeg\t3\t2026-02-03 16:24:34\n5_TWuRMc1AunzfkG0yTMW\tgv-qd40-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/thmsugQET_82Isg0eV3cq-WhatsApp Image 2026-01-22 at 16.39.46 (2).jpeg\t4\t2026-02-03 16:24:32\nJwPCaTovJOHhf3OWop6kf\tgv-qd40-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/BvKObvsbNeZpsl8x5YmxD-WhatsApp Image 2026-01-22 at 16.39.46 (1).jpeg\t5\t2026-02-03 16:24:32\n_tD5BKh79-_IdbIDQdmHw\tgv-qd40-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/m0uphnu--g5D1sqOR4WFN-WhatsApp Image 2026-01-22 at 16.39.46 (3).jpeg\t6\t2026-02-03 16:24:31\nCE18QbI_R6qOyBvfoqf1x\tgv-qd40-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/IwSok7xdna7PCf3uBN91b-WhatsApp Image 2026-01-22 at 16.39.46.jpeg\t7\t2026-02-03 16:24:29\naxUJfujlFCnIQnrFtNi92\tgv-qd40-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/z6W65oyb9I6hKDZzndBwu-WhatsApp Image 2026-01-22 at 16.39.46 (5).jpeg\t8\t2026-02-03 16:24:30\nnIgitsiYhc2bQGypIx6kH\tgv-qd40-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/gv-qd40-lt22/ZA2RJ40YN5wABwBjjlPZN-WhatsApp Image 2026-01-22 at 16.39.46 (4).jpeg\t9\t2026-02-03 16:24:31\nqd18-lote-27-gv-img-1770256308820\tqd18-lote-27-gv\thttps://i.imgur.com/p0qG3N2.png\t0\t2026-02-05 01:51:48\nvjrwbbr4YVjnAFr9UO7lm\tqd18-lote-27-gv\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/tcJqJ5wvZ_ra9RTPuklwU-FACHADA 4.1.jpeg\t0\t2026-02-03 16:41:03\n0CxQPHnldpLN-vYDRKUru\tqd18-lote-27-gv\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/IYs7mN-OIRmfqGdszDm4Y-WhatsApp Image 2026-01-22 at 16.23.42.jpeg\t1\t2026-02-03 16:41:02\nVQqk2rdjCykRj3fBnl0YO\tqd18-lote-27-gv\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/ew6adgGyw_3Lm3rowp6-5-WhatsApp Image 2026-01-22 at 16.23.42 (1).jpeg\t2\t2026-02-03 16:41:02\n3kzBL4OomIobJKaD8hweU\tqd18-lote-27-gv\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/wkL_TgJZMldT5UeJ5ve3k-WhatsApp Image 2026-01-22 at 16.23.43.jpeg\t3\t2026-02-03 16:40:58\nXOynta3OUigcT43XpSYmH\tqd18-lote-27-gv\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/KLN0Tb_q_ddwOs9j5sP0X-WhatsApp Image 2026-01-22 at 16.23.43 (3).jpeg\t4\t2026-02-03 16:41:00\ndhCV_SQFfXGSbNGDgscPW\tqd18-lote-27-gv\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/wtjmbKVM29QN0PL_wEJ77-WhatsApp Image 2026-01-22 at 16.23.43 (1).jpeg\t5\t2026-02-03 16:41:01\ncKvZ4ucZXmtwRxxad-DEk\tqd18-lote-27-gv\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/InKwuIez97l1mJR7r4_-2-WhatsApp Image 2026-01-22 at 16.23.43 (5).jpeg\t6\t2026-02-03 16:40:59\nbIK2ATE_9EjAnf65mf0mL\tqd18-lote-27-gv\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/4k87YbuL7tSFHF0TLkDGF-WhatsApp Image 2026-01-22 at 16.23.43 (2).jpeg\t7\t2026-02-03 16:41:01\ndtOaptaXtH-11_R0d166s\tqd18-lote-27-gv\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/AkfVyeacomYdQKih7MO1q-WhatsApp Image 2026-01-22 at 16.23.43 (6).jpeg\t8\t2026-02-03 16:40:59\nmTlzeUmR1bheGXYRnB8vc\tqd18-lote-27-gv\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/mhgkAPhMaRsj0Fa1O6J5o-WhatsApp Image 2026-01-22 at 16.23.43 (4).jpeg\t9\t2026-02-03 16:41:00\n8BJJtxG8vDPcXGZsirDs1\tqd18-lote-27-gv\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/v0s0xn4Q_HlKLKJv81oin-WhatsApp Image 2026-01-22 at 16.23.44.jpeg\t10\t2026-02-03 16:40:57\nzApzNPhuVBhK-Vi_EBnnL\tqd18-lote-27-gv\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/QD18 – Lote 27 GV/n9xBLk3JYv7pUWrhgyWL--WhatsApp Image 2026-01-22 at 16.23.44 (1).jpeg\t11\t2026-02-03 16:40:58\nsf-qd13-lt22-img-1770256308834\tsf-qd13-lt22\thttps://i.imgur.com/jCTs2wc.png\t0\t2026-02-05 01:51:48\n2nZl6FJA1At-X_SoK_uyw\tsf-qd13-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/43OKya_2JCL2KOc_JTv9W-WhatsApp Image 2026-02-03 at 12.47.35.jpeg\t0\t2026-02-03 16:54:26\nBnjUG1j_0iD5-IMmyizJ3\tsf-qd13-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/2xlMhVPPAjbBbcIlxSzBg-WhatsApp Image 2026-01-22 at 10.10.52.jpeg\t1\t2026-02-03 16:54:27\nnQQJwShiKthWshgU8-ru-\tsf-qd13-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/xCeksotkcu_P9_exmIhHq-WhatsApp Image 2026-01-22 at 10.10.52 (1).jpeg\t2\t2026-02-03 16:54:35\nDK5MBAVHZ0_jwzjEifcGU\tsf-qd13-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/8svCPpLpLHwDXtfg0Xy68-WhatsApp Image 2026-01-22 at 10.10.52 (2).jpeg\t3\t2026-02-03 16:54:33\nHYXWpw2HPc-5HeN7S48QF\tsf-qd13-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/Cd4xZMEhFADjv8HLJ0O5M-WhatsApp Image 2026-01-22 at 10.10.52 (3).jpeg\t4\t2026-02-03 16:54:33\n26D6bf1Jqa3eU6etJQOcx\tsf-qd13-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/N3DvC-cVMb_cap9J-QB4J-WhatsApp Image 2026-01-22 at 10.10.52 (6).jpeg\t5\t2026-02-03 16:54:30\nC5-l_kCjnqAJkHzSzEwNj\tsf-qd13-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/Fs06f0Qx0iB83BEkbpdCG-WhatsApp Image 2026-01-22 at 10.10.52 (5).jpeg\t6\t2026-02-03 16:54:31\ntgFXrSyIkYfXTDNUZxcrB\tsf-qd13-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/OejV4w0yAj7fYRfpqBvES-WhatsApp Image 2026-01-22 at 10.10.52 (7).jpeg\t7\t2026-02-03 16:54:30\nCYfkwCNQjKFSYF-XWPvt4\tsf-qd13-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/DIpEBbpMClHFeS2dpVczv-WhatsApp Image 2026-01-22 at 10.10.52 (4).jpeg\t8\t2026-02-03 16:54:32\n1hTs4mOMXnH_cG5E_qIEz\tsf-qd13-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/1lBO5LzTEe_jS0eftu83c-WhatsApp Image 2026-01-22 at 10.10.52 (8).jpeg\t9\t2026-02-03 16:54:29\nWa6r30V-_DQnbw35duHI4\tsf-qd13-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/tH05yB0gFUWqqHU-FOWU7-WhatsApp Image 2026-01-22 at 10.10.52 (9).jpeg\t10\t2026-02-03 16:54:28\nqon5rTNCaJclmgQAt7wPx\tsf-qd13-lt22\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663230153293/5x5dmSjv8MfRvF3VbeC4An/properties/sf-qd13-lt22/cCJ6yQkY9wjXfmQo4rkI7-WhatsApp Image 2026-01-22 at 10.10.52 (10).jpeg\t11\t2026-02-03 16:54:34\n",
+  "stderr": "",
+  "execution_time_ms": 109
+}

@@ -308,3 +308,10 @@
 
 - [x] Trocar imóveis em destaque para: gv-qd40-lt22, qd18-lote-27-gv, sf-qd13-lt22
 - [x] Testar página inicial
+
+
+## Adicionar Imagens aos Imóveis em Destaque
+
+- [x] Adicionar imagem https://i.imgur.com/Hjp93hh.png ao imóvel gv-qd40-lt22
+- [x] Adicionar imagem https://i.imgur.com/p0qG3N2.png ao imóvel qd18-lote-27-gv
+- [x] Adicionar imagem https://i.imgur.com/jCTs2wc.png ao imóvel sf-qd13-lt22
