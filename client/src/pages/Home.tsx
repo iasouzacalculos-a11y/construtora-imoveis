@@ -13,16 +13,16 @@ export default function Home() {
   // Buscar imóveis do banco de dados
   const { data: propertiesData, isLoading } = trpc.properties.list.useQuery();
 
-  // Filtrar apenas imóveis de Rondonópolis e pegar os 3 primeiros
+  // IDs dos imóveis em destaque
+  const featuredIds = ["gv-qd40-lt22", "qd18-lote-27-gv", "sf-qd13-lt22"];
+  
+  // Buscar apenas os imóveis em destaque
   const featuredProperties = useMemo(() => {
     if (!propertiesData) return [];
     
     // Transformar dados do banco para o formato esperado pelo PropertyCard
     const transformedProperties = propertiesData
-      .filter((p: any) => {
-        const city = p.city?.trim() || "";
-        return city === "Rondonópolis" || city === "Rondonopolis";
-      })
+      .filter((p: any) => featuredIds.includes(p.id))
       .map((p: any) => ({
         id: p.id,
         title: p.title,
@@ -47,7 +47,10 @@ export default function Home() {
         status: p.status || "available"
       }));
     
-    return transformedProperties.slice(0, 3);
+    // Ordenar conforme a ordem dos IDs
+    return featuredIds
+      .map(id => transformedProperties.find(p => p.id === id))
+      .filter((p): p is NonNullable<typeof p> => p !== undefined);
   }, [propertiesData]);
 
   return (

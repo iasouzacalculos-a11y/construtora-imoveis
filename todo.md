@@ -302,3 +302,9 @@
 - [x] Remover "Treinamentos" dos benefícios do Corretor Parceiro
 - [x] Remover formulário de cadastro de corretor - apenas convite para contato
 - [x] Testar alterações
+
+
+## Atualizar Imóveis em Destaque na Página Inicial
+
+- [x] Trocar imóveis em destaque para: gv-qd40-lt22, qd18-lote-27-gv, sf-qd13-lt22
+- [x] Testar página inicial
