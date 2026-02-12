@@ -330,3 +330,13 @@
 - [x] Transformar grid de imóveis em destaque em carrossel interativo
 - [x] Adicionar setas de navegação e indicadores
 - [x] Testar responsividade em mobile e desktop
+
+
+## Implementar Timeline de Entregas na Página Inicial
+
+- [x] Adicionar campo "status" ao schema de imóveis (pronto_para_morar, em_construcao)
+- [x] Adicionar campo "deliveryDate" para previsão de entrega
+- [x] Remover seção "Imóveis em Destaque" da página inicial
+- [x] Criar seção "Timeline de Entregas" com duas categorias
+- [x] Implementar filtro por status no backend
+- [x] Testar e validar

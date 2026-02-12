@@ -236,9 +236,9 @@ export default function PropertyDetail() {
                     <div>
                       <div className="text-sm text-muted-foreground mb-1">Status</div>
                       <div className="font-medium">
-                        {property.status === "available" && "Disponível"}
-                        {property.status === "sold" && "Vendido"}
-                        {property.status === "reserved" && "Reservado"}
+                        {property.status === "pronto_para_morar" && "Pronto para Morar"}
+                        {property.status === "em_construcao" && "Em Construção"}
+                        {property.status === "vendido" && "Vendido"}
                       </div>
                     </div>
                     <div>

@@ -1,0 +1,2 @@
+ALTER TABLE `properties` MODIFY COLUMN `status` enum('pronto_para_morar','em_construcao','vendido') NOT NULL DEFAULT 'pronto_para_morar';--> statement-breakpoint
+ALTER TABLE `properties` ADD `deliveryDate` date;

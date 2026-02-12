@@ -19,7 +19,8 @@ export interface Property {
   image: string;
   gallery?: string[];
   description: string;
-  status: "available" | "sold" | "reserved";
+  status: "pronto_para_morar" | "em_construcao" | "vendido";
+  deliveryDate?: string;
 }
 
 export interface FilterOptions {

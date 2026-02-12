@@ -29,7 +29,7 @@ describe('Image Ordering System', () => {
       latitude: -16.4707,
       longitude: -54.6354,
       type: 'Casa',
-      status: 'available',
+      status: 'pronto_para_morar',
     });
 
     await db.insert(propertyImages).values([

@@ -1,11 +1,11 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import PropertyCarousel from "@/components/PropertyCarousel";
+import PropertyCard from "@/components/PropertyCard";
 
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Building2, CheckCircle2, Users, MessageCircle } from "lucide-react";
+import { Building2, CheckCircle2, Users, MessageCircle, Clock, Home as HomeIcon } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { useMemo } from "react";
 
@@ -13,44 +13,47 @@ export default function Home() {
   // Buscar imóveis do banco de dados
   const { data: propertiesData, isLoading } = trpc.properties.list.useQuery();
 
-  // IDs dos imóveis em destaque
-  const featuredIds = ["gv-qd40-lt22", "qd18-lote-27-gv", "sf-qd13-lt22"];
-  
-  // Buscar apenas os imóveis em destaque
-  const featuredProperties = useMemo(() => {
-    if (!propertiesData) return [];
+  // Separar imóveis por status
+  const { prontosParaMorar, emConstrucao } = useMemo(() => {
+    if (!propertiesData) return { prontosParaMorar: [], emConstrucao: [] };
     
     // Transformar dados do banco para o formato esperado pelo PropertyCard
-    const transformedProperties = propertiesData
-      .filter((p: any) => featuredIds.includes(p.id))
-      .map((p: any) => ({
-        id: p.id,
-        title: p.title,
-        price: p.price,
-        location: {
-          address: p.address,
-          city: p.city,
-          state: p.state,
-          latitude: p.latitude,
-          longitude: p.longitude
-        },
-        features: {
-          bedrooms: p.bedrooms,
-          bathrooms: p.bathrooms,
-          area: p.area,
-          parking: p.parking || 0
-        },
-        type: p.type as "apartment" | "house" | "penthouse" | "townhouse",
-        image: p.images?.[0]?.url || "/placeholder-property.jpg",
-        gallery: p.images?.map((img: any) => img.url) || [],
-        description: p.description || "",
-        status: (p.status || "available") as "available" | "sold" | "reserved"
-      }));
+    const transformProperty = (p: any) => ({
+      id: p.id,
+      title: p.title,
+      price: p.price,
+      location: {
+        address: p.address,
+        city: p.city,
+        state: p.state,
+        latitude: p.latitude,
+        longitude: p.longitude
+      },
+      features: {
+        bedrooms: p.bedrooms,
+        bathrooms: p.bathrooms,
+        area: p.area,
+        parking: p.parking || 0
+      },
+      type: p.type as "apartment" | "house" | "penthouse" | "townhouse",
+      image: p.images?.[0]?.url || "/placeholder-property.jpg",
+      gallery: p.images?.map((img: any) => img.url) || [],
+      description: p.description || "",
+      status: (p.status || "pronto_para_morar") as "pronto_para_morar" | "em_construcao" | "vendido",
+      deliveryDate: p.deliveryDate
+    });
     
-    // Ordenar conforme a ordem dos IDs
-    return featuredIds
-      .map(id => transformedProperties.find(p => p.id === id))
-      .filter((p): p is NonNullable<typeof p> => p !== undefined);
+    const prontos = propertiesData
+      .filter((p: any) => p.status === "pronto_para_morar")
+      .map(transformProperty)
+      .slice(0, 3); // Mostrar apenas 3 imóveis
+    
+    const emConstr = propertiesData
+      .filter((p: any) => p.status === "em_construcao")
+      .map(transformProperty)
+      .slice(0, 3); // Mostrar apenas 3 imóveis
+    
+    return { prontosParaMorar: prontos, emConstrucao: emConstr };
   }, [propertiesData]);
 
   return (
@@ -129,29 +132,88 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Properties */}
+        {/* Timeline de Entregas */}
         <section className="py-16 md:py-20">
           <div className="container">
-            <div className="text-center mb-10 md:mb-12">
+            <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Imóveis em Destaque
+                Encontre o Imóvel Ideal para Você
               </h2>
               <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Explore nossas melhores opções com localização privilegiada, acabamento premium e segurança jurídica garantida.
+                Escolha entre imóveis prontos para morar ou em construção com previsão de entrega.
               </p>
             </div>
 
-            {/* Carrossel de imóveis */}
-            <div className="mb-8">
-              <PropertyCarousel properties={featuredProperties} />
+            {/* Prontos para Morar */}
+            <div className="mb-16">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-green-600">
+                  <HomeIcon className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold">Prontos para Morar</h3>
+                  <p className="text-muted-foreground">Disponíveis agora - Mudança imediata</p>
+                </div>
+              </div>
+
+              {isLoading ? (
+                <div className="text-center py-8">Carregando imóveis...</div>
+              ) : prontosParaMorar.length > 0 ? (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    {prontosParaMorar.map((property) => (
+                      <PropertyCard key={property.id} property={property} />
+                    ))}
+                  </div>
+                  <div className="text-center">
+                    <Link href="/imoveis?status=pronto_para_morar">
+                      <Button variant="outline" size="lg">
+                        Ver todos os imóveis prontos
+                      </Button>
+                    </Link>
+                  </div>
+                </>
+              ) : (
+                <div className="text-center py-8 text-muted-foreground">
+                  Nenhum imóvel pronto para morar no momento.
+                </div>
+              )}
             </div>
 
-            <div className="text-center">
-              <Link href="/imoveis">
-                <Button size="lg" variant="outline" className="h-12 px-8">
-                  Ver Todos os Imóveis
-                </Button>
-              </Link>
+            {/* Em Construção */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-600">
+                  <Clock className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold">Em Construção</h3>
+                  <p className="text-muted-foreground">Garanta já o seu com previsão de entrega</p>
+                </div>
+              </div>
+
+              {isLoading ? (
+                <div className="text-center py-8">Carregando imóveis...</div>
+              ) : emConstrucao.length > 0 ? (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    {emConstrucao.map((property) => (
+                      <PropertyCard key={property.id} property={property} />
+                    ))}
+                  </div>
+                  <div className="text-center">
+                    <Link href="/imoveis?status=em_construcao">
+                      <Button variant="outline" size="lg">
+                        Ver todos os imóveis em construção
+                      </Button>
+                    </Link>
+                  </div>
+                </>
+              ) : (
+                <div className="text-center py-8 text-muted-foreground">
+                  Nenhum imóvel em construção no momento.
+                </div>
+              )}
             </div>
           </div>
         </section>

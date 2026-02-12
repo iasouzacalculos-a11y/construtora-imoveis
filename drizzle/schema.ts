@@ -1,4 +1,4 @@
-import { decimal, int, mysqlEnum, mysqlTable, text, timestamp, varchar, json } from "drizzle-orm/mysql-core";
+import { date, decimal, int, mysqlEnum, mysqlTable, text, timestamp, varchar, json } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -41,7 +41,8 @@ export const properties = mysqlTable("properties", {
   area: int("area").notNull(),
   parking: int("parking").notNull(),
   description: text("description"),
-  status: varchar("status", { length: 50 }).notNull().default("available"),
+  status: mysqlEnum("status", ["pronto_para_morar", "em_construcao", "vendido"]).notNull().default("pronto_para_morar"),
+  deliveryDate: date("deliveryDate"),
   mainImageUrl: varchar("mainImageUrl", { length: 500 }),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
