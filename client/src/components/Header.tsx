@@ -45,10 +45,16 @@ export default function Header() {
           </a>
           
           {/* Botão único azul - desktop */}
-          <Button size="sm" className="hidden md:inline-flex items-center gap-2">
-            <MessageCircle className="h-4 w-4" />
-            Agendar Visita
-          </Button>
+          <a 
+            href="https://wa.me/5566999998693?text=Olá,%20vim%20pelo%20site%20da%20Souza%20Construtora%20e%20gostaria%20de%20agendar%20uma%20visita."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button size="sm" className="hidden md:inline-flex items-center gap-2">
+              <MessageCircle className="h-4 w-4" />
+              Agendar Visita
+            </Button>
+          </a>
           
           {/* Menu hambúrguer - mobile */}
           <Sheet open={open} onOpenChange={setOpen}>

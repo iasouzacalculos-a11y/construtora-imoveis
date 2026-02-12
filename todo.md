@@ -363,3 +363,9 @@
 - [x] Atualizar mensagem para "Olá, vim pelo site da Souza Construtora e gostaria de mais informações sobre os imóveis disponíveis."
 - [x] Aplicar em todos os componentes (Header, Footer, WhatsAppButton, Contato)
 - [x] Testar botão WhatsApp - funcionando perfeitamente!
+
+## Adicionar Link WhatsApp ao Botão Agendar Visita
+
+- [x] Atualizar botão "Agendar Visita" no Header para abrir WhatsApp
+- [x] Mensagem: "Olá, vim pelo site da Souza Construtora e gostaria de agendar uma visita."
+- [x] Testar botão - funcionando perfeitamente!
