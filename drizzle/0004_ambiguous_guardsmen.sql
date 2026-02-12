@@ -1,0 +1,1 @@
+ALTER TABLE `properties` ADD `featured` boolean DEFAULT false NOT NULL;

@@ -66,7 +66,7 @@ export default function Contato() {
   const faqItems = [
     {
       pergunta: "Como posso agendar uma visita a um imóvel?",
-      resposta: "Você pode agendar uma visita de várias formas: pelo WhatsApp clicando no botão verde no canto da tela, pelo telefone (66) 99662-2263, ou preenchendo o formulário de contato nesta página. Nossa equipe entrará em contato para confirmar o melhor horário para você."
+      resposta: "Você pode agendar uma visita de várias formas: pelo WhatsApp clicando no botão verde no canto da tela, pelo telefone (66) 99999-8693, ou preenchendo o formulário de contato nesta página. Nossa equipe entrará em contato para confirmar o melhor horário para você."
     },
     {
       pergunta: "Quais são as formas de pagamento disponíveis?",
@@ -144,10 +144,10 @@ export default function Contato() {
                         <div>
                           <h3 className="font-semibold mb-1">Telefone</h3>
                           <a 
-                            href="tel:+5566996622263" 
+                            href="tel:+5566999998693" 
                             className="text-sm text-muted-foreground hover:text-primary transition-colors"
                           >
-                            (66) 99662-2263
+                            (66) 99999-8693
                           </a>
                           <p className="text-xs text-muted-foreground mt-1">WhatsApp disponível</p>
                         </div>
@@ -204,7 +204,7 @@ export default function Contato() {
                         Prefere conversar pelo WhatsApp? Clique no botão abaixo!
                       </p>
                       <a
-                        href="https://wa.me/5566996622263?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações."
+                        href="https://wa.me/5566999998693?text=Olá,%20vim%20pelo%20site%20da%20Souza%20Construtora%20e%20gostaria%20de%20mais%20informações%20sobre%20os%20imóveis%20disponíveis."
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -401,7 +401,7 @@ export default function Contato() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <a
-                      href="https://wa.me/5566996622263?text=Olá,%20sou%20corretor%20de%20imóveis%20e%20gostaria%20de%20conhecer%20as%20oportunidades%20de%20parceria."
+                      href="https://wa.me/5566999998693?text=Olá,%20sou%20corretor%20de%20imóveis%20e%20gostaria%20de%20conhecer%20as%20oportunidades%20de%20parceria."
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -410,10 +410,10 @@ export default function Contato() {
                         Falar no WhatsApp
                       </Button>
                     </a>
-                    <a href="tel:+5566996622263">
+                    <a href="tel:+5566999998693">
                       <Button size="lg" variant="outline" className="w-full sm:w-auto">
                         <Phone className="h-5 w-5 mr-2" />
-                        (66) 99662-2263
+                        (66) 99999-8693
                       </Button>
                     </a>
                   </div>
@@ -475,7 +475,7 @@ export default function Contato() {
                 e tire todas as suas dúvidas em tempo real.
               </p>
               <a
-                href="https://wa.me/5566996622263?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações."
+                href="https://wa.me/5566999998693?text=Olá,%20vim%20pelo%20site%20da%20Souza%20Construtora%20e%20gostaria%20de%20mais%20informações%20sobre%20os%20imóveis%20disponíveis."
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -124,6 +124,16 @@ export const appRouter = router({
         await deletePropertyImage(input.imageId);
         return { success: true };
       }),
+    toggleFeatured: protectedProcedure
+      .input(z.object({
+        propertyId: z.string(),
+        featured: z.boolean(),
+      }))
+      .mutation(async ({ input }) => {
+        const { updatePropertyFeatured } = await import("./db");
+        await updatePropertyFeatured(input.propertyId, input.featured);
+        return { success: true };
+      }),
   }),
 
   contact: router({

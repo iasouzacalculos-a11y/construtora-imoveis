@@ -180,3 +180,10 @@ export async function createBrokerApplication(application: {
   const { brokerApplications } = await import("../drizzle/schema");
   await db.insert(brokerApplications).values(application);
 }
+
+
+export async function updatePropertyFeatured(propertyId: string, featured: boolean) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(properties).set({ featured }).where(eq(properties.id, propertyId));
+}

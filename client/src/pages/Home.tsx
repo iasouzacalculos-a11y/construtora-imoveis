@@ -36,22 +36,22 @@ export default function Home() {
         parking: p.parking || 0
       },
       type: p.type as "apartment" | "house" | "penthouse" | "townhouse",
-      image: p.images?.[0]?.url || "/placeholder-property.jpg",
-      gallery: p.images?.map((img: any) => img.url) || [],
+      image: p.images?.[0]?.imageUrl || "/placeholder-property.jpg",
+      gallery: p.images?.map((img: any) => img.imageUrl) || [],
       description: p.description || "",
       status: (p.status || "pronto_para_morar") as "pronto_para_morar" | "em_construcao" | "vendido",
       deliveryDate: p.deliveryDate
     });
     
     const prontos = propertiesData
-      .filter((p: any) => p.status === "pronto_para_morar")
+      .filter((p: any) => p.status === "pronto_para_morar" && p.featured)
       .map(transformProperty)
-      .slice(0, 3); // Mostrar apenas 3 imóveis
+      .slice(0, 3); // Mostrar apenas 3 imóveis em destaque
     
     const emConstr = propertiesData
-      .filter((p: any) => p.status === "em_construcao")
+      .filter((p: any) => p.status === "em_construcao" && p.featured)
       .map(transformProperty)
-      .slice(0, 3); // Mostrar apenas 3 imóveis
+      .slice(0, 3); // Mostrar apenas 3 imóveis em destaque
     
     return { prontosParaMorar: prontos, emConstrucao: emConstr };
   }, [propertiesData]);

@@ -106,11 +106,16 @@ export default function Admin() {
       <main className="flex-1 bg-muted/30">
         <div className="container py-8">
           <div className="mb-8">
-            <div className="flex items-center gap-2 mb-2">
-              <h1 className="text-3xl font-bold">Painel Administrativo</h1>
-              <span className="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full font-medium">
-                {user?.role === 'admin' ? 'Admin' : 'Usuário'}
-              </span>
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-2">
+                <h1 className="text-3xl font-bold">Painel Administrativo</h1>
+                <span className="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full font-medium">
+                  {user?.role === 'admin' ? 'Admin' : 'Usuário'}
+                </span>
+              </div>
+              <Button onClick={() => setLocation("/admin/destaques")} variant="outline">
+                Gerenciar Destaques
+              </Button>
             </div>
             <p className="text-muted-foreground">
               Bem-vindo, {user?.name || user?.email}. Gerencie os imóveis e suas imagens.

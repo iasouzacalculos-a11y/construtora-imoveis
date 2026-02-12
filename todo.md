@@ -340,3 +340,26 @@
 - [x] Criar seção "Timeline de Entregas" com duas categorias
 - [x] Implementar filtro por status no backend
 - [x] Testar e validar
+
+
+## Criar Painel Admin para Gerenciar Imóveis em Destaque
+
+- [ ] Adicionar campo "featured" (boolean) ao schema de imóveis
+- [ ] Criar página admin para listar imóveis por status (Prontos/Em Construção)
+- [ ] Adicionar toggle para marcar/desmarcar imóveis como destaque
+- [ ] Atualizar página inicial para mostrar apenas imóveis marcados como featured
+- [ ] Limitar a 3 imóveis em destaque por categoria
+- [ ] Testar funcionalidade completa
+
+## Adicionar Imagens aos 3 Imóveis em Destaque
+
+- [x] Identificar os 3 imóveis marcados como destaque
+- [x] Corrigir bug de acesso à URL da imagem (imageUrl vs url)
+- [x] Verificar resultado na página inicial - Casa Granville aparecendo corretamente
+
+## Atualizar Link do WhatsApp
+
+- [x] Atualizar número para 5566999998693
+- [x] Atualizar mensagem para "Olá, vim pelo site da Souza Construtora e gostaria de mais informações sobre os imóveis disponíveis."
+- [x] Aplicar em todos os componentes (Header, Footer, WhatsAppButton, Contato)
+- [x] Testar botão WhatsApp - funcionando perfeitamente!
