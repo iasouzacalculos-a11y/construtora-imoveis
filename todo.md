@@ -369,3 +369,10 @@
 - [x] Atualizar botão "Agendar Visita" no Header para abrir WhatsApp
 - [x] Mensagem: "Olá, vim pelo site da Souza Construtora e gostaria de agendar uma visita."
 - [x] Testar botão - funcionando perfeitamente!
+
+## Adicionar Favicon/Logo Personalizada
+
+- [x] Preparar logo da Souza Construtora como favicon
+- [x] Adicionar favicon.jpg ao projeto
+- [x] Configurar tags meta no index.html (favicon + SEO + Open Graph)
+- [x] Testar exibição na aba do navegador - funcionando!
