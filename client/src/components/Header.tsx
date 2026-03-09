@@ -46,7 +46,7 @@ export default function Header() {
           
           {/* Botão Simular Financiamento - desktop */}
           <a 
-            href="https://simulador.souzaconstrutora.com.br"
+            href="https://financingsim-r2l7rmya.manus.space"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -97,7 +97,7 @@ export default function Header() {
                     <span>(66) 99999-8693</span>
                   </a>
                   <a 
-                    href="https://simulador.souzaconstrutora.com.br"
+                    href="https://financingsim-r2l7rmya.manus.space"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors py-2"

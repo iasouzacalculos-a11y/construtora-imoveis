@@ -92,7 +92,7 @@ export default function Home() {
                   </Button>
                 </Link>
                 <a 
-                  href="https://simulador.souzaconstrutora.com.br"
+                  href="https://financingsim-r2l7rmya.manus.space"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -253,7 +253,7 @@ export default function Home() {
                   </Button>
                 </a>
                 <a
-                  href="https://simulador.souzaconstrutora.com.br"
+                  href="https://financingsim-r2l7rmya.manus.space"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
