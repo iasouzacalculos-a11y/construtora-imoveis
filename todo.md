@@ -376,3 +376,11 @@
 - [x] Adicionar favicon.jpg ao projeto
 - [x] Configurar tags meta no index.html (favicon + SEO + Open Graph)
 - [x] Testar exibição na aba do navegador - funcionando!
+
+## Adicionar Botão Simular Financiamento
+
+- [x] Adicionar botão "Simular Financiamento" no Header (navegação)
+- [x] Adicionar botão na página inicial (seção Hero + CTA final)
+- [x] Adicionar botão na página de detalhes do imóvel
+- [x] Adicionar botão na página de detalhes do imóvel
+- [x] Testar link abrindo em nova aba - funcionando!

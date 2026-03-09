@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Bath, Bed, Car, Mail, MapPin, Maximize, Phone, User, Loader2 } from "lucide-react";
+import { Bath, Bed, Car, Mail, MapPin, Maximize, Phone, User, Loader2, Calculator } from "lucide-react";
 // PropertyIdEditor removido - funcionalidade movida para /admin
 import { useRoute, useLocation } from "wouter";
 import { toast } from "sonner";
@@ -308,9 +308,20 @@ export default function PropertyDetail() {
                   </form>
 
                   <div className="mt-6 pt-6 border-t space-y-3">
+                    <a
+                      href="https://simulador.souzaconstrutora.com.br"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <Button variant="outline" className="w-full gap-2">
+                        <Calculator className="h-4 w-4" />
+                        Simular Financiamento
+                      </Button>
+                    </a>
                     <div className="flex items-center gap-3 text-sm">
                       <Phone className="h-4 w-4 text-muted-foreground" />
-                      <span>(66) 99662-2263</span>
+                      <span>(66) 99999-8693</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm">
                       <Mail className="h-4 w-4 text-muted-foreground" />

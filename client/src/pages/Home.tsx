@@ -5,7 +5,7 @@ import PropertyCard from "@/components/PropertyCard";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Building2, CheckCircle2, Users, MessageCircle, Clock, Home as HomeIcon } from "lucide-react";
+import { Building2, CheckCircle2, Users, MessageCircle, Clock, Home as HomeIcon, Calculator } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { useMemo } from "react";
 
@@ -84,13 +84,23 @@ export default function Home() {
                 Há mais de 20 anos realizando o sonho da casa própria com qualidade e atendimento humanizado.
               </p>
               
-              {/* Botão principal - MAIOR e mais destacado */}
-              <div className="flex gap-3 mb-10">
+              {/* Botões principais */}
+              <div className="flex flex-wrap gap-3 mb-10">
                 <Link href="/imoveis">
                   <Button size="lg" className="h-14 px-10 text-base font-semibold shadow-lg hover:shadow-xl transition-all">
                     Ver imóveis disponíveis
                   </Button>
                 </Link>
+                <a 
+                  href="https://simulador.souzaconstrutora.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button size="lg" variant="outline" className="h-14 px-8 text-base font-semibold bg-white/10 backdrop-blur-sm border-white/30 hover:bg-white/20 transition-all gap-2">
+                    <Calculator className="h-5 w-5" />
+                    Simular Financiamento
+                  </Button>
+                </a>
               </div>
 
               {/* Benefícios - ícones uniformes, texto menor, mais espaçamento */}
@@ -218,7 +228,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Final - WhatsApp */}
+        {/* CTA Final - WhatsApp + Simulador */}
         <section className="py-12 md:py-16 bg-muted/30">
           <div className="container">
             <div className="max-w-2xl mx-auto text-center">
@@ -228,13 +238,35 @@ export default function Home() {
               <p className="text-muted-foreground mb-8">
                 Fale com um consultor e receba opções sob medida para você.
               </p>
-              <Button 
-                size="lg" 
-                className="h-14 px-10 text-base font-semibold shadow-lg hover:shadow-xl transition-all gap-2 bg-green-600 hover:bg-green-700 text-white"
-              >
-                <MessageCircle className="h-5 w-5" />
-                Falar com um consultor agora
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="https://wa.me/5566999998693?text=Olá,%20vim%20pelo%20site%20da%20Souza%20Construtora%20e%20gostaria%20de%20mais%20informações%20sobre%20os%20imóveis%20disponíveis."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button 
+                    size="lg" 
+                    className="h-14 px-10 text-base font-semibold shadow-lg hover:shadow-xl transition-all gap-2 bg-green-600 hover:bg-green-700 text-white"
+                  >
+                    <MessageCircle className="h-5 w-5" />
+                    Falar com um consultor agora
+                  </Button>
+                </a>
+                <a
+                  href="https://simulador.souzaconstrutora.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    className="h-14 px-10 text-base font-semibold shadow-lg hover:shadow-xl transition-all gap-2"
+                  >
+                    <Calculator className="h-5 w-5" />
+                    Simular Financiamento
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </section>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Phone, MessageCircle } from "lucide-react";
+import { Menu, Phone, MessageCircle, Calculator } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
 
@@ -44,7 +44,19 @@ export default function Header() {
             <span>(66) 99999-8693</span>
           </a>
           
-          {/* Botão único azul - desktop */}
+          {/* Botão Simular Financiamento - desktop */}
+          <a 
+            href="https://simulador.souzaconstrutora.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button size="sm" variant="outline" className="hidden md:inline-flex items-center gap-2">
+              <Calculator className="h-4 w-4" />
+              Simular Financiamento
+            </Button>
+          </a>
+
+          {/* Botão Agendar Visita - desktop */}
           <a 
             href="https://wa.me/5566999998693?text=Olá,%20vim%20pelo%20site%20da%20Souza%20Construtora%20e%20gostaria%20de%20agendar%20uma%20visita."
             target="_blank"
@@ -76,13 +88,23 @@ export default function Header() {
                   </Link>
                 ))}
                 
-                <div className="border-t pt-4 mt-4">
+                <div className="border-t pt-4 mt-4 flex flex-col gap-2">
                   <a 
                     href="tel:+5566999998693" 
                     className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
                   >
                     <Phone className="h-4 w-4" />
                     <span>(66) 99999-8693</span>
+                  </a>
+                  <a 
+                    href="https://simulador.souzaconstrutora.com.br"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors py-2"
+                    onClick={() => setOpen(false)}
+                  >
+                    <Calculator className="h-4 w-4" />
+                    <span>Simular Financiamento</span>
                   </a>
                 </div>
               </nav>
