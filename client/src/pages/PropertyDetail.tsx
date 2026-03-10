@@ -309,7 +309,7 @@ export default function PropertyDetail() {
 
                   <div className="mt-6 pt-6 border-t space-y-3">
                     <a
-                      href="https://financingsim-r2l7rmya.manus.space"
+                      href="https://simulador.souzaconstrutora.com.br"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block"
