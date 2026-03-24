@@ -384,3 +384,8 @@
 - [x] Adicionar botão na página de detalhes do imóvel
 - [x] Adicionar botão na página de detalhes do imóvel
 - [x] Testar link abrindo em nova aba - funcionando!
+
+## Corrigir Exibição da Descrição do Imóvel
+
+- [x] Preservar quebras de linha na descrição (split por \n)
+- [x] Testar com descrição no formato checklist com emojis - funcionando!

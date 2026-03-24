@@ -159,9 +159,17 @@ export default function PropertyDetail() {
               <Card>
                 <CardContent className="p-6">
                   <h2 className="text-xl font-semibold mb-4">Descrição</h2>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {property.description || "Descrição não disponível"}
-                  </p>
+                  <div className="text-muted-foreground leading-relaxed">
+                    {property.description ? (
+                      property.description.split('\n').map((line: string, index: number) => (
+                        <p key={index} className={line.trim() === '' ? 'mt-3' : 'mb-1'}>
+                          {line || '\u00a0'}
+                        </p>
+                      ))
+                    ) : (
+                      <p>Descrição não disponível</p>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
 
