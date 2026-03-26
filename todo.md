@@ -389,3 +389,8 @@
 
 - [x] Preservar quebras de linha na descrição (split por \n)
 - [x] Testar com descrição no formato checklist com emojis - funcionando!
+
+## Remover Seção "Em Construção"
+
+- [x] Remover seção "Em Construção" da página inicial
+- [x] Testar página inicial sem a seção - funcionando!

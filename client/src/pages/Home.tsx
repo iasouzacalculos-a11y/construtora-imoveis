@@ -190,41 +190,7 @@ export default function Home() {
               )}
             </div>
 
-            {/* Em Construção */}
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-600">
-                  <Clock className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold">Em Construção</h3>
-                  <p className="text-muted-foreground">Garanta já o seu com previsão de entrega</p>
-                </div>
-              </div>
 
-              {isLoading ? (
-                <div className="text-center py-8">Carregando imóveis...</div>
-              ) : emConstrucao.length > 0 ? (
-                <>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                    {emConstrucao.map((property) => (
-                      <PropertyCard key={property.id} property={property} />
-                    ))}
-                  </div>
-                  <div className="text-center">
-                    <Link href="/imoveis?status=em_construcao">
-                      <Button variant="outline" size="lg">
-                        Ver todos os imóveis em construção
-                      </Button>
-                    </Link>
-                  </div>
-                </>
-              ) : (
-                <div className="text-center py-8 text-muted-foreground">
-                  Nenhum imóvel em construção no momento.
-                </div>
-              )}
-            </div>
           </div>
         </section>
 
