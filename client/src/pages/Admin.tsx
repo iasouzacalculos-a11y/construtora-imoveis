@@ -113,9 +113,15 @@ export default function Admin() {
                   {user?.role === 'admin' ? 'Admin' : 'Usuário'}
                 </span>
               </div>
-              <Button onClick={() => setLocation("/admin/destaques")} variant="outline">
-                Gerenciar Destaques
-              </Button>
+              <div className="flex gap-2">
+                <Button onClick={() => setLocation("/admin/criar")}>
+                  <Plus className="h-4 w-4 mr-2" />
+                  Criar Imóvel
+                </Button>
+                <Button onClick={() => setLocation("/admin/destaques")} variant="outline">
+                  Gerenciar Destaques
+                </Button>
+              </div>
             </div>
             <p className="text-muted-foreground">
               Bem-vindo, {user?.name || user?.email}. Gerencie os imóveis e suas imagens.

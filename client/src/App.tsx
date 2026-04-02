@@ -10,6 +10,7 @@ import PropertyDetail from "./pages/PropertyDetail";
 import Admin from "./pages/Admin";
 import AdminPropertyImages from "./pages/AdminPropertyImages";
 import AdminFeatured from "./pages/AdminFeatured";
+import AdminCreateProperty from "./pages/AdminCreateProperty";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -25,6 +26,7 @@ function Router() {
       <Route path={"/contato"} component={Contato} />
       <Route path={"/imovel/:id"} component={PropertyDetail} />
       <Route path={"/admin"} component={Admin} />
+      <Route path={"/admin/criar"} component={AdminCreateProperty} />
       <Route path={"/admin/imovel/:id/imagens"} component={AdminPropertyImages} />
       <Route path={"/admin/destaques"} component={AdminFeatured} />
       <Route path={"/404"} component={NotFound} />

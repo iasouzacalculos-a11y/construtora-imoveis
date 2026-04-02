@@ -2,7 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
-import { getAllProperties, getPropertyById, getPropertyImages, addPropertyImage, updatePropertyId, updateImageOrder, deletePropertyImage, createContactMessage, createBrokerApplication } from "./db";
+import { getAllProperties, getPropertyById, getPropertyImages, addPropertyImage, updatePropertyId, updateImageOrder, deletePropertyImage, createContactMessage, createBrokerApplication, createProperty } from "./db";
 import { notifyOwner } from "./_core/notification";
 import { storagePut } from "./storage";
 import { z } from "zod";
@@ -133,6 +133,48 @@ export const appRouter = router({
         const { updatePropertyFeatured } = await import("./db");
         await updatePropertyFeatured(input.propertyId, input.featured);
         return { success: true };
+      }),
+    create: protectedProcedure
+      .input(z.object({
+        id: z.string(),
+        title: z.string().min(1),
+        type: z.string().min(1),
+        price: z.number().positive(),
+        address: z.string().min(1),
+        city: z.string().min(1),
+        state: z.string().min(1),
+        latitude: z.string(),
+        longitude: z.string(),
+        bedrooms: z.number().optional(),
+        bathrooms: z.number().optional(),
+        area: z.number().optional(),
+        parking: z.number().optional(),
+        description: z.string().optional(),
+        status: z.enum(["pronto_para_morar", "em_construcao", "vendido"]).optional(),
+        deliveryDate: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        await createProperty({
+          id: input.id,
+          title: input.title,
+          type: input.type,
+          price: input.price,
+          address: input.address,
+          city: input.city,
+          state: input.state,
+          latitude: input.latitude as any,
+          longitude: input.longitude as any,
+          bedrooms: input.bedrooms || null,
+          bathrooms: input.bathrooms || null,
+          area: input.area || null,
+          parking: input.parking || null,
+          description: input.description || null,
+          status: input.status || "pronto_para_morar",
+          deliveryDate: input.deliveryDate ? new Date(input.deliveryDate) : null,
+          featured: false,
+          mainImageUrl: null,
+        });
+        return { success: true, id: input.id };
       }),
   }),
 

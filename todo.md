@@ -16,6 +16,7 @@
 
 ## Tarefas Pendentes
 
+- [x] Criar página customizada para criar imóveis com campos opcionais
 - [ ] Testar filtros de busca com os novos dados
 - [ ] Testar navegação entre páginas
 - [ ] Remover logs de debug do console
@@ -399,3 +400,10 @@
 
 - [x] Remover obrigatoridade de preenchimento (bedrooms, bathrooms, area, parking agora opcionais)
 - [x] Migração aplicada com sucesso
+
+## Criar Página de Admin para Criar Imóveis com Campos Opcionais
+
+- [ ] Criar mutation tRPC para criar imóvel com campos opcionais
+- [ ] Criar página AdminCreateProperty.tsx
+- [ ] Adicionar link na página Admin para criar novo imóvel
+- [ ] Testar criação de imóvel com campos em branco
