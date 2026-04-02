@@ -36,6 +36,13 @@
       "when": 1770904300768,
       "tag": "0004_ambiguous_guardsmen",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1775137803757,
+      "tag": "0005_gifted_white_tiger",
+      "breakpoints": true
     }
   ]
 }

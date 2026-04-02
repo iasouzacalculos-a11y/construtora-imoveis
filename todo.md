@@ -394,3 +394,8 @@
 
 - [x] Remover seção "Em Construção" da página inicial
 - [x] Testar página inicial sem a seção - funcionando!
+
+## Deixar Campos Opcionais em Branco na Criação de Imóveis
+
+- [x] Remover obrigatoridade de preenchimento (bedrooms, bathrooms, area, parking agora opcionais)
+- [x] Migração aplicada com sucesso
