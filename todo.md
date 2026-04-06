@@ -17,6 +17,7 @@
 ## Tarefas Pendentes
 
 - [x] Criar página customizada para criar imóveis com campos opcionais
+- [x] Remover botão "Simular Financiamento" de todos os locais (Header, Home, PropertyDetail)
 - [ ] Testar filtros de busca com os novos dados
 - [ ] Testar navegação entre páginas
 - [ ] Remover logs de debug do console

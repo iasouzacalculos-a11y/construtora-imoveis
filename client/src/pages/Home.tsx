@@ -5,7 +5,7 @@ import PropertyCard from "@/components/PropertyCard";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Building2, CheckCircle2, Users, MessageCircle, Clock, Home as HomeIcon, Calculator } from "lucide-react";
+import { Building2, CheckCircle2, Users, MessageCircle, Clock, Home as HomeIcon } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { useMemo } from "react";
 
@@ -91,16 +91,7 @@ export default function Home() {
                     Ver imóveis disponíveis
                   </Button>
                 </Link>
-                <a 
-                  href="https://simulador.souzaconstrutora.com.br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button size="lg" variant="outline" className="h-14 px-8 text-base font-semibold bg-white/10 backdrop-blur-sm border-white/30 hover:bg-white/20 transition-all gap-2">
-                    <Calculator className="h-5 w-5" />
-                    Simular Financiamento
-                  </Button>
-                </a>
+
               </div>
 
               {/* Benefícios - ícones uniformes, texto menor, mais espaçamento */}
@@ -218,20 +209,7 @@ export default function Home() {
                     Falar com um consultor agora
                   </Button>
                 </a>
-                <a
-                  href="https://simulador.souzaconstrutora.com.br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button 
-                    size="lg" 
-                    variant="outline"
-                    className="h-14 px-10 text-base font-semibold shadow-lg hover:shadow-xl transition-all gap-2"
-                  >
-                    <Calculator className="h-5 w-5" />
-                    Simular Financiamento
-                  </Button>
-                </a>
+
               </div>
             </div>
           </div>
