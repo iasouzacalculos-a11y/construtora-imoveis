@@ -124,18 +124,7 @@ export default function PropertyCard({ property, featured }: PropertyCardProps) 
             </div>
           </CardContent>
 
-          <CardFooter className="p-4 pt-0">
-            <Button 
-              className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground hover:shadow-md transition-all duration-200" 
-              variant="ghost"
-              onClick={(e) => {
-                // Previne dupla navegação - o Link já vai navegar
-                e.preventDefault();
-              }}
-            >
-              Ver Detalhes
-            </Button>
-          </CardFooter>
+    
         </Card>
       </a>
     </Link>
