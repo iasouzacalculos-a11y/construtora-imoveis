@@ -18,6 +18,7 @@
 
 - [x] Criar página customizada para criar imóveis com campos opcionais
 - [x] Remover botão "Simular Financiamento" de todos os locais (Header, Home, PropertyDetail)
+- [x] Tornar todo o card do imóvel clicável com animações e feedback visual
 - [ ] Testar filtros de busca com os novos dados
 - [ ] Testar navegação entre páginas
 - [ ] Remover logs de debug do console
