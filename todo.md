@@ -20,6 +20,7 @@
 - [x] Remover botão "Simular Financiamento" de todos os locais (Header, Home, PropertyDetail)
 - [x] Tornar todo o card do imóvel clicável com animações e feedback visual
 - [x] Remover botão "Ver Detalhes" do card
+- [x] Otimizar carregamento de imagens (lazy loading, skeleton, fallback)
 - [ ] Testar filtros de busca com os novos dados
 - [ ] Testar navegação entre páginas
 - [ ] Remover logs de debug do console
