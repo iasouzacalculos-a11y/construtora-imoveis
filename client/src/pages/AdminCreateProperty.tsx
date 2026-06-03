@@ -31,6 +31,7 @@ export default function AdminCreateProperty() {
     description: "",
     status: "pronto_para_morar",
     deliveryDate: "",
+    neighborhood: "",
   });
 
   const createMutation = trpc.properties.create.useMutation();
@@ -74,6 +75,7 @@ export default function AdminCreateProperty() {
         description: formData.description || undefined,
         status: (formData.status as "pronto_para_morar" | "em_construcao" | "vendido") || undefined,
         deliveryDate: formData.deliveryDate || undefined,
+        neighborhood: formData.neighborhood || undefined,
       });
 
       toast.success("Imóvel criado com sucesso!");
@@ -324,6 +326,19 @@ export default function AdminCreateProperty() {
                     onChange={handleChange}
                     placeholder="Descrição detalhada do imóvel..."
                     className="w-full px-3 py-2 border rounded-md bg-background min-h-24"
+                  />
+                </div>
+
+                {/* Bairro */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">
+                    Bairro / Localidade
+                  </label>
+                  <Input
+                    name="neighborhood"
+                    value={formData.neighborhood}
+                    onChange={handleChange}
+                    placeholder="ex: Granville, Sunflower, Parque Universitário..."
                   />
                 </div>
 

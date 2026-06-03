@@ -5,84 +5,97 @@ import PropertyCard from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { FilterOptions } from "@/lib/types";
-import { SlidersHorizontal, MessageCircle } from "lucide-react";
+import { SlidersHorizontal, MessageCircle, MapPin } from "lucide-react";
 import { useMemo, useState, useEffect } from "react";
 import { trpc } from "@/lib/trpc";
+import { useSearch } from "wouter";
 
 export default function Properties() {
-  const [filters, setFilters] = useState<FilterOptions>({});
+  const searchString = useSearch();
+  const params = new URLSearchParams(searchString);
+
+  const [filterNeighborhood, setFilterNeighborhood] = useState(params.get("neighborhood") || "");
+  const [filterType, setFilterType] = useState(params.get("type") || "");
+  const [filterStatus, setFilterStatus] = useState(params.get("status") || "");
+  const [filterBedrooms, setFilterBedrooms] = useState(params.get("bedrooms") || "");
+  const [filterPriceRange, setFilterPriceRange] = useState(params.get("price") || "");
   const [showFilters, setShowFilters] = useState(false);
-  const [properties, setProperties] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
 
-  const { data: fetchedProperties, isLoading, error } = trpc.properties.list.useQuery();
+  const { data: fetchedProperties, isLoading } = trpc.properties.list.useQuery();
+  const { data: neighborhoodsData } = trpc.properties.neighborhoods.useQuery();
 
-  useEffect(() => {
-    if (fetchedProperties) {
-      // Transformar dados do banco para o formato esperado pelo PropertyCard
-      const transformedProperties = fetchedProperties.map((prop: any) => ({
-        id: prop.id,
-        title: prop.title,
-        type: prop.type,
-        price: prop.price,
-        location: {
-          address: prop.address,
-          city: prop.city,
-          state: prop.state,
-          latitude: prop.latitude,
-          longitude: prop.longitude,
-        },
-        features: {
-          bedrooms: prop.bedrooms,
-          bathrooms: prop.bathrooms,
-          area: prop.area,
-          parking: prop.parking,
-        },
-        image: prop.mainImageUrl || '/property-placeholder.jpg',
-        description: prop.description,
-        status: prop.status,
-      }));
-      setProperties(transformedProperties);
-      setLoading(false);
-    }
-  }, [fetchedProperties, isLoading, error]);
+  const properties = useMemo(() => {
+    if (!fetchedProperties) return [];
+    return fetchedProperties.map((prop: any) => ({
+      id: prop.id,
+      title: prop.title,
+      type: prop.type,
+      price: prop.price,
+      neighborhood: prop.neighborhood || "",
+      location: {
+        address: prop.address,
+        city: prop.city,
+        state: prop.state,
+        latitude: prop.latitude,
+        longitude: prop.longitude,
+      },
+      features: {
+        bedrooms: prop.bedrooms,
+        bathrooms: prop.bathrooms,
+        area: prop.area,
+        parking: prop.parking,
+      },
+      image: prop.images?.[0]?.imageUrl || prop.mainImageUrl || '/property-placeholder.jpg',
+      gallery: prop.images?.map((img: any) => img.imageUrl) || [],
+      description: prop.description,
+      status: prop.status,
+    }));
+  }, [fetchedProperties]);
 
   const filteredProperties = useMemo(() => {
-    return properties.filter((property) => {
-      if (filters.type && property.type !== filters.type) return false;
-      if (filters.minPrice && property.price < filters.minPrice) return false;
-      if (filters.maxPrice && property.price > filters.maxPrice) return false;
-      if (filters.bedrooms && property.features.bedrooms < filters.bedrooms) return false;
-      if (filters.city && !property.location.city.toLowerCase().includes(filters.city.toLowerCase())) return false;
+    return properties.filter((p) => {
+      if (filterNeighborhood && p.neighborhood !== filterNeighborhood) return false;
+      if (filterType && p.type !== filterType) return false;
+      if (filterStatus && p.status !== filterStatus) return false;
+      if (filterBedrooms && filterBedrooms !== "all") {
+        const min = parseInt(filterBedrooms);
+        if (!p.features.bedrooms || p.features.bedrooms < min) return false;
+      }
+      if (filterPriceRange) {
+        const [min, max] = filterPriceRange.split("-").map(Number);
+        if (p.price < min) return false;
+        if (max && p.price > max) return false;
+      }
       return true;
     });
-  }, [filters, properties]);
-
-  const updateFilter = (key: keyof FilterOptions, value: string | number) => {
-    setFilters((prev) => ({ ...prev, [key]: value || undefined }));
-  };
+  }, [properties, filterNeighborhood, filterType, filterStatus, filterBedrooms, filterPriceRange]);
 
   const clearFilters = () => {
-    setFilters({});
+    setFilterNeighborhood("");
+    setFilterType("");
+    setFilterStatus("");
+    setFilterBedrooms("");
+    setFilterPriceRange("");
   };
+
+  const hasFilters = filterNeighborhood || filterType || filterStatus || filterBedrooms || filterPriceRange;
 
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
+
       <main className="flex-1 py-6 md:py-8">
         <div className="container">
           <div className="mb-6 md:mb-8">
             <h1 className="text-3xl md:text-4xl font-bold mb-2">Nossos Imóveis</h1>
             <p className="text-muted-foreground">
-              Encontrados {filteredProperties.length} {filteredProperties.length === 1 ? "imóvel" : "imóveis"}
+              {isLoading ? "Carregando..." : `${filteredProperties.length} ${filteredProperties.length === 1 ? "imóvel encontrado" : "imóveis encontrados"}`}
             </p>
           </div>
 
-          {/* Filtros em layout responsivo */}
+          {/* Filtros */}
           <div className="mb-6">
-            {/* Botão para mostrar/ocultar filtros no mobile */}
+            {/* Botão mobile */}
             <div className="md:hidden mb-4">
               <Button
                 variant="outline"
@@ -91,108 +104,136 @@ export default function Properties() {
               >
                 <SlidersHorizontal className="h-4 w-4 mr-2" />
                 {showFilters ? "Ocultar Filtros" : "Mostrar Filtros"}
+                {hasFilters && <span className="ml-2 bg-primary text-primary-foreground rounded-full w-5 h-5 text-xs flex items-center justify-center">!</span>}
               </Button>
             </div>
 
-            {/* Filtros - visível no mobile quando expandido, sempre visível no desktop */}
-            {(showFilters || window.innerWidth >= 768) && (
-              <div className="bg-card border rounded-lg p-4 md:p-6 space-y-4 md:space-y-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-semibold flex items-center gap-2">
-                    <SlidersHorizontal className="h-5 w-5" />
-                    Filtros
-                  </h2>
-                  <Button variant="ghost" size="sm" onClick={clearFilters}>
-                    Limpar
+            <div className={`bg-card border rounded-xl p-4 md:p-6 ${showFilters || typeof window !== 'undefined' && window.innerWidth >= 768 ? 'block' : 'hidden md:block'}`}>
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-base font-semibold flex items-center gap-2">
+                  <SlidersHorizontal className="h-4 w-4" />
+                  Filtros
+                </h2>
+                {hasFilters && (
+                  <Button variant="ghost" size="sm" onClick={clearFilters} className="text-xs">
+                    Limpar tudo
                   </Button>
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                {/* Bairro */}
+                <div>
+                  <Label className="text-xs text-muted-foreground flex items-center gap-1 mb-1.5">
+                    <MapPin className="h-3 w-3" /> Bairro
+                  </Label>
+                  <select
+                    value={filterNeighborhood}
+                    onChange={(e) => setFilterNeighborhood(e.target.value)}
+                    className="w-full px-3 py-2 border rounded-lg bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  >
+                    <option value="">Todos</option>
+                    {neighborhoodsData?.map((n) => (
+                      <option key={n} value={n}>{n}</option>
+                    ))}
+                  </select>
                 </div>
 
-                {/* Grid de filtros - 1 coluna no mobile, 2 no tablet+ */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                  {/* Quartos */}
-                  <div>
-                    <Label htmlFor="bedrooms" className="text-sm md:text-base">Quartos (mínimo)</Label>
-                    <Select
-                      value={filters.bedrooms?.toString() || ""}
-                      onValueChange={(value) => updateFilter("bedrooms", value ? parseInt(value) : "")}
-                    >
-                      <SelectTrigger id="bedrooms" className="mt-2">
-                        <SelectValue placeholder="Qualquer" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">Qualquer</SelectItem>
-                        <SelectItem value="1">1+</SelectItem>
-                        <SelectItem value="2">2+</SelectItem>
-                        <SelectItem value="3">3+</SelectItem>
-                        <SelectItem value="4">4+</SelectItem>
-                        <SelectItem value="5">5+</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
+                {/* Tipo */}
+                <div>
+                  <Label className="text-xs text-muted-foreground mb-1.5 block">Tipo</Label>
+                  <select
+                    value={filterType}
+                    onChange={(e) => setFilterType(e.target.value)}
+                    className="w-full px-3 py-2 border rounded-lg bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  >
+                    <option value="">Todos</option>
+                    <option value="Casa">Casa</option>
+                    <option value="Apartamento">Apartamento</option>
+                    <option value="Terreno">Terreno</option>
+                    <option value="Comercial">Comercial</option>
+                  </select>
+                </div>
 
-                  {/* Faixa de Preço */}
-                  <div>
-                    <Label className="text-sm md:text-base">Faixa de Preço</Label>
-                    <div className="space-y-2 mt-2">
-                      <Button
-                        variant={filters.minPrice === 0 && filters.maxPrice === 350000 ? "default" : "outline"}
-                        className="w-full justify-start text-xs md:text-sm"
-                        onClick={() => {
-                          updateFilter("minPrice", 0);
-                          updateFilter("maxPrice", 350000);
-                        }}
-                      >
-                        Até R$ 350.000
-                      </Button>
-                      <Button
-                        variant={filters.minPrice === 350000 && filters.maxPrice === 500000 ? "default" : "outline"}
-                        className="w-full justify-start text-xs md:text-sm"
-                        onClick={() => {
-                          updateFilter("minPrice", 350000);
-                          updateFilter("maxPrice", 500000);
-                        }}
-                      >
-                        R$ 350.000 - R$ 500.000
-                      </Button>
-                      <Button
-                        variant={filters.minPrice === 500000 && filters.maxPrice === 800000 ? "default" : "outline"}
-                        className="w-full justify-start text-xs md:text-sm"
-                        onClick={() => {
-                          updateFilter("minPrice", 500000);
-                          updateFilter("maxPrice", 800000);
-                        }}
-                      >
-                        R$ 500.000 - R$ 800.000
-                      </Button>
-                    </div>
-                  </div>
+                {/* Status */}
+                <div>
+                  <Label className="text-xs text-muted-foreground mb-1.5 block">Status</Label>
+                  <select
+                    value={filterStatus}
+                    onChange={(e) => setFilterStatus(e.target.value)}
+                    className="w-full px-3 py-2 border rounded-lg bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  >
+                    <option value="">Todos</option>
+                    <option value="pronto_para_morar">Pronto para Morar</option>
+                    <option value="em_construcao">Em Construção</option>
+                  </select>
+                </div>
+
+                {/* Quartos */}
+                <div>
+                  <Label className="text-xs text-muted-foreground mb-1.5 block">Quartos (mín.)</Label>
+                  <Select
+                    value={filterBedrooms}
+                    onValueChange={(v) => setFilterBedrooms(v === "all" ? "" : v)}
+                  >
+                    <SelectTrigger className="text-sm">
+                      <SelectValue placeholder="Qualquer" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">Qualquer</SelectItem>
+                      <SelectItem value="1">1+</SelectItem>
+                      <SelectItem value="2">2+</SelectItem>
+                      <SelectItem value="3">3+</SelectItem>
+                      <SelectItem value="4">4+</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Preço */}
+                <div>
+                  <Label className="text-xs text-muted-foreground mb-1.5 block">Faixa de Preço</Label>
+                  <select
+                    value={filterPriceRange}
+                    onChange={(e) => setFilterPriceRange(e.target.value)}
+                    className="w-full px-3 py-2 border rounded-lg bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  >
+                    <option value="">Qualquer</option>
+                    <option value="0-350000">Até R$ 350.000</option>
+                    <option value="350000-500000">R$ 350k – R$ 500k</option>
+                    <option value="500000-800000">R$ 500k – R$ 800k</option>
+                    <option value="800000-99999999">Acima de R$ 800k</option>
+                  </select>
                 </div>
               </div>
-            )}
+            </div>
           </div>
 
-          {/* Properties Grid */}
-          <div>
-            {filteredProperties.length === 0 ? (
-              <div className="text-center py-20">
-                <p className="text-lg text-muted-foreground mb-4">
-                  Nenhum imóvel encontrado com os filtros selecionados.
-                </p>
-                <Button onClick={clearFilters}>Limpar Filtros</Button>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                {filteredProperties.map((property) => (
-                  <PropertyCard key={property.id} property={property} />
-                ))}
-              </div>
-            )}
-          </div>
+          {/* Grid de imóveis */}
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="aspect-[4/3] rounded-xl bg-muted animate-pulse" />
+              ))}
+            </div>
+          ) : filteredProperties.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-lg text-muted-foreground mb-4">
+                Nenhum imóvel encontrado com os filtros selecionados.
+              </p>
+              <Button onClick={clearFilters}>Limpar Filtros</Button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              {filteredProperties.map((property) => (
+                <PropertyCard key={property.id} property={property} />
+              ))}
+            </div>
+          )}
         </div>
       </main>
 
-      {/* CTA Final - WhatsApp */}
-      <section className="py-12 md:py-16 bg-muted/30">
+      {/* CTA Final */}
+      <section className="py-12 bg-muted/30">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
@@ -201,13 +242,19 @@ export default function Properties() {
             <p className="text-muted-foreground mb-8">
               Fale com um consultor e receba opções sob medida para você.
             </p>
-            <Button 
-              size="lg" 
-              className="h-14 px-10 text-base font-semibold shadow-lg hover:shadow-xl transition-all gap-2 bg-green-600 hover:bg-green-700 text-white"
+            <a
+              href="https://wa.me/5566999998693?text=Olá,%20vim%20pelo%20site%20da%20Souza%20Construtora%20e%20gostaria%20de%20mais%20informações%20sobre%20os%20imóveis%20disponíveis."
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <MessageCircle className="h-5 w-5" />
-              Falar com um consultor agora
-            </Button>
+              <Button
+                size="lg"
+                className="h-14 px-10 text-base font-semibold gap-2 bg-green-600 hover:bg-green-700 text-white"
+              >
+                <MessageCircle className="h-5 w-5" />
+                Falar com um consultor agora
+              </Button>
+            </a>
           </div>
         </div>
       </section>

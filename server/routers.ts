@@ -152,6 +152,7 @@ export const appRouter = router({
         description: z.string().optional(),
         status: z.enum(["pronto_para_morar", "em_construcao", "vendido"]).optional(),
         deliveryDate: z.string().optional(),
+        neighborhood: z.string().optional(),
       }))
       .mutation(async ({ input }) => {
         await createProperty({
@@ -173,9 +174,20 @@ export const appRouter = router({
           deliveryDate: input.deliveryDate ? new Date(input.deliveryDate) : null,
           featured: false,
           mainImageUrl: null,
+          neighborhood: input.neighborhood || null,
         });
         return { success: true, id: input.id };
       }),
+    neighborhoods: publicProcedure.query(async () => {
+      const allProperties = await getAllProperties();
+      const uniqueSet = new Set(
+        allProperties
+          .map((p) => p.neighborhood)
+          .filter((n): n is string => !!n && n.trim() !== '')
+      );
+      const neighborhoods = Array.from(uniqueSet).sort();
+      return neighborhoods;
+    }),
   }),
 
   contact: router({

@@ -43,6 +43,13 @@
       "when": 1775137803757,
       "tag": "0005_gifted_white_tiger",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1780515313838,
+      "tag": "0006_flaky_mentor",
+      "breakpoints": true
     }
   ]
 }

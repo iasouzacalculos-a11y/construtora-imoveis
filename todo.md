@@ -21,7 +21,12 @@
 - [x] Tornar todo o card do imóvel clicável com animações e feedback visual
 - [x] Remover botão "Ver Detalhes" do card
 - [x] Otimizar carregamento de imagens (lazy loading, skeleton, fallback)
-- [ ] Testar filtros de busca com os novos dados
+- [x] Adicionar coluna neighborhood (bairro) no banco de dados
+- [x] Atualizar formulário admin com campo de bairro
+- [x] Atualizar backend para retornar bairros dinâmicos
+- [x] Redesenhar Hero da Home com filtro integrado em primeiro plano
+- [x] Atualizar página de listagem com filtro de bairro
+- [x] Testar filtros de busca com os novos dados
 - [ ] Testar navegação entre páginas
 - [ ] Remover logs de debug do console
 - [ ] Criar testes vitest para as funcionalidades principais

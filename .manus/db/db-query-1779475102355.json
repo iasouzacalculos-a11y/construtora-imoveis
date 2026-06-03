@@ -1,0 +1,25 @@
+{
+  "query": "SELECT id, title, address FROM properties WHERE address LIKE '%118%' OR id LIKE '%118%' OR id LIKE '%lote-06%' OR id LIKE '%lt6%' OR id LIKE '%lt-06%';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute SELECT id, title, address FROM properties WHERE address LIKE '%118%' OR id LIKE '%118%' OR id LIKE '%lote-06%' OR id LIKE '%lt6%' OR id LIKE '%lt-06%';",
+  "rows": [
+    {
+      "id": "pq-118-lt-6 a ",
+      "title": "Casa Parque Universitário ",
+      "address": "Quadra 118 "
+    },
+    {
+      "id": "pu-qd118-lt7-a",
+      "title": "Casa Parque Universitário",
+      "address": "Quadra 118, Lote 7 - Parque Universitário"
+    },
+    {
+      "id": "pu-qd118-lt7-b",
+      "title": "Casa Parque Universitário",
+      "address": "Quadra 118, Lote 07 - Parque Universitário"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\taddress\npq-118-lt-6 a \tCasa Parque Universitário \tQuadra 118 \npu-qd118-lt7-a\tCasa Parque Universitário\tQuadra 118, Lote 7 - Parque Universitário\npu-qd118-lt7-b\tCasa Parque Universitário\tQuadra 118, Lote 07 - Parque Universitário\n",
+  "stderr": "",
+  "execution_time_ms": 586
+}
