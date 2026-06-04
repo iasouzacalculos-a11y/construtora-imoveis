@@ -229,8 +229,8 @@ export default function Home() {
                 <div className="text-xs md:text-sm opacity-80">Imóveis entregues</div>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold mb-1">1200+</div>
-                <div className="text-xs md:text-sm opacity-80">Clientes satisfeitos</div>
+                <div className="text-4xl md:text-5xl font-bold mb-1">99%</div>
+                <div className="text-xs md:text-sm opacity-80">de Satisfação de Clientes</div>
               </div>
               <div>
                 <div className="text-4xl md:text-5xl font-bold mb-1">20+</div>
