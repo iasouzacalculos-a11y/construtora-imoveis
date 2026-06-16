@@ -134,6 +134,12 @@ export async function updatePropertyId(oldId: string, newId: string) {
   await db.update(propertyImages).set({ propertyId: newId }).where(eq(propertyImages.propertyId, oldId));
 }
 
+export async function updateProperty(id: string, updates: Partial<InsertProperty>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(properties).set(updates).where(eq(properties.id, id));
+}
+
 export async function updateImageOrder(imageId: string, order: number) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");

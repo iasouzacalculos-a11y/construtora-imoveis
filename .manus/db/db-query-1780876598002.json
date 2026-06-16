@@ -1,0 +1,25 @@
+{
+  "query": "SELECT DISTINCT neighborhood FROM properties WHERE neighborhood IS NOT NULL AND neighborhood != '' ORDER BY neighborhood;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4LqbeXybbVBD5B1.root --database 5x5dmSjv8MfRvF3VbeC4An --execute SELECT DISTINCT neighborhood FROM properties WHERE neighborhood IS NOT NULL AND neighborhood != '' ORDER BY neighborhood;",
+  "rows": [
+    {
+      "neighborhood": "Granville"
+    },
+    {
+      "neighborhood": "Parque Universitário"
+    },
+    {
+      "neighborhood": "Sagrada Família"
+    },
+    {
+      "neighborhood": "Sunflower"
+    },
+    {
+      "neighborhood": "Vila Adriana"
+    }
+  ],
+  "messages": [],
+  "stdout": "neighborhood\nGranville\nParque Universitário\nSagrada Família\nSunflower\nVila Adriana\n",
+  "stderr": "",
+  "execution_time_ms": 591
+}
