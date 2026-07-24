@@ -27,13 +27,7 @@ function HeroBackgroundSlider() {
 
   if (!heroMediaList || heroMediaList.length === 0) {
     return (
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/hero-property.jpg"
-          alt="Hero"
-          className="w-full h-full object-cover"
-        />
-      </div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-slate-100 to-slate-200" />
     );
   }
 
