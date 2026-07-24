@@ -51,11 +51,13 @@ function HeroBackgroundSlider() {
               src={media.mediaUrl}
               alt="Hero background"
               className="w-full h-full object-cover"
+              style={{ objectPosition: media.position || "center center" }}
             />
           ) : (
             <video
               src={media.mediaUrl}
               className="w-full h-full object-cover"
+              style={{ objectPosition: media.position || "center center" }}
               autoPlay
               muted
               loop
@@ -162,10 +164,10 @@ export default function Home() {
         {/* ═══════════════════════════════════════════
             CAMADA 2: HERO + FILTRO INTEGRADO
         ═══════════════════════════════════════════ */}
-        <section className="relative min-h-[580px] flex flex-col justify-center py-12">
+        <section className="relative min-h-[700px] flex flex-col justify-center py-12">
           {/* Fundo com carrossel de imagens */}
           <HeroBackgroundSlider />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/75 to-background/95 z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/70 z-[1]" />
 
           <div className="container relative z-10">
             {/* Texto da marca ao fundo */}

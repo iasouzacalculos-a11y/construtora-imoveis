@@ -1,0 +1,1 @@
+ALTER TABLE `heroMedia` ADD `position` varchar(50) DEFAULT 'center center' NOT NULL;

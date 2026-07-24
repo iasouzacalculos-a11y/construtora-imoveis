@@ -103,6 +103,7 @@ export const heroMedia = mysqlTable("heroMedia", {
   mediaUrl: varchar("mediaUrl", { length: 500 }).notNull(),
   mediaType: mysqlEnum("mediaType", ["image", "video"]).notNull().default("image"),
   duration: int("duration").notNull().default(5), // tempo em segundos
+  position: varchar("position", { length: 50 }).notNull().default("center center"), // object-position CSS
   order: int("order").notNull().default(0),
   active: boolean("active").notNull().default(true),
   createdAt: timestamp("createdAt").defaultNow().notNull(),

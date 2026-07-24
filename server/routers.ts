@@ -243,6 +243,7 @@ export const appRouter = router({
         mediaUrl: z.string().min(1),
         mediaType: z.enum(["image", "video"]).default("image"),
         duration: z.number().min(1).max(60).default(5),
+        position: z.string().default("center center"),
         order: z.number().default(0),
       }))
       .mutation(async ({ input }) => {
@@ -252,6 +253,7 @@ export const appRouter = router({
           mediaUrl: input.mediaUrl,
           mediaType: input.mediaType,
           duration: input.duration,
+          position: input.position,
           order: input.order,
         });
         return { success: true, id };
@@ -262,6 +264,7 @@ export const appRouter = router({
         mediaUrl: z.string().optional(),
         mediaType: z.enum(["image", "video"]).optional(),
         duration: z.number().min(1).max(60).optional(),
+        position: z.string().optional(),
         order: z.number().optional(),
         active: z.boolean().optional(),
       }))
@@ -282,6 +285,7 @@ export const appRouter = router({
         fileData: z.string(), // base64
         contentType: z.string(),
         duration: z.number().min(1).max(60).default(5),
+        position: z.string().default("center center"),
         order: z.number().default(0),
       }))
       .mutation(async ({ input }) => {
@@ -295,6 +299,7 @@ export const appRouter = router({
           mediaUrl: url,
           mediaType: input.contentType.startsWith("video") ? "video" : "image",
           duration: input.duration,
+          position: input.position,
           order: input.order,
         });
         return { success: true, id, url };
