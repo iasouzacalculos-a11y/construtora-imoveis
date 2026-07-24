@@ -96,3 +96,17 @@ export const brokerApplications = mysqlTable("brokerApplications", {
 
 export type BrokerApplication = typeof brokerApplications.$inferSelect;
 export type InsertBrokerApplication = typeof brokerApplications.$inferInsert;
+
+// Hero Media table (imagens/vídeos do carrossel do hero)
+export const heroMedia = mysqlTable("heroMedia", {
+  id: varchar("id", { length: 36 }).primaryKey(),
+  mediaUrl: varchar("mediaUrl", { length: 500 }).notNull(),
+  mediaType: mysqlEnum("mediaType", ["image", "video"]).notNull().default("image"),
+  duration: int("duration").notNull().default(5), // tempo em segundos
+  order: int("order").notNull().default(0),
+  active: boolean("active").notNull().default(true),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type HeroMedia = typeof heroMedia.$inferSelect;
+export type InsertHeroMedia = typeof heroMedia.$inferInsert;

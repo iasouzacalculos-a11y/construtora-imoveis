@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { eq, asc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, properties, propertyImages, InsertProperty, InsertPropertyImage } from "../drizzle/schema";
+import { InsertUser, users, properties, propertyImages, InsertProperty, InsertPropertyImage, heroMedia, InsertHeroMedia } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -192,4 +192,35 @@ export async function updatePropertyFeatured(propertyId: string, featured: boole
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   await db.update(properties).set({ featured }).where(eq(properties.id, propertyId));
+}
+
+// Hero Media queries
+export async function getAllHeroMedia() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(heroMedia).orderBy(asc(heroMedia.order));
+}
+
+export async function getActiveHeroMedia() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(heroMedia).where(eq(heroMedia.active, true)).orderBy(asc(heroMedia.order));
+}
+
+export async function createHeroMedia(media: InsertHeroMedia) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(heroMedia).values(media);
+}
+
+export async function updateHeroMedia(id: string, updates: Partial<InsertHeroMedia>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(heroMedia).set(updates).where(eq(heroMedia.id, id));
+}
+
+export async function deleteHeroMedia(id: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(heroMedia).where(eq(heroMedia.id, id));
 }

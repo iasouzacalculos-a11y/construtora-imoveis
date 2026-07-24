@@ -50,6 +50,13 @@
       "when": 1780515313838,
       "tag": "0006_flaky_mentor",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1784921229575,
+      "tag": "0007_pale_zaran",
+      "breakpoints": true
     }
   ]
 }

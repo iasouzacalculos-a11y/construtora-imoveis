@@ -12,6 +12,7 @@ import AdminPropertyImages from "./pages/AdminPropertyImages";
 import AdminFeatured from "./pages/AdminFeatured";
 import AdminCreateProperty from "./pages/AdminCreateProperty";
 import AdminEditProperty from "./pages/AdminEditProperty";
+import AdminHero from "./pages/AdminHero";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -30,6 +31,7 @@ function Router() {
       <Route path={"/admin/criar"} component={AdminCreateProperty} />
       <Route path={"/admin/imovel/:id/editar"} component={AdminEditProperty} />
       <Route path={"/admin/imovel/:id/imagens"} component={AdminPropertyImages} />
+      <Route path={"/admin/hero"} component={AdminHero} />
       <Route path={"/admin/destaques"} component={AdminFeatured} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

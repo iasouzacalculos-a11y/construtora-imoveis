@@ -121,6 +121,9 @@ export default function Admin() {
                 <Button onClick={() => setLocation("/admin/destaques")} variant="outline">
                   Gerenciar Destaques
                 </Button>
+                <Button onClick={() => setLocation("/admin/hero")} variant="outline">
+                  Mídia do Hero
+                </Button>
               </div>
             </div>
             <p className="text-muted-foreground">

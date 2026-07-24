@@ -2,7 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
-import { getAllProperties, getPropertyById, getPropertyImages, addPropertyImage, updatePropertyId, updateImageOrder, deletePropertyImage, createContactMessage, createBrokerApplication, createProperty, updateProperty } from "./db";
+import { getAllProperties, getPropertyById, getPropertyImages, addPropertyImage, updatePropertyId, updateImageOrder, deletePropertyImage, createContactMessage, createBrokerApplication, createProperty, updateProperty, getAllHeroMedia, getActiveHeroMedia, createHeroMedia, updateHeroMedia, deleteHeroMedia } from "./db";
 import { notifyOwner } from "./_core/notification";
 import { storagePut } from "./storage";
 import { z } from "zod";
@@ -229,6 +229,76 @@ export const appRouter = router({
       const neighborhoods = Array.from(uniqueSet).sort();
       return neighborhoods;
     }),
+  }),
+
+  heroMedia: router({
+    list: publicProcedure.query(async () => {
+      return await getActiveHeroMedia();
+    }),
+    listAll: protectedProcedure.query(async () => {
+      return await getAllHeroMedia();
+    }),
+    create: protectedProcedure
+      .input(z.object({
+        mediaUrl: z.string().min(1),
+        mediaType: z.enum(["image", "video"]).default("image"),
+        duration: z.number().min(1).max(60).default(5),
+        order: z.number().default(0),
+      }))
+      .mutation(async ({ input }) => {
+        const id = nanoid();
+        await createHeroMedia({
+          id,
+          mediaUrl: input.mediaUrl,
+          mediaType: input.mediaType,
+          duration: input.duration,
+          order: input.order,
+        });
+        return { success: true, id };
+      }),
+    update: protectedProcedure
+      .input(z.object({
+        id: z.string(),
+        mediaUrl: z.string().optional(),
+        mediaType: z.enum(["image", "video"]).optional(),
+        duration: z.number().min(1).max(60).optional(),
+        order: z.number().optional(),
+        active: z.boolean().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { id, ...updates } = input;
+        await updateHeroMedia(id, updates);
+        return { success: true };
+      }),
+    delete: protectedProcedure
+      .input(z.object({ id: z.string() }))
+      .mutation(async ({ input }) => {
+        await deleteHeroMedia(input.id);
+        return { success: true };
+      }),
+    upload: protectedProcedure
+      .input(z.object({
+        fileName: z.string(),
+        fileData: z.string(), // base64
+        contentType: z.string(),
+        duration: z.number().min(1).max(60).default(5),
+        order: z.number().default(0),
+      }))
+      .mutation(async ({ input }) => {
+        const buffer = Buffer.from(input.fileData, "base64");
+        const fileKey = `hero/${nanoid()}-${input.fileName}`;
+        const { url } = await storagePut(fileKey, buffer, input.contentType);
+        
+        const id = nanoid();
+        await createHeroMedia({
+          id,
+          mediaUrl: url,
+          mediaType: input.contentType.startsWith("video") ? "video" : "image",
+          duration: input.duration,
+          order: input.order,
+        });
+        return { success: true, id, url };
+      }),
   }),
 
   contact: router({

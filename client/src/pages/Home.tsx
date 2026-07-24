@@ -5,7 +5,68 @@ import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import { Building2, CheckCircle2, Users, MessageCircle, Search, MapPin, Home as HomeIcon, SlidersHorizontal } from "lucide-react";
 import { trpc } from "@/lib/trpc";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, useCallback } from "react";
+
+// Componente de carrossel de fundo do hero
+function HeroBackgroundSlider() {
+  const { data: heroMediaList } = trpc.heroMedia.list.useQuery();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!heroMediaList || heroMediaList.length === 0) return;
+
+    const currentMedia = heroMediaList[currentIndex];
+    const duration = (currentMedia?.duration || 5) * 1000;
+
+    const timer = setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % heroMediaList.length);
+    }, duration);
+
+    return () => clearTimeout(timer);
+  }, [currentIndex, heroMediaList]);
+
+  if (!heroMediaList || heroMediaList.length === 0) {
+    return (
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/hero-property.jpg"
+          alt="Hero"
+          className="w-full h-full object-cover"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="absolute inset-0 z-0 overflow-hidden">
+      {heroMediaList.map((media, index) => (
+        <div
+          key={media.id}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            index === currentIndex ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {media.mediaType === "image" ? (
+            <img
+              src={media.mediaUrl}
+              alt="Hero background"
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <video
+              src={media.mediaUrl}
+              className="w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function Home() {
   const [, navigate] = useLocation();
@@ -102,15 +163,9 @@ export default function Home() {
             CAMADA 2: HERO + FILTRO INTEGRADO
         ═══════════════════════════════════════════ */}
         <section className="relative min-h-[580px] flex flex-col justify-center py-12">
-          {/* Fundo com imagem e gradiente */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src="/hero-property.jpg"
-              alt="Hero"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/75 to-background/95" />
-          </div>
+          {/* Fundo com carrossel de imagens */}
+          <HeroBackgroundSlider />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/75 to-background/95 z-[1]" />
 
           <div className="container relative z-10">
             {/* Texto da marca ao fundo */}

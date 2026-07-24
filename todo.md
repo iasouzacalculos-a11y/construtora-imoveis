@@ -416,3 +416,13 @@
 - [ ] Criar página AdminCreateProperty.tsx
 - [ ] Adicionar link na página Admin para criar novo imóvel
 - [ ] Testar criação de imóvel com campos em branco
+
+
+## Gerenciador de Mídia do Hero
+
+- [x] Criar tabela hero_media no banco de dados
+- [x] Criar funções CRUD para hero_media no db.ts
+- [x] Criar rotas tRPC para gerenciar mídia do hero
+- [x] Criar página AdminHero.tsx com upload, URL, tempo e reordenação
+- [x] Atualizar hero da Home.tsx com carrossel automático
+- [x] Adicionar rota no App.tsx e link no admin
