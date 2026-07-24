@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Footer() {
@@ -72,10 +72,6 @@ export default function Footer() {
               <li className="flex items-start gap-3 text-sm text-background/70">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <span>Av. Mal. Rondon, 2019<br />Centro, Rondonópolis - MT<br />78700-531</span>
-              </li>
-              <li className="flex items-center gap-3 text-sm text-background/70">
-                <Phone className="h-4 w-4 flex-shrink-0" />
-                <a href="tel:+5566999998693" className="hover:text-background transition-colors">(66) 99999-8693</a>
               </li>
               <li className="flex items-center gap-3 text-sm text-background/70">
                 <Mail className="h-4 w-4 flex-shrink-0" />

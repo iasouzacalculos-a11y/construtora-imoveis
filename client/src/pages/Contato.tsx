@@ -66,7 +66,7 @@ export default function Contato() {
   const faqItems = [
     {
       pergunta: "Como posso agendar uma visita a um imóvel?",
-      resposta: "Você pode agendar uma visita de várias formas: pelo WhatsApp clicando no botão verde no canto da tela, pelo telefone (66) 99999-8693, ou preenchendo o formulário de contato nesta página. Nossa equipe entrará em contato para confirmar o melhor horário para você."
+      resposta: "Você pode agendar uma visita de várias formas: pelo WhatsApp clicando no botão verde no canto da tela, ou preenchendo o formulário de contato nesta página. Nossa equipe entrará em contato para confirmar o melhor horário para você."
     },
     {
       pergunta: "Quais são as formas de pagamento disponíveis?",
@@ -135,26 +135,6 @@ export default function Contato() {
 
                 {/* Cards de Contato */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <Card className="border-2 hover:border-primary/50 transition-colors">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <div className="p-3 rounded-xl bg-primary/10">
-                          <Phone className="h-6 w-6 text-primary" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold mb-1">Telefone</h3>
-                          <a 
-                            href="tel:+5566999998693" 
-                            className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                          >
-                            (66) 99999-8693
-                          </a>
-                          <p className="text-xs text-muted-foreground mt-1">WhatsApp disponível</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
                   <Card className="border-2 hover:border-primary/50 transition-colors">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
@@ -410,12 +390,7 @@ export default function Contato() {
                         Falar no WhatsApp
                       </Button>
                     </a>
-                    <a href="tel:+5566999998693">
-                      <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                        <Phone className="h-5 w-5 mr-2" />
-                        (66) 99999-8693
-                      </Button>
-                    </a>
+
                   </div>
                 </CardContent>
               </Card>
