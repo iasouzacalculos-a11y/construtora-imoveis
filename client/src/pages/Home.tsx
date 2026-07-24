@@ -27,7 +27,13 @@ function HeroBackgroundSlider() {
 
   if (!heroMediaList || heroMediaList.length === 0) {
     return (
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-slate-100 to-slate-200" />
+      <div className="absolute inset-0 z-0 bg-white flex items-center justify-center">
+        <img
+          src="/manus-storage/pasted_file_mnmq8M_waternova2.0_0887ac09.jpeg"
+          alt="Souza Construtora"
+          className="max-w-[400px] w-[60%] h-auto object-contain opacity-80"
+        />
+      </div>
     );
   }
 
