@@ -215,9 +215,7 @@ export default function Home() {
                   >
                     <option value="">Todos os tipos</option>
                     <option value="Casa">Casa</option>
-                    <option value="house">Casa</option>
                     <option value="Apartamento">Apartamento</option>
-                    <option value="apartment">Apartamento</option>
                     <option value="Terreno">Terreno</option>
                     <option value="Comercial">Comercial</option>
                   </select>

@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Bath, Bed, Car, Mail, MapPin, Maximize, Phone, User, Loader2 } from "lucide-react";
+import { Bath, Bed, Car, Mail, MapPin, Maximize, Phone, User, Loader2, MessageCircle } from "lucide-react";
 // PropertyIdEditor removido - funcionalidade movida para /admin
 import { useRoute, useLocation } from "wouter";
 import { toast } from "sonner";
@@ -73,6 +73,14 @@ export default function PropertyDetail() {
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+  };
+
+  const getWhatsAppUrl = () => {
+    const phone = "5566999998693";
+    const message = property.whatsappMessage
+      ? property.whatsappMessage
+      : `Olá! Vim pelo site da Souza Construtora e estou interessado no imóvel *${property.title}* - ${property.address}, ${property.city}/${property.state} (Ref: ${property.id}). Poderia me passar mais informações?`;
+    return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   };
 
   return (
@@ -314,6 +322,15 @@ export default function PropertyDetail() {
                       Enviar Mensagem
                     </Button>
                   </form>
+
+                  <div className="mt-4">
+                    <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+                      <Button className="w-full bg-green-500 hover:bg-green-600 text-white gap-2">
+                        <MessageCircle className="h-4 w-4" />
+                        Falar sobre este Imóvel
+                      </Button>
+                    </a>
+                  </div>
 
                   <div className="mt-6 pt-6 border-t space-y-3">
                     <div className="flex items-center gap-3 text-sm">

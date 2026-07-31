@@ -197,6 +197,7 @@ export const appRouter = router({
         status: z.enum(["pronto_para_morar", "em_construcao", "vendido"]).optional(),
         deliveryDate: z.string().optional(),
         neighborhood: z.string().optional(),
+        whatsappMessage: z.string().optional(),
       }))
       .mutation(async ({ input }) => {
         await updateProperty(input.id, {
@@ -216,6 +217,7 @@ export const appRouter = router({
           status: input.status || "pronto_para_morar",
           deliveryDate: input.deliveryDate ? new Date(input.deliveryDate) : null,
           neighborhood: input.neighborhood || null,
+          whatsappMessage: input.whatsappMessage || null,
         });
         return { success: true };
       }),

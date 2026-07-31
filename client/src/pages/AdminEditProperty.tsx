@@ -33,6 +33,7 @@ export default function AdminEditProperty() {
     status: "pronto_para_morar",
     deliveryDate: "",
     neighborhood: "",
+    whatsappMessage: "",
   });
 
   const [images, setImages] = useState<Array<{ id: string; imageUrl: string }>>([]);
@@ -64,6 +65,7 @@ export default function AdminEditProperty() {
         status: property.status || "pronto_para_morar",
         deliveryDate: deliveryDateStr,
         neighborhood: property.neighborhood || "",
+        whatsappMessage: property.whatsappMessage || "",
       });
       setImages(property.images || []);
       setIsLoadingProperty(false);
@@ -114,6 +116,7 @@ export default function AdminEditProperty() {
         status: (formData.status as "pronto_para_morar" | "em_construcao" | "vendido") || undefined,
         deliveryDate: formData.deliveryDate || undefined,
         neighborhood: formData.neighborhood || undefined,
+        whatsappMessage: formData.whatsappMessage || undefined,
       });
 
       toast.success("Imóvel atualizado com sucesso!");
@@ -365,6 +368,31 @@ export default function AdminEditProperty() {
                         type="date"
                         value={formData.deliveryDate}
                         onChange={handleChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mensagem WhatsApp */}
+                <div className="space-y-4">
+                  <h3 className="font-semibold text-sm text-muted-foreground flex items-center gap-2">
+                    <span className="text-green-600">📱</span> Mensagem WhatsApp
+                  </h3>
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                    <p className="text-xs text-green-700 mb-3">
+                      <strong>Mensagem automática gerada:</strong><br />
+                      "Olá! Vim pelo site da Souza Construtora e estou interessado no imóvel <em>{formData.title || 'Nome do imóvel'}</em> ({propertyId}). Poderia me passar mais informações?"
+                    </p>
+                    <div>
+                      <label className="text-sm font-medium text-gray-700">Mensagem personalizada (opcional)</label>
+                      <p className="text-xs text-muted-foreground mb-2">Se preenchido, substitui a mensagem automática acima.</p>
+                      <textarea
+                        name="whatsappMessage"
+                        value={formData.whatsappMessage}
+                        onChange={handleChange}
+                        placeholder="Ex: Olá! Tenho interesse na Casa Granville com 2 quartos. Poderia me informar sobre as condições de pagamento?"
+                        className="w-full px-3 py-2 border rounded-md text-sm"
+                        rows={3}
                       />
                     </div>
                   </div>

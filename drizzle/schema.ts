@@ -45,6 +45,7 @@ export const properties = mysqlTable("properties", {
   deliveryDate: date("deliveryDate"),
   featured: boolean("featured").notNull().default(false),
   neighborhood: varchar("neighborhood", { length: 100 }),
+  whatsappMessage: text("whatsappMessage"),
   mainImageUrl: varchar("mainImageUrl", { length: 500 }),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
