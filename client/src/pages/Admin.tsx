@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { trpc } from "@/lib/trpc";
-import { Loader2, Image as ImageIcon, Plus, Lock, Edit, Trash2 } from "lucide-react";
+import { Loader2, Image as ImageIcon, Plus, Lock, Edit, UserCheck, Mail, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
@@ -21,6 +21,10 @@ export default function Admin() {
 
   const { data: properties, isLoading } = trpc.properties.list.useQuery(undefined, {
     enabled: isAuthenticated, // Só busca se estiver autenticado
+  });
+
+  const { data: solicitacoes } = trpc.corretor.listSolicitacoes.useQuery(undefined, {
+    enabled: isAuthenticated,
   });
 
   // Verificar se usuário é admin
@@ -130,6 +134,40 @@ export default function Admin() {
               Bem-vindo, {user?.name || user?.email}. Gerencie os imóveis e suas imagens.
             </p>
           </div>
+
+          {/* Solicitações de Corretores */}
+          {solicitacoes && solicitacoes.length > 0 && (
+            <div className="mb-8">
+              <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <UserCheck className="h-5 w-5 text-primary" />
+                Solicitações de Acesso — Corretores ({solicitacoes.length})
+              </h2>
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {solicitacoes.map((s: any) => (
+                  <Card key={s.id} className="border-l-4 border-l-primary">
+                    <CardContent className="p-4">
+                      <div className="font-semibold mb-1">{s.nome}</div>
+                      <div className="text-xs text-muted-foreground mb-2">CRECI: {s.creci}</div>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
+                        <Mail className="h-3 w-3" />
+                        <span className="break-all">{s.email}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                        <Phone className="h-3 w-3" />
+                        <span>{s.telefone}</span>
+                      </div>
+                      {s.mensagem && (
+                        <p className="text-xs text-muted-foreground bg-muted p-2 rounded mt-2">{s.mensagem}</p>
+                      )}
+                      <div className="text-xs text-muted-foreground mt-2">
+                        {new Date(s.createdAt).toLocaleDateString("pt-BR")}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
 
           {isLoading ? (
             <div className="flex items-center justify-center py-12">

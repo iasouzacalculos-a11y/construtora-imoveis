@@ -187,6 +187,13 @@ export async function createBrokerApplication(application: {
   await db.insert(brokerApplications).values(application);
 }
 
+export async function getAllBrokerApplications() {
+  const db = await getDb();
+  if (!db) return [];
+  const { brokerApplications } = await import("../drizzle/schema");
+  return db.select().from(brokerApplications).orderBy(brokerApplications.createdAt);
+}
+
 
 export async function updatePropertyFeatured(propertyId: string, featured: boolean) {
   const db = await getDb();

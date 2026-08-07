@@ -15,6 +15,7 @@ import AdminEditProperty from "./pages/AdminEditProperty";
 import AdminHero from "./pages/AdminHero";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
+import Corretor from "./pages/Corretor";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -26,6 +27,7 @@ function Router() {
       <Route path={"/imoveis"} component={Properties} />
       <Route path={"/sobre"} component={Sobre} />
       <Route path={"/contato"} component={Contato} />
+      <Route path={"/corretor"} component={Corretor} />
       <Route path={"/imovel/:id"} component={PropertyDetail} />
       <Route path={"/admin"} component={Admin} />
       <Route path={"/admin/criar"} component={AdminCreateProperty} />

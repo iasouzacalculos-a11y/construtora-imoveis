@@ -3,6 +3,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { getAllProperties, getPropertyById, getPropertyImages, addPropertyImage, updatePropertyId, updateImageOrder, deletePropertyImage, createContactMessage, createBrokerApplication, createProperty, updateProperty, getAllHeroMedia, getActiveHeroMedia, createHeroMedia, updateHeroMedia, deleteHeroMedia } from "./db";
+import { getAllBrokerApplications } from "./db";
 import { notifyOwner } from "./_core/notification";
 import { storagePut } from "./storage";
 import { z } from "zod";
@@ -351,6 +352,30 @@ export const appRouter = router({
         });
         
         return { success: true, id };
+      }),
+  }),
+
+  corretor: router({
+    solicitarAcesso: publicProcedure
+      .input(z.object({
+        nome: z.string().min(1),
+        email: z.string().email(),
+        telefone: z.string().min(1),
+        creci: z.string().min(1),
+        mensagem: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const id = nanoid();
+        await createBrokerApplication({ id, ...input });
+        await notifyOwner({
+          title: `Nova solicitação de acesso - Corretor: ${input.nome}`,
+          content: `Nome: ${input.nome}\nCRECI: ${input.creci}\nEmail: ${input.email}\nTelefone: ${input.telefone}\n\nObservações:\n${input.mensagem || 'Nenhuma'}`,
+        });
+        return { success: true };
+      }),
+    listSolicitacoes: protectedProcedure
+      .query(async () => {
+        return getAllBrokerApplications();
       }),
   }),
 });

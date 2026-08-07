@@ -56,9 +56,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contato" asChild>
+              <Link href="/contato" asChild>
                   <a className="text-sm text-background/70 hover:text-background transition-colors">
                     Contato
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/corretor" asChild>
+                  <a className="text-sm text-background/70 hover:text-background transition-colors">
+                    Área do Corretor
                   </a>
                 </Link>
               </li>
