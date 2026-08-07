@@ -48,24 +48,83 @@ export default function Corretor() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero */}
-        <section className="bg-primary text-primary-foreground py-16">
+        {/* Hero compacto */}
+        <section className="bg-primary text-primary-foreground py-10">
           <div className="container max-w-4xl mx-auto px-4 text-center">
-            <div className="flex justify-center mb-4">
-              <Handshake className="h-14 w-14 opacity-90" />
+            <div className="flex justify-center mb-3">
+              <Handshake className="h-12 w-12 opacity-90" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2">
               Bem-vindo, Corretor Parceiro!
             </h1>
-            <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
-              Obrigado por fazer parte da nossa rede de parceiros. Aqui você encontra
-              tudo que precisa para apresentar nossos imóveis com qualidade e profissionalismo.
+            <p className="text-base md:text-lg opacity-90 max-w-2xl mx-auto">
+              Acesse abaixo o banco de imagens dos nossos empreendimentos.
             </p>
           </div>
         </section>
 
-        {/* Agradecimento */}
-        <section className="py-12 bg-muted/30">
+        {/* Banco de Imagens — destaque no topo */}
+        <section className="py-10 bg-blue-50 border-b border-blue-200">
+          <div className="container max-w-4xl mx-auto px-4">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 flex items-center justify-center gap-2">
+                <FolderOpen className="h-7 w-7 text-blue-600" />
+                Banco de Imagens
+              </h2>
+              <p className="text-muted-foreground">
+                Imagens profissionais dos nossos imóveis sem marca d'água
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Botão de acesso direto */}
+              <Card className="border-2 border-blue-300 shadow-md">
+                <CardContent className="p-6 flex flex-col items-center text-center">
+                  <div className="p-4 rounded-full bg-blue-100 mb-4">
+                    <FolderOpen className="h-8 w-8 text-blue-600" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Já tenho acesso</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Clique para acessar o banco de imagens no Google Drive.
+                  </p>
+                  <a
+                    href="https://drive.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full"
+                  >
+                    <Button className="w-full gap-2 bg-blue-600 hover:bg-blue-700 text-white text-base py-5">
+                      <FolderOpen className="h-5 w-5" />
+                      Acessar Banco de Imagens
+                    </Button>
+                  </a>
+                </CardContent>
+              </Card>
+
+              {/* Como funciona */}
+              <Card className="border border-muted">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="p-2 rounded-lg bg-amber-50 shrink-0">
+                      <Info className="h-5 w-5 text-amber-600" />
+                    </div>
+                    <h3 className="font-semibold">Ainda não tem acesso?</h3>
+                  </div>
+                  <ol className="text-sm text-muted-foreground space-y-2 list-decimal list-inside">
+                    <li>Preencha o formulário de cadastro abaixo</li>
+                    <li>Nossa equipe analisa sua solicitação</li>
+                    <li>Você recebe um convite por e-mail</li>
+                    <li>Acesse o Drive com sua conta Google</li>
+                    <li>Baixe as imagens que precisar</li>
+                  </ol>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Mensagem da Construtora */}
+        <section className="py-10 bg-muted/30">
           <div className="container max-w-4xl mx-auto px-4">
             <Card className="border-primary/20">
               <CardContent className="p-8">
@@ -92,70 +151,8 @@ export default function Corretor() {
           </div>
         </section>
 
-        {/* Instruções de Acesso */}
-        <section className="py-12">
-          <div className="container max-w-4xl mx-auto px-4">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">Banco de Imagens</h2>
-              <p className="text-muted-foreground">
-                Acesse imagens profissionais dos nossos imóveis sem marca d'água
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-3">
-                    <div className="p-2 rounded-lg bg-blue-50 shrink-0">
-                      <FolderOpen className="h-5 w-5 text-blue-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Corretores com acesso</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Se você já foi aprovado, clique no botão abaixo para acessar
-                        o banco de imagens diretamente no Google Drive.
-                      </p>
-                    </div>
-                  </div>
-                  <a
-                    href="https://drive.google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block mt-4"
-                  >
-                    <Button className="w-full gap-2">
-                      <FolderOpen className="h-4 w-4" />
-                      Acessar Banco de Imagens
-                    </Button>
-                  </a>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-3">
-                    <div className="p-2 rounded-lg bg-amber-50 shrink-0">
-                      <Info className="h-5 w-5 text-amber-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Como funciona o acesso</h3>
-                      <ol className="text-sm text-muted-foreground space-y-1 mt-1 list-decimal list-inside">
-                        <li>Preencha o formulário de cadastro abaixo</li>
-                        <li>Nossa equipe analisa sua solicitação</li>
-                        <li>Você recebe um convite por e-mail</li>
-                        <li>Acesse o Drive com sua conta Google</li>
-                        <li>Baixe as imagens que precisar</li>
-                      </ol>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
         {/* Formulário de Cadastro */}
-        <section className="py-12 bg-muted/30">
+        <section className="py-12 bg-white">
           <div className="container max-w-2xl mx-auto px-4">
             <div className="text-center mb-8">
               <div className="flex justify-center mb-3">
