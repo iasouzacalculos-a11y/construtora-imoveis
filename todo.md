@@ -426,3 +426,11 @@
 - [x] Criar página AdminHero.tsx com upload, URL, tempo e reordenação
 - [x] Atualizar hero da Home.tsx com carrossel automático
 - [x] Adicionar rota no App.tsx e link no admin
+
+
+## Atualização solicitada — link do Google Drive
+
+- [x] Atualizar o botão “Acessar Banco de Imagens” da página /corretor para o link fornecido pelo usuário
+- [x] Validar a abertura do link e salvar checkpoint
+
+Link informado: https://drive.google.com/drive/folders/15DvdYvvuhkyaXHtwO3puvQfRrxHo6B-Y?usp=sharing

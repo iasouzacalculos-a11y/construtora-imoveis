@@ -88,7 +88,7 @@ export default function Corretor() {
                     Clique para acessar o banco de imagens no Google Drive.
                   </p>
                   <a
-                    href="https://drive.google.com"
+                    href="https://drive.google.com/drive/folders/15DvdYvvuhkyaXHtwO3puvQfRrxHo6B-Y?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full"
