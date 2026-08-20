@@ -3,11 +3,13 @@ import { useLocation, useParams } from "wouter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { trpc } from "@/lib/trpc";
-import { Loader2, ArrowLeft, Trash2 } from "lucide-react";
+import { Loader2, ArrowLeft, Trash2, Lock } from "lucide-react";
 import { toast } from "sonner";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { getLoginUrl } from "@/const";
 
 export default function AdminEditProperty() {
   const params = useParams();
@@ -15,6 +17,41 @@ export default function AdminEditProperty() {
   const [, setLocation] = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingProperty, setIsLoadingProperty] = useState(true);
+
+  const { user, loading: authLoading } = useAuth({
+    redirectOnUnauthenticated: true,
+    redirectPath: getLoginUrl(),
+  });
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1 flex items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (user?.role !== "admin") {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1 flex items-center justify-center">
+          <Card className="w-full max-w-md">
+            <CardHeader className="text-center">
+              <Lock className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+              <CardTitle>Acesso Restrito</CardTitle>
+              <CardDescription>Apenas administradores podem acessar esta página.</CardDescription>
+            </CardHeader>
+          </Card>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   const [formData, setFormData] = useState({
     title: "",

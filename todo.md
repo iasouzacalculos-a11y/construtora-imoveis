@@ -434,3 +434,21 @@
 - [x] Validar a abertura do link e salvar checkpoint
 
 Link informado: https://drive.google.com/drive/folders/15DvdYvvuhkyaXHtwO3puvQfRrxHo6B-Y?usp=sharing
+
+## Exportação do código-fonte
+
+- [x] Gerar arquivo ZIP seguro do código-fonte do site
+- [x] Conferir o conteúdo e entregar o arquivo ZIP ao usuário
+
+## Correção de Segurança — adminProcedure
+
+- [x] Trocar protectedProcedure por adminProcedure nas 14 rotas administrativas do backend
+- [x] Atualizar Admin.tsx com verificação de role admin
+- [x] Atualizar AdminPropertyImages.tsx com verificação de role admin
+- [x] Proteger AdminCreateProperty.tsx com verificação de role admin
+- [x] Proteger AdminEditProperty.tsx com verificação de role admin
+- [x] Proteger AdminHero.tsx com verificação de role admin
+- [x] Proteger AdminFeatured.tsx (Destaques) com verificação de role admin (já estava protegida)
+- [x] Verificar role do usuário no banco de dados
+- [x] Rodar pnpm run check e pnpm test
+- [x] Testar acesso público e admin

@@ -1,7 +1,7 @@
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
+import { publicProcedure, adminProcedure, router } from "./_core/trpc";
 import { getAllProperties, getPropertyById, getPropertyImages, addPropertyImage, updatePropertyId, updateImageOrder, deletePropertyImage, createContactMessage, createBrokerApplication, createProperty, updateProperty, getAllHeroMedia, getActiveHeroMedia, createHeroMedia, updateHeroMedia, deleteHeroMedia } from "./db";
 import { getAllBrokerApplications } from "./db";
 import { notifyOwner } from "./_core/notification";
@@ -40,7 +40,7 @@ export const appRouter = router({
       const images = await getPropertyImages(input);
       return { ...property, images };
     }),
-    uploadImage: protectedProcedure
+    uploadImage: adminProcedure
       .input(z.object({
         propertyId: z.string(),
         fileData: z.string(), // base64
@@ -63,7 +63,7 @@ export const appRouter = router({
         
         return { url };
       }),
-    addImageByUrl: protectedProcedure
+    addImageByUrl: adminProcedure
       .input(z.object({
         propertyId: z.string(),
         imageUrl: z.string().url(),
@@ -99,7 +99,7 @@ export const appRouter = router({
         
         return { url: finalUrl };
       }),
-    updateId: protectedProcedure
+    updateId: adminProcedure
       .input(z.object({
         oldId: z.string(),
         newId: z.string(),
@@ -108,7 +108,7 @@ export const appRouter = router({
         await updatePropertyId(input.oldId, input.newId);
         return { success: true };
       }),
-    updateImageOrder: protectedProcedure
+    updateImageOrder: adminProcedure
       .input(z.object({
         imageId: z.string(),
         order: z.number(),
@@ -117,7 +117,7 @@ export const appRouter = router({
         await updateImageOrder(input.imageId, input.order);
         return { success: true };
       }),
-    deleteImage: protectedProcedure
+    deleteImage: adminProcedure
       .input(z.object({
         imageId: z.string(),
       }))
@@ -125,7 +125,7 @@ export const appRouter = router({
         await deletePropertyImage(input.imageId);
         return { success: true };
       }),
-    toggleFeatured: protectedProcedure
+    toggleFeatured: adminProcedure
       .input(z.object({
         propertyId: z.string(),
         featured: z.boolean(),
@@ -135,7 +135,7 @@ export const appRouter = router({
         await updatePropertyFeatured(input.propertyId, input.featured);
         return { success: true };
       }),
-    create: protectedProcedure
+    create: adminProcedure
       .input(z.object({
         id: z.string(),
         title: z.string().min(1),
@@ -179,7 +179,7 @@ export const appRouter = router({
         });
         return { success: true, id: input.id };
       }),
-    update: protectedProcedure
+    update: adminProcedure
       .input(z.object({
         id: z.string(),
         title: z.string().min(1),
@@ -238,10 +238,10 @@ export const appRouter = router({
     list: publicProcedure.query(async () => {
       return await getActiveHeroMedia();
     }),
-    listAll: protectedProcedure.query(async () => {
+    listAll: adminProcedure.query(async () => {
       return await getAllHeroMedia();
     }),
-    create: protectedProcedure
+    create: adminProcedure
       .input(z.object({
         mediaUrl: z.string().min(1),
         mediaType: z.enum(["image", "video"]).default("image"),
@@ -261,7 +261,7 @@ export const appRouter = router({
         });
         return { success: true, id };
       }),
-    update: protectedProcedure
+    update: adminProcedure
       .input(z.object({
         id: z.string(),
         mediaUrl: z.string().optional(),
@@ -276,13 +276,13 @@ export const appRouter = router({
         await updateHeroMedia(id, updates);
         return { success: true };
       }),
-    delete: protectedProcedure
+    delete: adminProcedure
       .input(z.object({ id: z.string() }))
       .mutation(async ({ input }) => {
         await deleteHeroMedia(input.id);
         return { success: true };
       }),
-    upload: protectedProcedure
+    upload: adminProcedure
       .input(z.object({
         fileName: z.string(),
         fileData: z.string(), // base64
@@ -373,7 +373,7 @@ export const appRouter = router({
         });
         return { success: true };
       }),
-    listSolicitacoes: protectedProcedure
+    listSolicitacoes: adminProcedure
       .query(async () => {
         return getAllBrokerApplications();
       }),

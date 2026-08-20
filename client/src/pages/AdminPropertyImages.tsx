@@ -30,7 +30,7 @@ export default function AdminPropertyImages() {
   });
 
   const { data: property, isLoading, refetch } = trpc.properties.getById.useQuery(propertyId, {
-    enabled: isAuthenticated && !!propertyId,
+    enabled: user?.role === 'admin' && !!propertyId,
   });
   
   const uploadMutation = trpc.properties.uploadImage.useMutation();
@@ -196,7 +196,7 @@ export default function AdminPropertyImages() {
   }
 
   // Usuário não autenticado
-  if (!isAuthenticated) {
+  if (user?.role !== "admin") {
     return (
       <div className="min-h-screen flex flex-col">
         <Header />

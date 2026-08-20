@@ -20,15 +20,15 @@ export default function Admin() {
   });
 
   const { data: properties, isLoading } = trpc.properties.list.useQuery(undefined, {
-    enabled: isAuthenticated, // Só busca se estiver autenticado
+    enabled: user?.role === 'admin', // Só busca se for admin
   });
 
   const { data: solicitacoes } = trpc.corretor.listSolicitacoes.useQuery(undefined, {
-    enabled: isAuthenticated,
+    enabled: user?.role === 'admin',
   });
 
   // Verificar se usuário é admin
-  const isAdmin = user?.role === 'admin' || isAuthenticated;
+  const isAdmin = user?.role === 'admin';
 
   // Loading de autenticação
   if (authLoading) {
