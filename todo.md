@@ -452,3 +452,12 @@ Link informado: https://drive.google.com/drive/folders/15DvdYvvuhkyaXHtwO3puvQfR
 - [x] Verificar role do usuário no banco de dados
 - [x] Rodar pnpm run check e pnpm test
 - [x] Testar acesso público e admin
+
+## Implementação de SEO — Dynamic Rendering
+
+- [x] Criar server/_core/seo.ts com middleware de meta tags para crawlers
+- [x] Criar server/seo.test.ts com testes unitários (18 testes passando)
+- [x] Configurar PUBLIC_SITE_URL e atualizar client/index.html
+- [x] Integrar middleware em server/_core/vite.ts
+- [x] Rodar pnpm run check (0 erros) e pnpm test (29 testes, 5 arquivos)
+- [x] Testar com curl (WhatsApp, navegador, 404, robots, sitemap) — todos OK
